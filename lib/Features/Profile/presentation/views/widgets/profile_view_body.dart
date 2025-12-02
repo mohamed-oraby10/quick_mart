@@ -28,14 +28,14 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
               Icon(
                 Iconsax.mobile_outline,
                 size: 24.sp,
-                color: AppColors.greyLight150,
+                color: context.customColors.secondaryColor,
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 12.w),
                 child: Text(
                   'Dark Theme',
                   style: Styles.body2Medium.copyWith(
-                    color: AppColors.greyLight150,
+                    color: context.customColors.secondaryColor,
                   ),
                 ),
               ),
