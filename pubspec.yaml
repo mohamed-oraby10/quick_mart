@@ -36,8 +36,10 @@ dependencies:
   flutter_bloc: ^9.1.1
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.2.3
+  flutter_switch: ^0.3.2
   go_router: ^17.0.0
   hydrated_bloc: ^10.1.1
+  icons_plus: ^5.0.0
   path_provider: ^2.1.5
 
 dev_dependencies:
