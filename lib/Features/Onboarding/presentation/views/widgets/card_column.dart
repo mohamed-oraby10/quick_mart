@@ -10,25 +10,28 @@ class CardColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.only(top: 20.h),
-          child: Row(
-            children: [
-              AppLogo(),
-              Spacer(),
-              CustomTextButton(textButton: 'Skip for now'),
-            ],
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 18.w),
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: 20.h),
+            child: Row(
+              children: [
+                AppLogo(),
+                Spacer(),
+                CustomTextButton(textButton: 'Skip for now'),
+              ],
+            ),
           ),
-        ),
-        SizedBox(height: 46.h),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 26.w),
-          child: CustomImage(image: AssetsData.onBoarding1),
-        ),
-        SizedBox(height: 70.h),
-      ],
+          SizedBox(height: 46.h),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 26.w),
+            child: CustomImage(image: AssetsData.onBoarding1),
+          ),
+          SizedBox(height: 70.h),
+        ],
+      ),
     );
   }
 }
