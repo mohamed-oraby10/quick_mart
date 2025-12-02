@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:quick_mart/Features/Profile/presentation/profile_view.dart';
+import 'package:quick_mart/Features/Splash/presentation/views/splash_view.dart';
 import 'package:quick_mart/core/utils/theme/theme_cubit/theme_cubit.dart';
 import 'package:quick_mart/core/utils/theme/theme_data/theme_data_dark.dart';
 import 'package:quick_mart/core/utils/theme/theme_data/theme_data_light.dart';
@@ -39,7 +39,7 @@ class QuickMart extends StatelessWidget {
                 darkTheme: getDarkTheme(),
                 theme: getLightTheme(),
                 themeMode: newMode,
-                home: ProfileView(),
+                home: SplashView(),
               );
             },
           );
