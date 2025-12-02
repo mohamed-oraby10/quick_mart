@@ -16,6 +16,7 @@ class QuickMart extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(),
           home: Scaffold(),
