@@ -24,8 +24,8 @@ android {
         applicationId = "com.example.quick_mart"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdkVersion(23)
-        targetSdkVersion(33)
+        minSdkVersion(24)
+        targetSdkVersion(34)
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
