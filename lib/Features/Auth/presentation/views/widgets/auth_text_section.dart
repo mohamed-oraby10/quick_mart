@@ -10,7 +10,8 @@ class AuthTextSection extends StatelessWidget {
     super.key,
     required this.title,
     required this.desc,
-    required this.loginText, this.onTap,
+    required this.loginText,
+    this.onTap,
   });
   final String title;
   final String desc;
@@ -44,6 +45,7 @@ class AuthTextSection extends StatelessWidget {
             ),
           ],
         ),
+        SizedBox(height: 32.h),
       ],
     );
   }

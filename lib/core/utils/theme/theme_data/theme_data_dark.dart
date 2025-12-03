@@ -46,6 +46,6 @@ ThemeData getDarkTheme() {
       filled: true,
       hintStyle: Styles.captionRegular.copyWith(color: AppColors.grey100),
     ),
-    iconTheme: IconThemeData(color: AppColors.greyDark150, size: 24.sp),
+    // iconTheme: IconThemeData(color: AppColors.greyDark150, size: 24.sp),
   );
 }

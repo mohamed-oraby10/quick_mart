@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/auth_text_section.dart';
+import 'package:quick_mart/Features/Auth/presentation/views/widgets/register_section.dart';
 
 class RegisterViewBody extends StatelessWidget {
   const RegisterViewBody({super.key});
@@ -17,6 +18,7 @@ class RegisterViewBody extends StatelessWidget {
             desc: 'Already have an account?',
             loginText: 'Login',
           ),
+          RegisterSection()
         ],
       ),
     );
