@@ -17,11 +17,12 @@ class RegisterSection extends StatelessWidget {
         TextFormField(
           decoration: InputDecoration(hintText: 'Enter your full name'),
         ),
+        SizedBox(height: 16.h),
         TextFeildsSection(),
         SizedBox(height: 24.h),
         ElevatedButton(onPressed: () {}, child: Text('Create Account')),
         SizedBox(height: 16.h),
-        GoogleButton(),
+        GoogleButton(text: 'Signup with Google',),
       ],
     );
   }

@@ -11,7 +11,6 @@ class TextFeildsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 16.h),
         Text('Email', style: Styles.body2Medium),
         SizedBox(height: 8.h),
         TextFormField(
