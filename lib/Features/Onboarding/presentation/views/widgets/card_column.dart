@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quick_mart/core/utils/assets_data.dart';
+import 'package:go_router/go_router.dart';
+import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/widgets/app_logo.dart';
+import 'package:quick_mart/core/widgets/arrow_left_icon.dart';
 import 'package:quick_mart/core/widgets/custom_image.dart';
 import 'package:quick_mart/core/widgets/custom_text_button.dart';
 
 class CardColumn extends StatelessWidget {
-  const CardColumn({super.key});
-
+  const CardColumn({
+    super.key,
+    required this.image,
+    required this.currentIndex,
+  });
+  final String image;
+  final int currentIndex;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,16 +25,22 @@ class CardColumn extends StatelessWidget {
             padding: EdgeInsets.only(top: 20.h),
             child: Row(
               children: [
-                AppLogo(),
+                currentIndex == 0 ? AppLogo() : ArrowLeftIcon(),
                 Spacer(),
-                CustomTextButton(textButton: 'Skip for now'),
+                currentIndex == 2
+                    ? Container()
+                    : CustomTextButton(
+                        textButton: 'Skip for now',
+                        onTap: () =>
+                            GoRouter.of(context).go(AppRoutes.kLoginView),
+                      ),
               ],
             ),
           ),
           SizedBox(height: 46.h),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 26.w),
-            child: CustomImage(image: AssetsData.onBoarding1),
+            child: CustomImage(image: image),
           ),
           SizedBox(height: 70.h),
         ],

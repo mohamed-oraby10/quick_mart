@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quick_mart/Features/Onboarding/presentation/views/widgets/onboarding_card.dart';
+import 'package:quick_mart/Features/Onboarding/data/models/onboarding_model.dart';
+import 'package:quick_mart/Features/Onboarding/presentation/views/widgets/login_button_row.dart';
+import 'package:quick_mart/Features/Onboarding/presentation/views/widgets/onboarding_text_section.dart';
 import 'package:quick_mart/Features/Onboarding/presentation/views/widgets/page_indecator.dart';
-import 'package:quick_mart/core/utils/styles.dart';
-import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class CustomOnboarding extends StatelessWidget {
-  const CustomOnboarding({super.key});
-
+  const CustomOnboarding({
+    super.key,
+    required this.pageController,
+    required this.onboardingModel,
+    this.onTap,
+    required this.currentIndex,
+  });
+  final PageController pageController;
+  final OnboardingModel onboardingModel;
+  final void Function()? onTap;
+  final int currentIndex;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,26 +25,14 @@ class CustomOnboarding extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: 44.h),
-          const OnboardingCard(),
-          SizedBox(height: 24.h),
-          Text(
-            'Explore a wide range of products',
-            style: Styles.heading2Bold,
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 16.h),
-          Text(
-            'Explore a wide range of products at your fingertips. QuickMart offers an extensive collection to suit your needs.',
-            style: Styles.body2Regular.copyWith(
-              color: context.customColors.secondaryColor,
-            ),
-            textAlign: TextAlign.center,
-          ),
+          OnboardingTextSection(onboardingModel: onboardingModel, currentIndex: currentIndex,),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 24.h),
-            child: ElevatedButton(onPressed: () {}, child: Text('Next')),
+            child: currentIndex == 2
+                ? LoginButtonRow()
+                : ElevatedButton(onPressed: onTap, child: Text('Next')),
           ),
-          PageIndicator(pageController: PageController()),
+          PageIndicator(pageController: pageController),
         ],
       ),
     );

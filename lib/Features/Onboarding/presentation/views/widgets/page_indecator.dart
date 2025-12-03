@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart/Features/Onboarding/data/onboarding_list.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -19,7 +20,7 @@ class PageIndicator extends StatelessWidget {
       child: Center(
         child: SmoothPageIndicator(
           controller: pageController,
-          count: 3,
+          count: onboardingList.length,
           effect: SlideEffect(
             dotHeight: 6.h,
             dotWidth: 6.w,

@@ -22,7 +22,9 @@ ThemeData getDarkTheme() {
         foregroundColor: AppColors.brandButtonText,
         disabledBackgroundColor: AppColors.greyDark50,
         disabledForegroundColor: AppColors.brandCyan,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12.r),
+        ),
         textStyle: Styles.button2,
         minimumSize: Size(double.infinity, 60.h),
       ),
@@ -44,5 +46,6 @@ ThemeData getDarkTheme() {
       filled: true,
       hintStyle: Styles.captionRegular.copyWith(color: AppColors.grey100),
     ),
+    iconTheme: IconThemeData(color: AppColors.greyDark150, size: 24.sp),
   );
 }
