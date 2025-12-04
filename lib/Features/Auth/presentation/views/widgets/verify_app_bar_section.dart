@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/digits_code.dart';
-import 'package:quick_mart/core/utils/styles.dart';
+import 'package:quick_mart/Features/Auth/presentation/views/widgets/email_verify_text_section.dart';
 import 'package:quick_mart/core/widgets/custom_app_bar.dart';
 
-class EmailVerificationTextSection extends StatefulWidget {
-  const EmailVerificationTextSection({super.key});
+class VerifyAppBarSection extends StatefulWidget {
+  const VerifyAppBarSection({super.key});
 
   @override
-  State<EmailVerificationTextSection> createState() =>
-      _EmailVerificationTextSectionState();
+  State<VerifyAppBarSection> createState() => _VerifyAppBarSectionState();
 }
 
-class _EmailVerificationTextSectionState
-    extends State<EmailVerificationTextSection> {
+class _VerifyAppBarSectionState extends State<VerifyAppBarSection> {
   bool isCodeSent = true;
 
   @override
@@ -39,13 +36,7 @@ class _EmailVerificationTextSectionState
               ? DigitsCode()
               : CustomAppBar(text: 'Verification Code'),
         ),
-        SizedBox(height: 22.h),
-        Text('Email Verification', style: Styles.heading2Bold),
-        SizedBox(height: 8.h),
-        Text(
-          'Enter the 6-digit verification code send to your email address.',
-          style: Styles.body2Regular,
-        ),
+        EmailVerificationTextSection(),
       ],
     );
   }

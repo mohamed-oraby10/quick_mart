@@ -3,6 +3,7 @@ import 'package:quick_mart/Features/Auth/presentation/views/confirmation_email_v
 import 'package:quick_mart/Features/Auth/presentation/views/email_verification_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/login_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/register_view.dart';
+import 'package:quick_mart/Features/Auth/presentation/views/widgets/verify_email.dart';
 import 'package:quick_mart/Features/Onboarding/presentation/views/onboarding_view.dart';
 import 'package:quick_mart/Features/Splash/presentation/views/splash_view.dart';
 
@@ -12,8 +13,8 @@ class AppRoutes {
   static const kLoginView = '/loginView';
   static const kRegisterView = '/registerView';
   static const kEmailVerificationView = '/emailVerificationView';
-    static const kConfirmationEmailView = '/confirmationEmailView';
-
+  static const kConfirmationEmailView = '/confirmationEmailView';
+  static const kVerifyEmail = '/verifyEmail';
 
   static final router = GoRouter(
     initialLocation: '/',
@@ -32,9 +33,13 @@ class AppRoutes {
         path: kEmailVerificationView,
         builder: (context, state) => const EmailVerificationView(),
       ),
-       GoRoute(
+      GoRoute(
         path: kConfirmationEmailView,
         builder: (context, state) => const ConfirmationEmailView(),
+      ),
+      GoRoute(
+        path: kVerifyEmail,
+        builder: (context, state) => const VerifyEmail(),
       ),
     ],
   );
