@@ -6,6 +6,7 @@ import 'package:quick_mart/Features/Auth/presentation/views/login_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/register_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/successful_password_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/verify_email.dart';
+import 'package:quick_mart/Features/Home/presentation/views/home_view.dart';
 import 'package:quick_mart/Features/Onboarding/presentation/views/onboarding_view.dart';
 import 'package:quick_mart/Features/Splash/presentation/views/splash_view.dart';
 
@@ -19,6 +20,7 @@ class AppRoutes {
   static const kVerifyEmail = '/verifyEmail';
   static const kCreateNewPasswordView = '/reateNewPasswordView';
   static const kSuccessfulPasswordView = '/successfulPasswordView';
+  static const kHomeView = '/homeView';
 
   static final router = GoRouter(
     initialLocation: '/',
@@ -52,6 +54,10 @@ class AppRoutes {
       GoRoute(
         path: kSuccessfulPasswordView,
         builder: (context, state) => const SuccessfulPasswordView(),
+      ),
+       GoRoute(
+        path: kHomeView,
+        builder: (context, state) => const HomeView(),
       ),
     ],
   );

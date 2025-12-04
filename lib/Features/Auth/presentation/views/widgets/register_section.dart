@@ -26,7 +26,7 @@ class RegisterSection extends StatelessWidget {
         MainButton(
           text: 'Create Account',
           onTap: () {
-            GoRouter.of(context).push(AppRoutes.kEmailVerificationView);
+            GoRouter.of(context).push(AppRoutes.kHomeView);
           },
         ),
         SizedBox(height: 16.h),
