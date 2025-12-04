@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/Features/Onboarding/presentation/views/widgets/card_column.dart';
-import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
+import 'package:quick_mart/core/widgets/custom_container.dart';
 
 class OnboardingCard extends StatelessWidget {
   const OnboardingCard({super.key, required this.image, required this.currentIndex});
@@ -11,14 +10,7 @@ class OnboardingCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          height: 408.h,
-          width: 328.w,
-          decoration: BoxDecoration(
-            color: context.customColors.cardColor,
-            borderRadius: BorderRadius.circular(32),
-          ),
-        ),
+        CustomContainer(),
         CardColumn(image: image, currentIndex: currentIndex),
       ],
     );

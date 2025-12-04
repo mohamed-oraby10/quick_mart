@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/core/utils/styles.dart';
+import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 import 'package:quick_mart/core/widgets/custom_app_bar.dart';
 
 class NewPasswordTextSection extends StatelessWidget {
@@ -18,7 +19,9 @@ class NewPasswordTextSection extends StatelessWidget {
         SizedBox(height: 8.h),
         Text(
           'Enter your new password and remember it.',
-          style: Styles.body2Regular,
+          style: Styles.body2Regular.copyWith(
+            color: context.customColors.secondaryColor,
+          ),
         ),
         SizedBox(height: 16.h),
         Text('Password', style: Styles.body2Medium),
