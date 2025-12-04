@@ -24,7 +24,7 @@ class RegisterSection extends StatelessWidget {
         SizedBox(height: 24.h),
         ElevatedButton(
           onPressed: () {
-            GoRouter.of(context).go(AppRoutes.kEmailVerificationView);
+            GoRouter.of(context).push(AppRoutes.kEmailVerificationView);
           },
           child: Text('Create Account'),
         ),
