@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/google_button.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/text_feilds_section.dart';
+import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 
 class RegisterSection extends StatelessWidget {
@@ -20,9 +22,14 @@ class RegisterSection extends StatelessWidget {
         SizedBox(height: 16.h),
         TextFeildsSection(),
         SizedBox(height: 24.h),
-        ElevatedButton(onPressed: () {}, child: Text('Create Account')),
+        ElevatedButton(
+          onPressed: () {
+            GoRouter.of(context).go(AppRoutes.kEmailVerificationView);
+          },
+          child: Text('Create Account'),
+        ),
         SizedBox(height: 16.h),
-        GoogleButton(text: 'Signup with Google',),
+        GoogleButton(text: 'Signup with Google'),
       ],
     );
   }

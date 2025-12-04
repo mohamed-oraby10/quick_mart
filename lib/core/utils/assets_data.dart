@@ -12,4 +12,5 @@ class AssetsData {
   static const logo = 'assets/images/quickmart.svg';
   static const splashLogo = 'assets/images/Vector.svg';
   static const logoIcon = 'assets/images/Vector-1.svg';
+  static const passwordVerify = 'assets/images/Frame 106.svg';
 }
