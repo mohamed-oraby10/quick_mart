@@ -11,6 +11,7 @@ class ArrowLeftIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
+      padding: EdgeInsets.zero,
       onPressed: () {
         GoRouter.of(context).pop();
       },

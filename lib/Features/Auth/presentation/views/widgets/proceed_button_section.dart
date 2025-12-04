@@ -4,7 +4,8 @@ import 'package:quick_mart/Features/Auth/presentation/views/widgets/pin_email.da
 import 'package:quick_mart/core/widgets/custom_text_button.dart';
 
 class ProceedButtonSection extends StatelessWidget {
-  const ProceedButtonSection({super.key});
+  const ProceedButtonSection({super.key, this.onTap});
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class ProceedButtonSection extends StatelessWidget {
         PinEmail(),
         CustomTextButton(textButton: 'Resend Code'),
         SizedBox(height: 24.h),
-        ElevatedButton(onPressed: () {}, child: Text('Proceed')),
+        ElevatedButton(onPressed:onTap, child: Text('Proceed')),
       ],
     );
   }

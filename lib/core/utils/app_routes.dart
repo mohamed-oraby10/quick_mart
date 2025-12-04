@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/confirmation_email_view.dart';
+import 'package:quick_mart/Features/Auth/presentation/views/create_new_password_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/email_verification_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/login_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/register_view.dart';
@@ -15,6 +16,7 @@ class AppRoutes {
   static const kEmailVerificationView = '/emailVerificationView';
   static const kConfirmationEmailView = '/confirmationEmailView';
   static const kVerifyEmail = '/verifyEmail';
+  static const kCreateNewPasswordView = '/reateNewPasswordView';
 
   static final router = GoRouter(
     initialLocation: '/',
@@ -40,6 +42,10 @@ class AppRoutes {
       GoRoute(
         path: kVerifyEmail,
         builder: (context, state) => const VerifyEmail(),
+      ),
+      GoRoute(
+        path: kCreateNewPasswordView,
+        builder: (context, state) => const CreateNewPasswordView(),
       ),
     ],
   );

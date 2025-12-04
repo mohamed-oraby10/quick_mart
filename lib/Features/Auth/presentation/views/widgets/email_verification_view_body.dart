@@ -15,7 +15,7 @@ class EmailVerificationViewBody extends StatelessWidget {
         children: [
           SizedBox(height: 44.h),
           VerifyAppBarSection(),
-          ProceedButtonSection(),
+          ProceedButtonSection(onTap: () {}),
         ],
       ),
     );
