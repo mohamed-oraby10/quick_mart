@@ -5,6 +5,7 @@ import 'package:quick_mart/Features/Auth/presentation/views/widgets/google_butto
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/text_feilds_section.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/widgets/custom_text_button.dart';
+import 'package:quick_mart/core/widgets/main_button.dart';
 
 class LoginSection extends StatelessWidget {
   const LoginSection({super.key});
@@ -26,7 +27,7 @@ class LoginSection extends StatelessWidget {
             ),
           ),
         ),
-        ElevatedButton(onPressed: () {}, child: Text('Login')),
+        MainButton(text: 'Login', onTap: () {}),
         SizedBox(height: 16.h),
         GoogleButton(text: 'Login with Google'),
       ],
