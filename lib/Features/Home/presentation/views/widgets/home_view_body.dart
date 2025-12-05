@@ -4,7 +4,7 @@ import 'package:quick_mart/Features/Home/presentation/views/widgets/categories_l
 import 'package:quick_mart/Features/Home/presentation/views/widgets/exclusive_sales_container.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/home_app_bar.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/home_row.dart';
-import 'package:quick_mart/Features/Home/presentation/views/widgets/leatest_product_item.dart';
+import 'package:quick_mart/Features/Home/presentation/views/widgets/products_grid_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -24,9 +24,10 @@ class HomeViewBody extends StatelessWidget {
           SizedBox(height: 24.h),
           HomeRow(text: 'Latest Products'),
           SizedBox(height: 12.h),
-          LeatestProductItem(),
+          Expanded(child: ProductsGridView())
         ],
       ),
     );
   }
 }
+

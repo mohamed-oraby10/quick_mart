@@ -12,7 +12,7 @@ class ColorsRow extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 8.h),
       child: SizedBox(
         height: 24.h,
-        width: double.infinity,
+        width: 160.w,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
