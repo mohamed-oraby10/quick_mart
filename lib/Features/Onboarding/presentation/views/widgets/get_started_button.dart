@@ -13,7 +13,7 @@ class GetStartedButton extends StatelessWidget {
       width: 160.w,
       child: ElevatedButton(
         onPressed: () {
-          GoRouter.of(context).go(AppRoutes.kRegisterView);
+          GoRouter.of(context).go(AppRoutes.kHomeView);
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

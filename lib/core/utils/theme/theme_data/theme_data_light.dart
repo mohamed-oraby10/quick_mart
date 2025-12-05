@@ -22,7 +22,9 @@ ThemeData getLightTheme() {
         foregroundColor: AppColors.brandButtonText,
         disabledBackgroundColor: AppColors.greyLight50,
         disabledForegroundColor: AppColors.brandButton,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12.r),
+        ),
         textStyle: Styles.button2,
         minimumSize: Size(double.infinity, 60.h),
       ),
@@ -45,5 +47,22 @@ ThemeData getLightTheme() {
       hintStyle: Styles.captionRegular.copyWith(color: AppColors.grey100),
     ),
     // iconTheme: IconThemeData(color: AppColors.greyLight150,size: 24.sp)
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: AppColors.brandWhite,
+      elevation: 0,
+      selectedIconTheme: IconThemeData(size: 24.sp, color: AppColors.brandCyan),
+      unselectedIconTheme: IconThemeData(
+        size: 24.sp,
+        color: AppColors.greyLight150,
+      ),
+      selectedLabelStyle: Styles.captionSemiBold.copyWith(
+        color: AppColors.brandBlack,
+      ),
+      selectedItemColor: AppColors.brandBlack,
+      unselectedItemColor: AppColors.greyLight150,
+      unselectedLabelStyle: Styles.captionRegular.copyWith(
+        color: AppColors.greyLight150,
+      ),
+    ),
   );
 }

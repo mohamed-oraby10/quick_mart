@@ -47,5 +47,22 @@ ThemeData getDarkTheme() {
       hintStyle: Styles.captionRegular.copyWith(color: AppColors.grey100),
     ),
     // iconTheme: IconThemeData(color: AppColors.greyDark150, size: 24.sp),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: AppColors.brandBlack,
+      elevation: 0,
+      selectedIconTheme: IconThemeData(size: 24.sp, color: AppColors.brandCyan),
+      unselectedIconTheme: IconThemeData(
+        size: 24.sp,
+        color: AppColors.greyDark150,
+      ),
+        selectedItemColor: AppColors.brandWhite,
+      unselectedItemColor: AppColors.greyDark150,
+      selectedLabelStyle: Styles.captionSemiBold.copyWith(
+        color: AppColors.brandWhite,
+      ),
+      unselectedLabelStyle: Styles.captionRegular.copyWith(
+        color: AppColors.greyDark150,
+      ),
+    ),
   );
 }
