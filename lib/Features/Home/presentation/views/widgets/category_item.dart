@@ -26,6 +26,7 @@ class CategoryItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(categoryModel.urlImage),
+              SizedBox(height: 2.h),
               Text(categoryModel.lable, style: Styles.overlineSemiBold),
             ],
           ),
