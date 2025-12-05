@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quick_mart/Features/Home/domain/data_sources/categories_list.dart';
-import 'package:quick_mart/Features/Home/presentation/views/widgets/category_item.dart';
+import 'package:quick_mart/Features/Home/domain/data_sources/categories_home_list.dart';
+import 'package:quick_mart/Features/Home/presentation/views/widgets/category_home_item.dart';
 
 class CategoriesListView extends StatelessWidget {
   const CategoriesListView({super.key});
@@ -13,9 +13,9 @@ class CategoriesListView extends StatelessWidget {
       height: 72.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: categoriesList.length,
+        itemCount: categoriesHomeList.length,
         itemBuilder: (context, index) {
-          return CategoryItem(categoryModel: categoriesList[index]);
+          return CategoryHomeItem(categoryModel: categoriesHomeList[index]);
         },
       ),
     );

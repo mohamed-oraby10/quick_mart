@@ -4,35 +4,30 @@ import 'package:quick_mart/Features/Home/domain/models/category_model.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
-class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key, required this.categoryModel});
+class CategoryHomeItem extends StatelessWidget {
+  const CategoryHomeItem({super.key, required this.categoryModel});
   final CategoryModel categoryModel;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16.r),
-          border: Border.all(
-            color: context.customColors.buttonColor,
-            width: 2.w,
+    return Padding(
+      padding: EdgeInsets.only(top: 12.h, right: 8.w),
+      child: GestureDetector(
+        onTap: () {},
+        child: Container(
+          height: 60.h,
+          width: 76.w,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12.r),
+            border: Border.all(color: context.customColors.buttonColor),
           ),
-        ),
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(categoryModel.urlImage),
               SizedBox(height: 2.h),
-              Text(
-                categoryModel.lable,
-                style: Styles.captionSemiBold,
-                textAlign: TextAlign.center,
-              ),
+              Text(categoryModel.lable, style: Styles.overlineSemiBold),
             ],
           ),
         ),

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/categories_list_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/exclusive_sales_container.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/home_app_bar.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/home_row.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/products_grid_view.dart';
+import 'package:quick_mart/core/utils/app_routes.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -19,15 +21,17 @@ class HomeViewBody extends StatelessWidget {
           SizedBox(height: 44.h),
           HomeAppBar(),
           ExclusiveSalesContainer(),
-          HomeRow(text: 'Categories'),
+          HomeRow(
+            text: 'Categories',
+            onTap: () => GoRouter.of(context).push(AppRoutes.kCategoriesView),
+          ),
           CategoriesListView(),
           SizedBox(height: 24.h),
           HomeRow(text: 'Latest Products'),
           SizedBox(height: 12.h),
-          Expanded(child: ProductsGridView())
+          Expanded(child: ProductsGridView()),
         ],
       ),
     );
   }
 }
-
