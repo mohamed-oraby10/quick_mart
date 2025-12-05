@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart/Features/Home/presentation/views/widgets/categories_list_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/exclusive_sales_container.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/home_app_bar.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/home_row.dart';
@@ -18,6 +19,7 @@ class HomeViewBody extends StatelessWidget {
           HomeAppBar(),
           ExclusiveSalesContainer(),
           HomeRow(text: 'Categories'),
+          CategoriesListView(),
         ],
       ),
     );
