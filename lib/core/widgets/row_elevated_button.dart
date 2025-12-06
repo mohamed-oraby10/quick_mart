@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:icons_plus/icons_plus.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 
-class GetStartedButton extends StatelessWidget {
-  const GetStartedButton({super.key});
-
+class RowElevatedButton extends StatelessWidget {
+  const RowElevatedButton({super.key, required this.text, required this.icon});
+  final String text;
+  final IconData icon;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -18,9 +18,9 @@ class GetStartedButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Get started'),
+            Text(text),
             SizedBox(width: 8.w),
-            Icon(Iconsax.arrow_right_1_outline, size: 24.sp),
+            Icon(icon, size: 24.sp),
           ],
         ),
       ),

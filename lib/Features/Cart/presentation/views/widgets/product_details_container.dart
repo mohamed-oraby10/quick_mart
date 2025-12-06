@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quick_mart/Features/Cart/presentation/views/widgets/product_badge.dart';
-import 'package:quick_mart/Features/Cart/presentation/views/widgets/product_colors_list.dart';
-import 'package:quick_mart/Features/Cart/presentation/views/widgets/product_description.dart';
-import 'package:quick_mart/Features/Cart/presentation/views/widgets/product_quantity.dart';
-import 'package:quick_mart/Features/Cart/presentation/views/widgets/product_title_and_price.dart';
-import 'package:quick_mart/Features/Cart/presentation/views/widgets/rating_row.dart';
+import 'package:quick_mart/Features/Cart/presentation/views/widgets/add_to_cart_button_row.dart';
+import 'package:quick_mart/Features/Cart/presentation/views/widgets/color_and_quantity_section.dart';
+import 'package:quick_mart/Features/Cart/presentation/views/widgets/deatils_section.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
-import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class ProductDetailsContainer extends StatelessWidget {
@@ -32,19 +28,9 @@ class ProductDetailsContainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 24.h),
-              ProductBadge(),
-              SizedBox(height: 6.h),
-              ProductTitleAndPrice(),
-              RatingRow(),
-              ProductDescription(),
-              SizedBox(height: 12.h),
-              Text('Color', style: Styles.captionSemiBold),
-              SizedBox(height: 8.h),
-              ProductColorsList(),
-              SizedBox(height: 12.h),
-              Text('Quantity', style: Styles.captionSemiBold),
-              SizedBox(height: 8.h),
-              ProductQuantity()
+              DetailsSection(),
+              ColorAndQuantitySection(),
+              AddToCartButtonRow(),
             ],
           ),
         ),
