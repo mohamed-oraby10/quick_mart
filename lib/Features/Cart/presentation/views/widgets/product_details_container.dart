@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart/Features/Cart/presentation/views/widgets/product_badge.dart';
+import 'package:quick_mart/Features/Cart/presentation/views/widgets/product_title_and_price.dart';
+import 'package:quick_mart/core/utils/app_colors.dart';
+import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class ProductDetailsContainer extends StatelessWidget {
   const ProductDetailsContainer({super.key});
@@ -10,8 +14,8 @@ class ProductDetailsContainer extends StatelessWidget {
       height: 497.h,
       width: double.infinity,
       decoration: BoxDecoration(
+        color: context.isDarkMode ? AppColors.brandBlack : AppColors.brandWhite,
         borderRadius: BorderRadius.only(
-          
           topLeft: Radius.circular(32.r),
           topRight: Radius.circular(32.r),
         ),
@@ -20,7 +24,12 @@ class ProductDetailsContainer extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [SizedBox(height: 24.h)],
+          children: [
+            SizedBox(height: 24.h),
+            ProductBadge(),
+            SizedBox(height: 6.h),
+            ProductTitleAndPrice(),
+          ],
         ),
       ),
     );

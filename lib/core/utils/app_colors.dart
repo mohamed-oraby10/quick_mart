@@ -22,7 +22,7 @@ class AppColors {
 
   //general
   static const generalRed = Color(0xffEE4D4D);
-  static const generalGreen = Color(0xffF4FDFA);
+  static const generalGreen = Color(0xff08E488);
   static const generalBlue = Color(0xff1F88DA);
   static const generalPurple = Color(0xff4F1FDA);
   static const generalYellow = Color(0xffEBEF14);
