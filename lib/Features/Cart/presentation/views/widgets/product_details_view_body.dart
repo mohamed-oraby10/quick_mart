@@ -12,6 +12,7 @@ class ProductDetailsViewBody extends StatelessWidget {
       children: [
         ProductImageDetails(),
         Expanded(child: ProductDetailsContainer()),
+       
       ],
     );
   }
