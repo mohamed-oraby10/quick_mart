@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart/Features/Cart/presentation/views/widgets/cart_items_list_view.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/cart_view_app_bar.dart';
 
 class CartViewBody extends StatelessWidget {
@@ -14,6 +15,7 @@ class CartViewBody extends StatelessWidget {
         children: [
           SizedBox(height: 44.h),
           CartViewAppBar(),
+          CartItemsListView(),
         ],
       ),
     );
