@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/sub_category_item.dart';
 
 class SubCategoryGridView extends StatelessWidget {
-  const SubCategoryGridView({super.key});
-
+  const SubCategoryGridView({super.key, this.onTap});
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -18,7 +18,7 @@ class SubCategoryGridView extends StatelessWidget {
           crossAxisSpacing: 8,
         ),
         itemBuilder: (context, index) {
-          return SubCategoryItem();
+          return SubCategoryItem(onTap: onTap);
         },
       ),
     );
