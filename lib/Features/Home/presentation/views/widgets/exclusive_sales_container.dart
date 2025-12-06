@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:quick_mart/core/utils/app_routes.dart';
 
 class ExclusiveSalesContainer extends StatelessWidget {
   const ExclusiveSalesContainer({super.key});
@@ -9,7 +11,7 @@ class ExclusiveSalesContainer extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 24.h),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () => GoRouter.of(context).push(AppRoutes.kExclusiveSalesView),
         child: Container(
           width: double.infinity,
           height: 148.h,

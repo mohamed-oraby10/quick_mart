@@ -7,6 +7,7 @@ import 'package:quick_mart/Features/Auth/presentation/views/register_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/successful_password_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/verify_email.dart';
 import 'package:quick_mart/Features/Home/presentation/views/categories_view.dart';
+import 'package:quick_mart/Features/Home/presentation/views/exclusive_sales_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/home_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/products_search_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/products_view.dart';
@@ -29,6 +30,7 @@ class AppRoutes {
   static const kSubCategoriesView = '/subCategoriesView';
   static const kProductsView = '/productsView';
   static const kProductsSearchView = '/productsSearchView';
+  static const kExclusiveSalesView = '/ExclusiveSalesView';
 
   static final router = GoRouter(
     initialLocation: '/',
@@ -79,6 +81,10 @@ class AppRoutes {
       GoRoute(
         path: kProductsSearchView,
         builder: (context, state) => const ProductsSearchView(),
+      ),
+       GoRoute(
+        path: kExclusiveSalesView,
+        builder: (context, state) => const ExclusiveSalesView(),
       ),
     ],
   );
