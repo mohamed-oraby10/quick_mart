@@ -30,6 +30,7 @@ ThemeData getDarkTheme() {
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
+      suffixIconColor: AppColors.greyDark150,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12.r),
         borderSide: BorderSide(color: AppColors.greyDark50),
@@ -47,7 +48,7 @@ ThemeData getDarkTheme() {
       hintStyle: Styles.captionRegular.copyWith(color: AppColors.grey100),
     ),
     // iconTheme: IconThemeData(color: AppColors.greyDark150, size: 24.sp),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: AppColors.brandBlack,
       elevation: 0,
       selectedIconTheme: IconThemeData(size: 24.sp, color: AppColors.brandCyan),
@@ -55,7 +56,7 @@ ThemeData getDarkTheme() {
         size: 24.sp,
         color: AppColors.greyDark150,
       ),
-        selectedItemColor: AppColors.brandWhite,
+      selectedItemColor: AppColors.brandWhite,
       unselectedItemColor: AppColors.greyDark150,
       selectedLabelStyle: Styles.captionSemiBold.copyWith(
         color: AppColors.brandWhite,

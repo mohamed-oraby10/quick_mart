@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/widgets/arrow_left_icon.dart';
 
@@ -21,7 +23,8 @@ class ProductsListAppBar extends StatelessWidget {
           icon: Icon(Iconsax.setting_4_outline, size: 32.sp),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () =>
+              GoRouter.of(context).push(AppRoutes.kProductsSearchView),
           icon: Icon(Iconsax.search_normal_1_outline, size: 32.sp),
         ),
       ],

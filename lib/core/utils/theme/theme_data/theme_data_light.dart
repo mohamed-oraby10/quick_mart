@@ -30,6 +30,7 @@ ThemeData getLightTheme() {
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
+      suffixIconColor: AppColors.greyLight150,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12.r),
         borderSide: BorderSide(color: AppColors.greyLight50),
@@ -46,7 +47,6 @@ ThemeData getLightTheme() {
       filled: true,
       hintStyle: Styles.captionRegular.copyWith(color: AppColors.grey100),
     ),
-    // iconTheme: IconThemeData(color: AppColors.greyLight150,size: 24.sp)
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: AppColors.brandWhite,
       elevation: 0,
