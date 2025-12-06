@@ -3,8 +3,8 @@ import 'package:quick_mart/Features/Home/domain/data_sources/categories_list.dar
 import 'package:quick_mart/Features/Home/presentation/views/widgets/category_item.dart';
 
 class CategoriesGridView extends StatelessWidget {
-  const CategoriesGridView({super.key});
-
+  const CategoriesGridView({super.key, this.onTap});
+final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -19,7 +19,7 @@ class CategoriesGridView extends StatelessWidget {
           childAspectRatio: 1.4,
         ),
         itemBuilder: (context, index) {
-          return CategoryItem(categoryModel: categoriesList[index]);
+          return CategoryItem(categoryModel: categoriesList[index],onTap: onTap,);
         },
       ),
     );
