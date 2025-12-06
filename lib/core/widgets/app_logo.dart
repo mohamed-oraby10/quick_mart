@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/assets_data.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
@@ -18,9 +17,7 @@ class AppLogo extends StatelessWidget {
           AssetsData.logoText,
           height: 12.h,
           width: 72.w,
-          color: context.isDarkMode
-              ? AppColors.brandWhite
-              : AppColors.brandBlack,
+          color: context.customColors.modeColor
         ),
       ],
     );

@@ -5,7 +5,6 @@ import 'package:icons_plus/icons_plus.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/search_filter_bottom_sheet.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/search_results.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/search_text_feild.dart';
-import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 import 'package:quick_mart/core/widgets/app_logo.dart';
@@ -30,9 +29,7 @@ class ProductsSearchBody extends StatelessWidget {
                 icon: Icon(
                   FontAwesome.xmark_solid,
                   size: 24.sp,
-                  color: context.isDarkMode
-                      ? AppColors.brandWhite
-                      : AppColors.brandBlack,
+                  color: context.customColors.modeColor,
                 ),
               ),
             ],

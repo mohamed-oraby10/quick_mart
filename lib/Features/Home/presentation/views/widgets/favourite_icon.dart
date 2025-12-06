@@ -16,9 +16,7 @@ class FavouriteIcon extends StatelessWidget {
         width: 24.w,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24.r),
-          color: context.isDarkMode
-              ? AppColors.brandWhite
-              : AppColors.brandBlack,
+          color: context.customColors.modeColor,
         ),
         child: Center(
           child: GestureDetector(

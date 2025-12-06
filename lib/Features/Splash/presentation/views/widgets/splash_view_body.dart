@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/assets_data.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
@@ -34,9 +33,7 @@ class SplashViewBody extends StatelessWidget {
                     AssetsData.logoText,
                     height: 33.h,
                     width: 187.w,
-                    color: context.isDarkMode
-                        ? AppColors.brandWhite
-                        : AppColors.brandBlack,
+                    color: context.customColors.modeColor,
                   ),
                   SizedBox(height: 5.h),
                   Text('Asia’s No 1 Ecommerce App', style: Styles.button2),

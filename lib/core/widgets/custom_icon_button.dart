@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class CustomIconButton extends StatelessWidget {
@@ -14,7 +13,7 @@ class CustomIconButton extends StatelessWidget {
       onPressed: onTap,
       icon: Icon(
         icon,
-        color: context.isDarkMode ? AppColors.brandWhite : AppColors.brandBlack,
+        color: context.customColors.modeColor,
         size: 32.sp,
       ),
     );

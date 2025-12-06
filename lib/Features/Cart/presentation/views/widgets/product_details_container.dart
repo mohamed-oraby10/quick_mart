@@ -10,10 +10,17 @@ class ProductDetailsContainer extends StatelessWidget {
       height: 497.h,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.black,
         borderRadius: BorderRadius.only(
+          
           topLeft: Radius.circular(32.r),
           topRight: Radius.circular(32.r),
+        ),
+      ),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [SizedBox(height: 24.h)],
         ),
       ),
     );

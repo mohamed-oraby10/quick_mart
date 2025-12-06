@@ -22,9 +22,7 @@ class ForgetPasswordAppBar extends StatelessWidget {
           text: TextSpan(
             text: text,
             style: Styles.body2Medium.copyWith(
-              color: context.isDarkMode
-                  ? AppColors.brandWhite
-                  : AppColors.brandBlack,
+              color: context.customColors.modeColor
             ),
             children: [
               TextSpan(
