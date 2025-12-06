@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/product_badge.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/product_colors_list.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/product_description.dart';
+import 'package:quick_mart/Features/Cart/presentation/views/widgets/product_quantity.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/product_title_and_price.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/rating_row.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
@@ -40,6 +41,10 @@ class ProductDetailsContainer extends StatelessWidget {
               Text('Color', style: Styles.captionSemiBold),
               SizedBox(height: 8.h),
               ProductColorsList(),
+              SizedBox(height: 12.h),
+              Text('Quantity', style: Styles.captionSemiBold),
+              SizedBox(height: 8.h),
+              ProductQuantity()
             ],
           ),
         ),

@@ -8,7 +8,7 @@ class ProductColorsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 4.w),
+      padding: EdgeInsets.only(right: 4.w),
       child: Container(
         height: 32.h,
         width: 32.w,
