@@ -8,7 +8,7 @@ class AppBottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int currentIndex = 1;
+    int currentIndex = 2;
     return Container(
       decoration: BoxDecoration(
         border: Border(

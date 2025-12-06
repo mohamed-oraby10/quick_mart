@@ -19,6 +19,7 @@ class LoginButtonRow extends StatelessWidget {
         ),
         SizedBox(width: 8.w),
         RowElevatedButton(
+          onTap: () =>    GoRouter.of(context).go(AppRoutes.kHomeView),
           text: 'Get started',
           icon: Iconsax.arrow_right_1_outline,
         ),

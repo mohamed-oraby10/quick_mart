@@ -23,12 +23,20 @@ class ProductQuantity extends StatelessWidget {
             padding: EdgeInsets.zero,
             onPressed: null,
             disabledColor: AppColors.grey100,
-            icon: Icon(Iconsax.minus_outline, size: 24.sp),
+            icon: Icon(
+              Iconsax.minus_outline,
+              size: 24.sp,
+              color: context.customColors.modeColor,
+            ),
           ),
           Text('0', style: Styles.body1Medium),
           IconButton(
             onPressed: () {},
-            icon: Icon(Iconsax.add_outline, size: 24.sp),
+            icon: Icon(
+              Iconsax.add_outline,
+              size: 24.sp,
+              color: context.customColors.modeColor,
+            ),
           ),
         ],
       ),
