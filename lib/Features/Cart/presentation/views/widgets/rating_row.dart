@@ -11,23 +11,26 @@ class RatingRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        RatingBar.builder(
-          unratedColor: context.customColors.buttonColor,
-          initialRating: 4.5,
-          minRating: 1,
-          direction: Axis.horizontal,
-          allowHalfRating: true,
-          itemCount: 5,
-          itemSize: 12.sp,
-          itemPadding: EdgeInsets.symmetric(horizontal: 3.w),
-          itemBuilder: (context, _) =>
-              Icon(Iconsax.star_bulk, color: AppColors.generalOrange2),
-          onRatingUpdate: (rating) {},
-        ),
-        Text('4.5 (2,495 reviews)', style: Styles.overlineSemiBold),
-      ],
+    return Padding(
+      padding:  EdgeInsets.symmetric(vertical:  8.h),
+      child: Row(
+        children: [
+          RatingBar.builder(
+            unratedColor: context.customColors.buttonColor,
+            initialRating: 4.5,
+            minRating: 1,
+            direction: Axis.horizontal,
+            allowHalfRating: true,
+            itemCount: 5,
+            itemSize: 12.sp,
+            itemPadding: EdgeInsets.symmetric(horizontal: 3.w),
+            itemBuilder: (context, _) =>
+                Icon(Iconsax.star_bulk, color: AppColors.generalOrange2),
+            onRatingUpdate: (rating) {},
+          ),
+          Text('4.5 (2,495 reviews)', style: Styles.overlineSemiBold),
+        ],
+      ),
     );
   }
 }
