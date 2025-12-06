@@ -5,8 +5,9 @@ import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class SearchTextField extends StatelessWidget {
-  const SearchTextField({super.key, this.onChanged});
+  const SearchTextField({super.key, this.onChanged, this.onTap});
   final void Function(String)? onChanged;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -17,7 +18,11 @@ class SearchTextField extends StatelessWidget {
           color: context.customColors.secondaryColor,
         ),
         prefixIcon: Icon(Iconsax.search_normal_1_outline, size: 24.sp),
-        suffixIcon: Icon(Iconsax.setting_4_outline, size: 24.sp),
+
+        suffixIcon: IconButton(
+          onPressed: onTap,
+          icon: Icon(Iconsax.setting_4_outline, size: 24.sp),
+        ),
         border: OutlineInputBorder(),
       ),
     );
