@@ -18,10 +18,14 @@ class CartViewAppBar extends StatelessWidget {
         Spacer(),
         CustomTextButton(
           textButton: 'Voucher Code',
-          onTap: () => showModalBottomSheet(
-            context: context,
-            builder: (context) => VoucherCodeBottomSheet(),
-          ),
+          onTap: () {
+            showModalBottomSheet(
+              context: context,
+              builder: (context) {
+                return VoucherCodeBottomSheet();
+              },
+            );
+          },
         ),
       ],
     );
