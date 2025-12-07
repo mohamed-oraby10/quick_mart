@@ -2,15 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
-import 'package:quick_mart/core/utils/assets_data.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 import 'package:quick_mart/core/widgets/custom_image.dart';
 import 'package:quick_mart/core/widgets/main_button.dart';
 
-class EmptyCartBody extends StatelessWidget {
-  const EmptyCartBody({super.key});
-
+class EmptyBody extends StatelessWidget {
+  const EmptyBody({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.desc,
+  });
+  final String image;
+  final String title;
+  final String desc;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,13 +26,13 @@ class EmptyCartBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CustomImage(image: AssetsData.cart),
+            CustomImage(image: image),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.h),
-              child: Text('Your cart is empty', style: Styles.heading2Bold),
+              child: Text(title, style: Styles.heading2Bold),
             ),
             Text(
-              'Looks like you have not added anything in your cart. Go ahead and explore top categories.',
+            desc,
               style: Styles.body2Regular.copyWith(
                 color: context.customColors.secondaryColor,
               ),

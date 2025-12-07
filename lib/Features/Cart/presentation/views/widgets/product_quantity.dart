@@ -6,8 +6,8 @@ import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class ProductQuantity extends StatelessWidget {
-  const ProductQuantity({super.key});
-
+  const ProductQuantity({super.key, this.isWishlist = false});
+  final bool isWishlist;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,7 +31,8 @@ class ProductQuantity extends StatelessWidget {
           ),
           Text('0', style: Styles.body1Medium),
           IconButton(
-            onPressed: () {},
+            disabledColor: AppColors.grey100,
+            onPressed: isWishlist ? null : () {},
             icon: Icon(
               Iconsax.add_outline,
               size: 24.sp,

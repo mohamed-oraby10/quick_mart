@@ -5,8 +5,7 @@ import 'package:quick_mart/Features/Cart/presentation/views/widgets/product_quan
 import 'package:quick_mart/core/utils/styles.dart';
 
 class ColorAndQuantitySection extends StatelessWidget {
-  const ColorAndQuantitySection({super.key});
-
+  const ColorAndQuantitySection({super.key,});
   @override
   Widget build(BuildContext context) {
     return Column(
