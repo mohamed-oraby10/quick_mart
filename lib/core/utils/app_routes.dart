@@ -16,6 +16,7 @@ import 'package:quick_mart/Features/Home/presentation/views/products_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/sub_category_view.dart';
 import 'package:quick_mart/Features/Onboarding/presentation/views/onboarding_view.dart';
 import 'package:quick_mart/Features/Splash/presentation/views/splash_view.dart';
+import 'package:quick_mart/Features/Wishlist/presentation/views/wishlist_view.dart';
 
 class AppRoutes {
   const AppRoutes._();
@@ -35,6 +36,7 @@ class AppRoutes {
   static const kExclusiveSalesView = '/ExclusiveSalesView';
   static const kProductDetailsView = '/productDetailsView';
   static const kCartView = '/cartView';
+  static const kWishlist = '/wishlist';
 
   static final router = GoRouter(
     initialLocation: '/',
@@ -95,6 +97,10 @@ class AppRoutes {
         builder: (context, state) => const ProductDetailsView(),
       ),
       GoRoute(path: kCartView, builder: (context, state) => const CartView()),
+      GoRoute(
+        path: kWishlist,
+        builder: (context, state) => const WishlistView(),
+      ),
     ],
   );
 }
