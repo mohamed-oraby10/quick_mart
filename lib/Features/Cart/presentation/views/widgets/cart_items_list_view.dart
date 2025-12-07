@@ -15,7 +15,7 @@ class CartItemsListView extends StatelessWidget {
         padding: EdgeInsets.zero,
         physics: BouncingScrollPhysics(),
         itemBuilder: (context, index) {
-          return CartItem();
+          return CartItem(isWishlist: false,);
         },
       ),
     );

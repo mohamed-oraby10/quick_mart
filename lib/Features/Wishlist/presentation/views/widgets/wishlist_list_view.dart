@@ -12,7 +12,7 @@ class WishlistListView extends StatelessWidget {
         itemCount: 2,
         physics: BouncingScrollPhysics(),
         itemBuilder: (context, index) {
-          return CartItem();
+          return CartItem(isWishlist: true);
         },
       ),
     );
