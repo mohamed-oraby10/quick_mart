@@ -13,8 +13,8 @@ class OrderInfoSection extends StatelessWidget {
       children: [
         Text('Order Info', style: Styles.body1Medium),
         SizedBox(height: 12.h),
-        OrderInfoRow(title: 'Subtotal', count: 27.25),
-        OrderInfoRow(title: 'Shipping Cost', count: 0.00),
+        OrderInfoRow(title: 'Subtotal', value: '\$03.00'),
+        OrderInfoRow(title: 'Shipping Cost', value: '\$03.00'),
         Padding(
           padding: EdgeInsets.only(bottom: 17.h),
           child: Row(

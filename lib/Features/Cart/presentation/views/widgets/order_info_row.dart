@@ -4,9 +4,8 @@ import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class OrderInfoRow extends StatelessWidget {
-  const OrderInfoRow({super.key, required this.title, required this.count});
-  final String title;
-  final double count;
+  const OrderInfoRow({super.key, required this.title, required this.value});
+  final String title, value;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,13 +14,13 @@ class OrderInfoRow extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-           title,
+            title,
             style: Styles.captionRegular.copyWith(
               color: context.customColors.secondaryColor,
             ),
           ),
           Text(
-           '\$$count',
+            value,
             style: Styles.captionRegular.copyWith(
               color: context.customColors.secondaryColor,
             ),
