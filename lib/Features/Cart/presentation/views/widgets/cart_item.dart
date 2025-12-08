@@ -5,8 +5,10 @@ import 'package:quick_mart/Features/Cart/presentation/views/widgets/cart_product
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/cart_product_image.dart';
 
 class CartItem extends StatelessWidget {
-  const CartItem({super.key, required this.isWishlist});
+  const CartItem({super.key, required this.isWishlist, required this.isOrderView});
   final bool isWishlist;
+    final bool isOrderView;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,7 +18,7 @@ class CartItem extends StatelessWidget {
           CartProductImage(),
           SizedBox(width: 8.w),
           Expanded(child: CartProductDetails(isWishlist: isWishlist)),
-          CartItemDelete(isWishlist: isWishlist),
+          CartItemDelete(isWishlist: isWishlist, isOrderView: isOrderView,),
         ],
       ),
     );
