@@ -13,4 +13,6 @@ class AssetsData {
   static const splashLogo = 'assets/images/Vector.svg';
   static const logoIcon = 'assets/images/Vector-1.svg';
   static const passwordVerify = 'assets/images/Frame 106.svg';
+  static const paypal = 'assets/images/Group 1.svg';
+  static const googlePay = 'assets/images/Group 2.svg';
 }
