@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quick_mart/Features/Checkout/presentation/views/widgets/checkout_stepper.dart';
-import 'package:quick_mart/core/widgets/custom_app_bar.dart';
+import 'package:go_router/go_router.dart';
+import 'package:quick_mart/Features/Checkout/presentation/views/widgets/checkout_stepper_section.dart';
+import 'package:quick_mart/core/utils/app_routes.dart';
+import 'package:quick_mart/core/widgets/app_text_field.dart';
+import 'package:quick_mart/core/widgets/main_button.dart';
 
 class CheckoutViewBody extends StatelessWidget {
   const CheckoutViewBody({super.key});
@@ -13,10 +16,15 @@ class CheckoutViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 44.h,),
-          CustomAppBar(text: 'Checkout'),
-          SizedBox(height: 12.h,),
-          CheckoutStepper()
+          CheckoutStepperSection(),
+          AppTextField(hint: 'Enter full name', text: 'Full Name'),
+          AppTextField(hint: 'Enter street address', text: 'Street Address'),
+          MainButton(
+            text: 'Save',
+            onTap: () {
+              GoRouter.of(context).push(AppRoutes.kCheckoutPaymentBody);
+            },
+          ),
         ],
       ),
     );

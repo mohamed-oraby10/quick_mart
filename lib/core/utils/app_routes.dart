@@ -9,6 +9,7 @@ import 'package:quick_mart/Features/Auth/presentation/views/widgets/verify_email
 import 'package:quick_mart/Features/Cart/presentation/views/cart_view.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/product_details_view.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/checkout_view.dart';
+import 'package:quick_mart/Features/Checkout/presentation/views/widgets/checkout_payment_body.dart';
 import 'package:quick_mart/Features/Home/presentation/views/categories_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/exclusive_sales_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/home_view.dart';
@@ -39,6 +40,7 @@ class AppRoutes {
   static const kCartView = '/cartView';
   static const kWishlist = '/wishlist';
   static const kCheckoutView = '/checkoutView';
+  static const kCheckoutPaymentBody = '/checkoutPaymentBody';
 
   static final router = GoRouter(
     initialLocation: '/',
@@ -106,6 +108,10 @@ class AppRoutes {
       GoRoute(
         path: kCheckoutView,
         builder: (context, state) => const CheckoutView(),
+      ),
+      GoRoute(
+        path: kCheckoutPaymentBody,
+        builder: (context, state) => const CheckoutPaymentBody(),
       ),
     ],
   );
