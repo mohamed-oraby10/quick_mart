@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart/Features/Profile/presentation/views/widgets/profile_info_column.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
-import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class ProfileContainer extends StatelessWidget {
@@ -21,16 +21,7 @@ class ProfileContainer extends StatelessWidget {
             topRight: Radius.circular(24.r),
           ),
         ),
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 24.h),
-              Text('Personal Information', style: Styles.captionSemiBold),
-            ],
-          ),
-        ),
+        child: ProfileInfoColumn(),
       ),
     );
   }

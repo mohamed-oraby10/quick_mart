@@ -7,33 +7,6 @@ class ProfileViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ProfileDetails(),
-
-
-        // Row(
-        //   children: [
-        //     Icon(
-        //       Iconsax.mobile_outline,
-        //       size: 24.sp,
-        //       color: context.customColors.secondaryColor,
-        //     ),
-        //     Padding(
-        //       padding: EdgeInsets.symmetric(horizontal: 12.w),
-        //       child: Text(
-        //         'Dark Theme',
-        //         style: Styles.body2Medium.copyWith(
-        //           color: context.customColors.secondaryColor,
-        //         ),
-        //       ),
-        //     ),
-        //     Spacer(),
-        //     ModeSwitcher(),
-        //   ],
-        // ),
-        ProfileContainer(),
-      ],
-    );
+    return Column(children: [ProfileDetails(), ProfileContainer()]);
   }
 }
