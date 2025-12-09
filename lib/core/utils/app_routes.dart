@@ -20,7 +20,9 @@ import 'package:quick_mart/Features/Home/presentation/views/products_search_view
 import 'package:quick_mart/Features/Home/presentation/views/products_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/sub_category_view.dart';
 import 'package:quick_mart/Features/Onboarding/presentation/views/onboarding_view.dart';
-import 'package:quick_mart/Features/Profile/presentation/profile_view.dart';
+import 'package:quick_mart/Features/Profile/presentation/views/payment_method_view.dart';
+import 'package:quick_mart/Features/Profile/presentation/views/profile_view.dart';
+import 'package:quick_mart/Features/Profile/presentation/views/shipping_address_view.dart';
 import 'package:quick_mart/Features/Splash/presentation/views/splash_view.dart';
 import 'package:quick_mart/Features/Wishlist/presentation/views/wishlist_view.dart';
 
@@ -49,6 +51,8 @@ class AppRoutes {
   static const kOrderItemsView = '/orderItemsView';
   static const kOrderPlaceSuccessfullyView = '/orderPlaceSuccessfullyView';
   static const kProfileView = '/profileView';
+  static const kShippingAddressView = '/shippingAddressView';
+  static const kPaymentMethodView = '/paymentMethodView';
 
   static final router = GoRouter(
     initialLocation: '/',
@@ -136,6 +140,14 @@ class AppRoutes {
       GoRoute(
         path: kProfileView,
         builder: (context, state) => const ProfileView(),
+      ),
+      GoRoute(
+        path: kShippingAddressView,
+        builder: (context, state) => const ShippingAddressView(),
+      ),
+      GoRoute(
+        path: kPaymentMethodView,
+        builder: (context, state) => const PaymentMethodView(),
       ),
     ],
   );
