@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
+import 'package:quick_mart/core/utils/assets_data.dart';
 
 class ProfileImage extends StatelessWidget {
   const ProfileImage({super.key});
@@ -10,7 +12,11 @@ class ProfileImage extends StatelessWidget {
     return Container(
       height: 40.h,
       width: 40.w,
-      decoration: BoxDecoration(color: AppColors.grey100,borderRadius: BorderRadius.circular(8.r)),
+      decoration: BoxDecoration(
+        color: AppColors.grey100,
+        borderRadius: BorderRadius.circular(8.r),
+      ),
+      child: SvgPicture.asset(AssetsData.logoIcon),
     );
   }
 }

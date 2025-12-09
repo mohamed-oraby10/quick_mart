@@ -10,26 +10,29 @@ class ProfileDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        ProfileImage(),
-        SizedBox(width: 8.w),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Ahmed Raza',
-              style: Styles.button1.copyWith(color: AppColors.brandWhite),
-            ),
-            Text(
-              'ahmedraza@gmail.com',
-              style: Styles.button2.copyWith(color: AppColors.brandWhite),
-            ),
-          ],
-        ),
-        Spacer(),
-        LogoutButton(),
-      ],
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+      child: Row(
+        children: [
+          ProfileImage(),
+          SizedBox(width: 8.w),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Ahmed Raza',
+                style: Styles.button1.copyWith(color: AppColors.brandWhite),
+              ),
+              Text(
+                'ahmedraza@gmail.com',
+                style: Styles.button2.copyWith(color: AppColors.brandWhite),
+              ),
+            ],
+          ),
+          Spacer(),
+          LogoutButton(),
+        ],
+      ),
     );
   }
 }
