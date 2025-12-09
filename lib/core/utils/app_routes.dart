@@ -20,6 +20,7 @@ import 'package:quick_mart/Features/Home/presentation/views/products_search_view
 import 'package:quick_mart/Features/Home/presentation/views/products_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/sub_category_view.dart';
 import 'package:quick_mart/Features/Onboarding/presentation/views/onboarding_view.dart';
+import 'package:quick_mart/Features/Profile/presentation/profile_view.dart';
 import 'package:quick_mart/Features/Splash/presentation/views/splash_view.dart';
 import 'package:quick_mart/Features/Wishlist/presentation/views/wishlist_view.dart';
 
@@ -47,6 +48,7 @@ class AppRoutes {
   static const kCheckoutReviewBody = '/checkoutReviewBody';
   static const kOrderItemsView = '/orderItemsView';
   static const kOrderPlaceSuccessfullyView = '/orderPlaceSuccessfullyView';
+  static const kProfileView = '/profileView';
 
   static final router = GoRouter(
     initialLocation: '/',
@@ -130,6 +132,10 @@ class AppRoutes {
       GoRoute(
         path: kOrderPlaceSuccessfullyView,
         builder: (context, state) => const OrderPlaceSuccessfullyView(),
+      ),
+      GoRoute(
+        path: kProfileView,
+        builder: (context, state) => const ProfileView(),
       ),
     ],
   );

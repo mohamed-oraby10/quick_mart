@@ -10,7 +10,7 @@ class AppBottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int currentIndex = 2;
+    int currentIndex = 4;
     return Container(
       decoration: BoxDecoration(
         border: Border(
@@ -19,7 +19,7 @@ class AppBottomNavigationBar extends StatelessWidget {
       ),
       child: BottomNavigationBar(
         onTap: (currentIndex) {
-          GoRouter.of(context).push(AppRoutes.kWishlist);
+          GoRouter.of(context).push(AppRoutes.kProfileView);
         },
         currentIndex: currentIndex,
         type: BottomNavigationBarType.fixed,
