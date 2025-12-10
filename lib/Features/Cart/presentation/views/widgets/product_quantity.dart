@@ -10,36 +10,38 @@ class ProductQuantity extends StatelessWidget {
   final bool isWishlist;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 98.w,
-      decoration: BoxDecoration(
-        border: Border.all(color: context.customColors.buttonColor),
-        borderRadius: BorderRadius.circular(8.r),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          IconButton(
-            padding: EdgeInsets.zero,
-            onPressed: null,
-            disabledColor: AppColors.grey100,
-            icon: Icon(
-              Iconsax.minus_outline,
-              size: 24.sp,
-              color: context.customColors.modeColor,
+    return IntrinsicWidth(
+      child: Container(
+        padding: EdgeInsets.all(4.r),
+        decoration: BoxDecoration(
+          border: Border.all(color: context.customColors.buttonColor),
+          borderRadius: BorderRadius.circular(8.r),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+              padding: EdgeInsets.zero,
+              onPressed: null,
+              disabledColor: AppColors.grey100,
+              icon: Icon(
+                Iconsax.minus_outline,
+                size: 24.sp,
+                color: context.customColors.modeColor,
+              ),
             ),
-          ),
-          Text('0', style: Styles.body1Medium),
-          IconButton(
-            disabledColor: AppColors.grey100,
-            onPressed: isWishlist ? null : () {},
-            icon: Icon(
-              Iconsax.add_outline,
-              size: 24.sp,
-              color: context.customColors.modeColor,
+            Text('0', style: Styles.body1Medium),
+            IconButton(
+              disabledColor: AppColors.grey100,
+              onPressed: isWishlist ? null : () {},
+              icon: Icon(
+                Iconsax.add_outline,
+                size: 24.sp,
+                color: context.customColors.modeColor,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

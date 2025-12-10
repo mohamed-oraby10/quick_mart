@@ -16,7 +16,7 @@ class ProductImage extends StatelessWidget {
           height: 138.h,
           decoration: BoxDecoration(
             color: AppColors.grey100,
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.circular(24.r),
           ),
           child: SvgPicture.asset(
             'assets/images/Vector.svg',

@@ -18,6 +18,7 @@ ThemeData getLightTheme() {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
+        side: BorderSide(color: AppColors.greyLight50),
         backgroundColor: AppColors.brandButton,
         foregroundColor: AppColors.brandButtonText,
         disabledBackgroundColor: AppColors.greyLight50,

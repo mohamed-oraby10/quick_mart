@@ -16,7 +16,7 @@ class ExclusiveSalesContainer extends StatelessWidget {
           width: double.infinity,
           height: 148.h,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.circular(24.r),
             color: Colors.grey,
           ),
           child: Image.asset('assets/images/Banner.png', fit: BoxFit.fill),

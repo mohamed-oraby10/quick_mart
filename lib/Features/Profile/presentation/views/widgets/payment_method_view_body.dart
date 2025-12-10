@@ -19,7 +19,6 @@ class PaymentMethodViewBody extends StatelessWidget {
         children: [
           SizedBox(height: 10.h),
           CustomAppBar(text: 'Payment Method'),
-          SizedBox(height: 12.h),
           PaymentMethodsRow(),
           SizedBox(height: 24.h),
           CardDetails(),

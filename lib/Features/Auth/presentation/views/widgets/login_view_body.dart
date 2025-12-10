@@ -9,19 +9,21 @@ class LoginViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          AuthTextSection(
-            title: 'Login',
-            desc: 'Don’t have an account?',
-            loginText: 'Signup',
-            onTap: () => GoRouter.of(context).pop(),
-          ),
-          LoginSection(),
-        ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AuthTextSection(
+              title: 'Login',
+              desc: 'Don’t have an account?',
+              loginText: 'Signup',
+              onTap: () => GoRouter.of(context).pop(),
+            ),
+            LoginSection(),
+          ],
+        ),
       ),
     );
   }

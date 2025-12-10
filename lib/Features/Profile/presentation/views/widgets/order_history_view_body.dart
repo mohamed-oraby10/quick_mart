@@ -17,7 +17,6 @@ class OrderHistoryViewBody extends StatelessWidget {
         children: [
           SizedBox(height: 10.h),
           CustomAppBar(text: 'Order History'),
-          SizedBox(height: 8.h),
           OrderViewButtonSection(),
           SizedBox(height: 28.h),
           Expanded(

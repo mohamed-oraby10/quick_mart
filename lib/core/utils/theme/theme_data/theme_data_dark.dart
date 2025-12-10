@@ -18,9 +18,10 @@ ThemeData getDarkTheme() {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
+        side: BorderSide(color: AppColors.greyDark50),
         backgroundColor: AppColors.brandCyan,
         foregroundColor: AppColors.brandButtonText,
-        disabledBackgroundColor: AppColors.greyDark50,
+        disabledBackgroundColor: AppColors.brandBlack,
         disabledForegroundColor: AppColors.brandCyan,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.r),
@@ -47,7 +48,6 @@ ThemeData getDarkTheme() {
       filled: true,
       hintStyle: Styles.captionRegular.copyWith(color: AppColors.grey100),
     ),
-    // iconTheme: IconThemeData(color: AppColors.greyDark150, size: 24.sp),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: AppColors.brandBlack,
       elevation: 0,

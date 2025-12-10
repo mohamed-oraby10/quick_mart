@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
+import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class GoogleButton extends StatelessWidget {
   const GoogleButton({super.key, required this.text});
@@ -9,7 +10,13 @@ class GoogleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: null,
+      style: ElevatedButton.styleFrom(
+        side: BorderSide(color: context.customColors.buttonColor),
+        backgroundColor: context.isDarkMode
+            ? AppColors.brandBlack
+            : AppColors.brandWhite,
+      ),
+      onPressed: () {},
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

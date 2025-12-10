@@ -15,7 +15,6 @@ class ExclusiveSalesViewBody extends StatelessWidget {
         children: [
           SizedBox(height: 44.h),
           ProductsListAppBar(title: 'Exclusive Sales'),
-          SizedBox(height: 10.h),
           Expanded(child: ProductsGridView()),
         ],
       ),

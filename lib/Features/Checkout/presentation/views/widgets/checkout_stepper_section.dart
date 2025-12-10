@@ -13,7 +13,6 @@ class CheckoutStepperSection extends StatelessWidget {
       children: [
         SizedBox(height: 44.h),
         CustomAppBar(text: 'Checkout'),
-        SizedBox(height: 12.h),
         CheckoutStepper(),
         SizedBox(height: 24.h),
       ],

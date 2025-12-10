@@ -15,7 +15,7 @@ class PageIndicator extends StatelessWidget {
       height: 16.h,
       decoration: BoxDecoration(
         color: context.customColors.cardColor,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(12.r),
       ),
       child: Center(
         child: SmoothPageIndicator(

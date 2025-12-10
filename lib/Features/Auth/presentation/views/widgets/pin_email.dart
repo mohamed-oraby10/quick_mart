@@ -26,7 +26,7 @@ class PinEmail extends StatelessWidget {
                   : AppColors.greyLight50,
               width: 2.w,
             ),
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.r),
           ),
         ),
         focusedPinTheme: PinTheme(
@@ -36,7 +36,7 @@ class PinEmail extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 8.w),
           decoration: BoxDecoration(
             border: Border.all(color: AppColors.brandCyan, width: 2.w),
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.r),
           ),
         ),
       ),
