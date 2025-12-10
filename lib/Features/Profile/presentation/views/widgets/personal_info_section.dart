@@ -27,7 +27,8 @@ class PersonalInformationSection extends StatelessWidget {
           title: 'Payment Method',
           onTap: () => GoRouter.of(context).push(AppRoutes.kPaymentMethodView),
         ),
-        ProfileItem(icon: Iconsax.receipt_edit_outline, title: 'Order History'),
+        ProfileItem(icon: Iconsax.receipt_edit_outline, title: 'Order History',          onTap: () => GoRouter.of(context).push(AppRoutes.kOrderHistoryView),
+),
       ],
     );
   }
