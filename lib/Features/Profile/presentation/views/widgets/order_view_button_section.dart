@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quick_mart/Features/Profile/presentation/views/widgets/order_view_button.dart';
+import 'package:quick_mart/core/utils/app_colors.dart';
+import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class OrderViewButtonSection extends StatelessWidget {
@@ -15,13 +16,23 @@ class OrderViewButtonSection extends StatelessWidget {
         color: context.customColors.buttonColor,
         borderRadius: BorderRadius.circular(12.r),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          OrderViewButton(text: 'Ongoing', onTap: () {}),
-          SizedBox(width: 8.w),
-          OrderViewButton(text: 'Completed'),
-        ],
+      child: Padding(
+        padding: EdgeInsets.all(4.r),
+        child: TabBar(
+          dividerColor: Colors.transparent,
+          padding: EdgeInsets.zero,
+          indicator: BoxDecoration(
+            color: AppColors.brandBlack,
+            borderRadius: BorderRadius.circular(12.r),
+          ),
+          indicatorSize: TabBarIndicatorSize.tab,
+          labelColor: AppColors.brandWhite,
+          unselectedLabelColor: context.customColors.modeColor,
+          tabs: [
+            Text('Ongoing', style: Styles.button2),
+            Text('Completed', style: Styles.button2),
+          ],
+        ),
       ),
     );
   }

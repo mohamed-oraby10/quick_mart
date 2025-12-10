@@ -6,15 +6,13 @@ class OngoingOrdersListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        padding: EdgeInsets.zero,
-        physics: BouncingScrollPhysics(),
-        itemCount: 2,
-        itemBuilder: (context, index) {
-          return OngoingOrderItem();
-        },
-      ),
+    return ListView.builder(
+      padding: EdgeInsets.zero,
+      physics: BouncingScrollPhysics(),
+      itemCount: 2,
+      itemBuilder: (context, index) {
+        return OngoingOrderItem();
+      },
     );
   }
 }
