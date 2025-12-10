@@ -20,9 +20,11 @@ import 'package:quick_mart/Features/Home/presentation/views/products_search_view
 import 'package:quick_mart/Features/Home/presentation/views/products_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/sub_category_view.dart';
 import 'package:quick_mart/Features/Onboarding/presentation/views/onboarding_view.dart';
+import 'package:quick_mart/Features/Profile/presentation/views/change_password_view.dart';
 import 'package:quick_mart/Features/Profile/presentation/views/payment_method_view.dart';
 import 'package:quick_mart/Features/Profile/presentation/views/profile_view.dart';
 import 'package:quick_mart/Features/Profile/presentation/views/shipping_address_view.dart';
+import 'package:quick_mart/Features/Profile/presentation/views/widgets/new_password_view_body.dart';
 import 'package:quick_mart/Features/Splash/presentation/views/splash_view.dart';
 import 'package:quick_mart/Features/Wishlist/presentation/views/wishlist_view.dart';
 
@@ -53,6 +55,8 @@ class AppRoutes {
   static const kProfileView = '/profileView';
   static const kShippingAddressView = '/shippingAddressView';
   static const kPaymentMethodView = '/paymentMethodView';
+  static const kChangePasswordView = '/changePasswordView';
+  static const kNewPasswordViewBody = '/newPasswordViewBody';
 
   static final router = GoRouter(
     initialLocation: '/',
@@ -148,6 +152,14 @@ class AppRoutes {
       GoRoute(
         path: kPaymentMethodView,
         builder: (context, state) => const PaymentMethodView(),
+      ),
+      GoRoute(
+        path: kChangePasswordView,
+        builder: (context, state) => const ChangePasswordView(),
+      ),
+      GoRoute(
+        path: kNewPasswordViewBody,
+        builder: (context, state) => const NewPasswordViewBody(),
       ),
     ],
   );

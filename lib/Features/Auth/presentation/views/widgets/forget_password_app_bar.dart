@@ -6,9 +6,10 @@ import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 import 'package:quick_mart/core/widgets/arrow_left_icon.dart';
 
 class ForgetPasswordAppBar extends StatelessWidget {
-  const ForgetPasswordAppBar({super.key, required this.text, this.title});
+  const ForgetPasswordAppBar({super.key, required this.text, this.title, this.count});
   final String text;
   final String? title;
+  final String? count;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,11 +23,11 @@ class ForgetPasswordAppBar extends StatelessWidget {
           text: TextSpan(
             text: text,
             style: Styles.body2Medium.copyWith(
-              color: context.customColors.modeColor
+              color: context.customColors.modeColor,
             ),
             children: [
               TextSpan(
-                text: '03',
+                text: count ?? '03',
                 style: Styles.body2Medium.copyWith(color: AppColors.grey100),
               ),
             ],
