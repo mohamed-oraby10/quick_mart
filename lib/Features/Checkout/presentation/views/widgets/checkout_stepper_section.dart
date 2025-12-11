@@ -4,7 +4,8 @@ import 'package:quick_mart/Features/Checkout/presentation/views/widgets/checkout
 import 'package:quick_mart/core/widgets/custom_app_bar.dart';
 
 class CheckoutStepperSection extends StatelessWidget {
-  const CheckoutStepperSection({super.key});
+  const CheckoutStepperSection({super.key, this.isShipping =false, this.isPayment =false, this.isReview =false});
+  final bool isShipping, isPayment, isReview;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class CheckoutStepperSection extends StatelessWidget {
       children: [
         SizedBox(height: 44.h),
         CustomAppBar(text: 'Checkout'),
-        CheckoutStepper(),
+        CheckoutStepper(isShipping: isShipping, isPayment: isPayment, isReview: isReview,),
         SizedBox(height: 24.h),
       ],
     );

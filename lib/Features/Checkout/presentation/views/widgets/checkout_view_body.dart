@@ -20,14 +20,14 @@ class CheckoutViewBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CheckoutStepperSection(),
+            CheckoutStepperSection(isShipping: true,),
             AppTextField(hint: 'Enter full name', text: 'Full Name'),
+               Text('Phone Number', style: Styles.body2Medium),
+            SizedBox(height: 8.h),
+            PhoneNumberTextField(),
             AppTextField(hint: 'Enter street address', text: 'Street Address'),
             ShippingOrderDetailsRow(),
             AppTextField(hint: 'Enter City', text: 'City'),
-            Text('Phone Number', style: Styles.body2Medium),
-            SizedBox(height: 8.h),
-            PhoneNumberTextField(),
             SizedBox(height: 12.h),
             MainButton(
               text: 'Save',
