@@ -5,12 +5,62 @@ import 'package:icons_plus/icons_plus.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
-class AppBottomNavigationBar extends StatelessWidget {
+class AppBottomNavigationBar extends StatefulWidget {
   const AppBottomNavigationBar({super.key});
 
   @override
+  State<AppBottomNavigationBar> createState() => _AppBottomNavigationBarState();
+}
+
+class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
+  late int currentIndex;
+  final List<String> routes = [
+    AppRoutes.kHomeView,
+    AppRoutes.kCategoriesView,
+    AppRoutes.kCartView,
+    AppRoutes.kWishlist,
+    AppRoutes.kProfileView,
+  ];
+  final List<Map<String, dynamic>> itemsData = [
+    {
+      'label': 'Home',
+      'icon': Iconsax.home_2_outline,
+      'activeIcon': Iconsax.home_2_bold,
+    },
+    {
+      'label': 'Categories',
+      'icon': Iconsax.category_2_outline,
+      'activeIcon': Iconsax.category_2_bold,
+    },
+    {
+      'label': 'My Cart',
+      'icon': Iconsax.shopping_cart_outline,
+      'activeIcon': Iconsax.shopping_cart_bold,
+    },
+    {
+      'label': 'Wishlist',
+      'icon': Iconsax.heart_outline,
+      'activeIcon': Iconsax.heart_bold,
+    },
+    {
+      'label': 'Profile',
+      'icon': Iconsax.profile_tick_outline,
+      'activeIcon': Iconsax.profile_tick_bold,
+    },
+  ];
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final location = GoRouterState.of(context).uri.toString();
+    setState(() {
+      currentIndex = routes.indexWhere((r) => location.startsWith(r));
+      if (currentIndex == -1) currentIndex = 0;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    int currentIndex = 4;
     return Container(
       decoration: BoxDecoration(
         border: Border(
@@ -18,49 +68,25 @@ class AppBottomNavigationBar extends StatelessWidget {
         ),
       ),
       child: BottomNavigationBar(
-        onTap: (currentIndex) {
-          GoRouter.of(context).push(AppRoutes.kProfileView);
+        onTap: (value) {
+          if (value == currentIndex) return;
+          final targetRoute = routes[value];
+          setState(() {
+            currentIndex = value;
+          });
+          GoRouter.of(context).go(targetRoute);
         },
         currentIndex: currentIndex,
         type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-            label: 'Home',
-            icon: Icon(
-              currentIndex == 0 ? Iconsax.home_2_bold : Iconsax.home_2_outline,
-            ),
-          ),
-          BottomNavigationBarItem(
-            label: 'Categories',
-            icon: Icon(
-              currentIndex == 1
-                  ? Iconsax.category_2_bold
-                  : Iconsax.category_2_outline,
-            ),
-          ),
-          BottomNavigationBarItem(
-            label: 'My Cart',
-            icon: Icon(
-              currentIndex == 2
-                  ? Iconsax.shopping_cart_bold
-                  : Iconsax.shopping_cart_outline,
-            ),
-          ),
-          BottomNavigationBarItem(
-            label: 'Wishlist',
-            icon: Icon(
-              currentIndex == 3 ? Iconsax.heart_bold : Iconsax.heart_outline,
-            ),
-          ),
-          BottomNavigationBarItem(
-            label: 'Profile',
-            icon: Icon(
-              currentIndex == 4
-                  ? Iconsax.profile_tick_bold
-                  : Iconsax.profile_tick_outline,
-            ),
-          ),
-        ],
+        items: List.generate(itemsData.length, (index) {
+          final item = itemsData[index];
+          return BottomNavigationBarItem(
+            icon: currentIndex == index
+                ? Icon(item['activeIcon'])
+                : Icon(item['icon']),
+            label: item['label'],
+          );
+        }),
       ),
     );
   }
