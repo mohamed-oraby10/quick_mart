@@ -2,8 +2,6 @@ import 'package:quick_mart/core/errors/failure.dart';
 
 class AuthFailure extends Failure {
   AuthFailure(super.errMessage);
-  factory AuthFailure.confirmationPassword() =>
-      AuthFailure('Confirmed password does not match');
 
   factory AuthFailure.weakPassword() =>
       AuthFailure('The password provided is too weak.');

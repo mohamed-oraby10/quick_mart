@@ -1,13 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:quick_mart/Features/Auth/data/errors/auth_failure.dart';
+import 'package:quick_mart/Features/Auth/data/models/user_model.dart';
 import 'package:quick_mart/Features/Auth/domain/entities/user_entity.dart';
 import 'package:quick_mart/Features/Auth/domain/repos/auth_repo.dart';
 import 'package:quick_mart/core/errors/failure.dart';
+import 'package:quick_mart/core/utils/constants.dart';
 
 class AuthRepoImpl extends AuthRepo {
-  
   @override
   Future<Either<AuthFailure, void>> loginWithEmailAndPassword({
     required UserEntity userEntity,
@@ -41,11 +43,14 @@ class AuthRepoImpl extends AuthRepo {
   Future<Either<AuthFailure, void>> signupWithEmailAndPassword({
     required UserEntity userEntity,
     required String password,
-  }) async{
-     try {
-       await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: userEntity.userEemail, password: password);
-      // saveUserData(user: user);
+  }) async {
+    try {
+      UserCredential user = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+            email: userEntity.userEemail,
+            password: password,
+          );
+      saveUserData(user: user);
       return right(null);
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
@@ -86,27 +91,42 @@ class AuthRepoImpl extends AuthRepo {
       UserCredential user = await FirebaseAuth.instance.signInWithCredential(
         credential,
       );
-      // saveUserData(user: user);
+      saveUserData(user: user);
       return Right(user);
     } catch (e) {
       return Left(AuthFailure.unKnown());
     }
   }
-  
-    @override
-  Future<Either<Failure, void>> saveUserData() {
-    // TODO: implement saveUserData
-    throw UnimplementedError();
-  }
-  
+
   @override
-  Future<Either<Failure, void>> emailVerification() {
+  Future<Either<AuthFailure, void>> saveUserData({
+    required UserCredential user,
+  }) async {
+    try {
+      final UserModel userModel = UserModel(
+        id: user.user!.uid,
+        email: user.user!.email ?? '',
+        name: user.user!.displayName ?? '',
+        imageUrl: user.user?.photoURL ?? '',
+      );
+      FirebaseFirestore.instance
+          .collection(kUsersCollection)
+          .doc(user.user!.uid)
+          .set(userModel.toJson(), SetOptions(merge: true));
+      return right(null);
+    } catch (e) {
+      return left(AuthFailure.unKnown());
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, void>> emailVerification() {
     // TODO: implement emailVerification
     throw UnimplementedError();
   }
-  
+
   @override
-  Future<Either<Failure, void>> updatePassword() {
+  Future<Either<AuthFailure, void>> updatePassword() {
     // TODO: implement updatePassword
     throw UnimplementedError();
   }

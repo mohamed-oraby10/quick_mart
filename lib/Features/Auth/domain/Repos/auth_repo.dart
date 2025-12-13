@@ -9,5 +9,5 @@ abstract class AuthRepo {
   Future<Either<Failure, void>> emailVerification();
   Future<Either<Failure, void>> loginWithEmailAndPassword({required UserEntity userEntity,required String password});
   Future<Either<Failure, void>> updatePassword();
-  Future<Either<Failure, void>> saveUserData();
+  Future<Either<Failure, void>> saveUserData({required UserCredential user});
 }
