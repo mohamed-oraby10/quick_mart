@@ -1,7 +1,12 @@
 class UserEntity {
-  final String id;
-  final String name;
-  final String email;
-
-  UserEntity(this.name, this.email, this.id);
+  final String userIdd;
+  final String fullName;
+  final String userEemail;
+  final String? image;
+  UserEntity({
+    required this.fullName,
+    required this.userEemail,
+    required this.userIdd,
+    required this.image,
+  });
 }
