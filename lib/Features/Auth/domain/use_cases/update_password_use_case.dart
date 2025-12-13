@@ -1,16 +1,15 @@
 import 'package:dartz/dartz.dart';
-import 'package:quick_mart/Features/Auth/domain/Entities/user_entity.dart';
 import 'package:quick_mart/Features/Auth/domain/repos/auth_repo.dart';
 import 'package:quick_mart/core/errors/failure.dart';
-import 'package:quick_mart/core/use_cases/use_case.dart';
+import 'package:quick_mart/core/use_cases/no_parameter_use_case.dart';
 
-class UpdatePasswordUseCase extends UseCase<void, UserEntity> {
+class UpdatePasswordUseCase extends NoParameterUseCase<void> {
   final AuthRepo authRepo;
 
   UpdatePasswordUseCase(this.authRepo);
 
   @override
-  Future<Either<Failure, void>> call([UserEntity? user]) async {
+  Future<Either<Failure, void>> call() async {
     return await authRepo.updatePassword();
   }
 }
