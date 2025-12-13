@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,9 +9,11 @@ import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/utils/theme/theme_cubit/theme_cubit.dart';
 import 'package:quick_mart/core/utils/theme/theme_data/theme_data_dark.dart';
 import 'package:quick_mart/core/utils/theme/theme_data/theme_data_light.dart';
+import 'package:quick_mart/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: kIsWeb
         ? HydratedStorageDirectory.web
@@ -39,7 +42,7 @@ class QuickMart extends StatelessWidget {
                 darkTheme: getDarkTheme(),
                 theme: getLightTheme(),
                 themeMode: newMode,
-                routerConfig:  AppRoutes.router,
+                routerConfig: AppRoutes.router,
               );
             },
           );
