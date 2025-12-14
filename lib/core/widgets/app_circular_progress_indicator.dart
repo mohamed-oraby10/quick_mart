@@ -8,9 +8,11 @@ class AppCircularProgressIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoActivityIndicator(
-      color: context.isDarkMode ? AppColors.brandCyan : AppColors.brandBlack,
-      radius: 14.r,
+    return Center(
+      child: CupertinoActivityIndicator(
+        color: context.isDarkMode ? AppColors.brandCyan : AppColors.brandBlack,
+        radius: 14.r,
+      ),
     );
   }
 }
