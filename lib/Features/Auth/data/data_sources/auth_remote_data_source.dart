@@ -20,7 +20,7 @@ abstract class AuthRemoteDataSource {
   Future<void> saveUserData({required UserCredential user});
 }
 
-class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
+class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
   @override
   Future<void> loginWithEmailAndPassword({

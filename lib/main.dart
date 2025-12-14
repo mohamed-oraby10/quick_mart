@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
+import 'package:quick_mart/core/utils/functions/setup_service_locator.dart';
 import 'package:quick_mart/core/utils/theme/theme_cubit/theme_cubit.dart';
 import 'package:quick_mart/core/utils/theme/theme_data/theme_data_dark.dart';
 import 'package:quick_mart/core/utils/theme/theme_data/theme_data_light.dart';
@@ -19,6 +20,7 @@ void main() async {
         ? HydratedStorageDirectory.web
         : HydratedStorageDirectory((await getTemporaryDirectory()).path),
   );
+  setupServiceLocator();
   runApp(const QuickMart());
 }
 
