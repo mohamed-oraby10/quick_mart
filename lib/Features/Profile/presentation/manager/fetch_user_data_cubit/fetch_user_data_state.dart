@@ -13,4 +13,8 @@ final class FetchUserDataFailure extends FetchUserDataState {
   FetchUserDataFailure(this.errMessage);
 }
 
-final class FetchUserDataSuccess extends FetchUserDataState {}
+final class FetchUserDataSuccess extends FetchUserDataState {
+  final UserEntity user;
+
+  FetchUserDataSuccess(this.user);
+}
