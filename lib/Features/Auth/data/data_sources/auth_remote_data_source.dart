@@ -21,11 +21,6 @@ abstract class AuthRemoteDataSource {
 }
 
 class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
-  @override
-  Future<void> emailVerification() {
-    // TODO: implement emailVerification
-    throw UnimplementedError();
-  }
 
   @override
   Future<void> loginWithEmailAndPassword({
@@ -90,6 +85,12 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
     } on FirebaseAuthException catch (e) {
       throw e;
     }
+  }
+
+   @override
+  Future<void> emailVerification() {
+    // TODO: implement emailVerification
+    throw UnimplementedError();
   }
 
   @override

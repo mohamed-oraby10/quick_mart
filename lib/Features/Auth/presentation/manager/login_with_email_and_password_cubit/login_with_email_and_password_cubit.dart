@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:quick_mart/Features/Auth/domain/params/login_params.dart';
 import 'package:quick_mart/Features/Auth/domain/use_cases/login_with_email_and_password_use_case.dart';
 
 part 'login_with_email_and_password_state.dart';
@@ -11,9 +12,14 @@ class LoginWithEmailAndPasswordCubit
 
   final LoginWithEmailAndPasswordUseCase loginWithEmailAndPasswordUseCase;
 
-  Future<void> loginWithEmailAndPassword() async {
+  Future<void> loginWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
     emit(LoginWithEmailAndPasswordLoading());
-    var result = await loginWithEmailAndPasswordUseCase.call();
+    var result = await loginWithEmailAndPasswordUseCase.call(
+      LoginParams(email: email, password: password),
+    );
     result.fold(
       (failure) => emit(LoginWithEmailAndPasswordFailure(failure.errMessage)),
       (_) => emit(LoginWithEmailAndPasswordSuccess()),

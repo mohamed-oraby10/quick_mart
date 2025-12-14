@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:quick_mart/Features/Auth/data/data_sources/auth_remote_data_source.dart';
 import 'package:quick_mart/Features/Auth/data/errors/auth_failure.dart';
-import 'package:quick_mart/Features/Auth/domain/entities/user_entity.dart';
 import 'package:quick_mart/Features/Auth/domain/repos/auth_repo.dart';
 
 class AuthRepoImpl extends AuthRepo {
@@ -12,12 +11,12 @@ class AuthRepoImpl extends AuthRepo {
 
   @override
   Future<Either<AuthFailure, void>> loginWithEmailAndPassword({
-    required UserEntity userEntity,
+    required String email,
     required String password,
   }) async {
     try {
       await authRemoteDataSource.loginWithEmailAndPassword(
-        email: userEntity.userEemail,
+        email: email,
         password: password,
       );
       return right(null);
@@ -35,14 +34,15 @@ class AuthRepoImpl extends AuthRepo {
       return Left(AuthFailure.unKnown());
     }
   }
+
   @override
   Future<Either<AuthFailure, void>> signupWithEmailAndPassword({
-    required UserEntity userEntity,
+    required String email,
     required String password,
   }) async {
     try {
       await authRemoteDataSource.signupWithEmailAndPassword(
-        email: userEntity.userEemail,
+        email: email,
         password: password,
       );
       return right(null);
