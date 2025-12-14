@@ -1,4 +1,4 @@
-import 'package:quick_mart/Features/Auth/domain/entities/user_entity.dart';
+import 'package:quick_mart/Features/Profile/domain/entities/user_entity.dart';
 
 class UserModel extends UserEntity {
   final String id;

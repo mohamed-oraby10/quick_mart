@@ -18,10 +18,10 @@ abstract class AuthRemoteDataSource {
   });
   Future<void> updatePassword();
   Future<void> saveUserData({required UserCredential user});
+  Future<UserModel> fetchUserData();
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
-
   @override
   Future<void> loginWithEmailAndPassword({
     required String email,
@@ -39,8 +39,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
   @override
   Future<UserCredential> loginWithGoogle() async {
-    final GoogleSignIn googleSignIn = GoogleSignIn();
-    await googleSignIn.signOut();
+    // final GoogleSignIn googleSignIn = GoogleSignIn();
+    // await googleSignIn.signOut();
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
     final GoogleSignInAuthentication? googleAuth =
         await googleUser?.authentication;
@@ -87,7 +87,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     }
   }
 
-   @override
+  @override
   Future<void> emailVerification() {
     // TODO: implement emailVerification
     throw UnimplementedError();
@@ -97,5 +97,20 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   Future<void> updatePassword() {
     // TODO: implement updatePassword
     throw UnimplementedError();
+  }
+
+  @override
+  Future<UserModel> fetchUserData() async {
+    var userCollection = await FirebaseFirestore.instance
+        .collection(kUsersCollection)
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+    var userData = userCollection.data();
+    return UserModel(
+      name: userData?['name'] ?? '',
+      email: userData?['email'] ?? '',
+      id: userData?['id'] ?? '',
+      imageUrl: userData?['image'] ?? '',
+    );
   }
 }

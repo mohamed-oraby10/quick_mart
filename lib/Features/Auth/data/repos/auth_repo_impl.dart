@@ -62,4 +62,5 @@ class AuthRepoImpl extends AuthRepo {
     // TODO: implement emailVerification
     throw UnimplementedError();
   }
+
 }
