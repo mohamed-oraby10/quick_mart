@@ -23,7 +23,10 @@ class ProfileImage extends StatelessWidget {
                 color: AppColors.grey100,
                 borderRadius: BorderRadius.circular(8.r),
               ),
-              child: Image.network(state.user.image ?? ''),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8.r),
+                child: Image.network(state.user.image ?? '', fit: BoxFit.cover),
+              ),
             ),
           );
         } else if (state is FetchUserDataLoading) {

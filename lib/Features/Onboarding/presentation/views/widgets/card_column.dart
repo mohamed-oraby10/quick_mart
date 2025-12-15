@@ -32,7 +32,7 @@ class CardColumn extends StatelessWidget {
                     : CustomTextButton(
                         textButton: 'Skip for now',
                         onTap: () =>
-                            GoRouter.of(context).go(AppRoutes.kLoginView),
+                            GoRouter.of(context).go(AppRoutes.kRegisterView),
                       ),
               ],
             ),

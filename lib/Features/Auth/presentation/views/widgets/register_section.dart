@@ -1,14 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
-import 'package:quick_mart/Features/Auth/presentation/views/widgets/google_button.dart';
+import 'package:quick_mart/Features/Auth/presentation/views/widgets/auth_text_field.dart';
+import 'package:quick_mart/Features/Auth/presentation/views/widgets/register_button_bloc_consumer.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/text_feilds_section.dart';
-import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/utils/styles.dart';
-import 'package:quick_mart/core/widgets/main_button.dart';
 
-class RegisterSection extends StatelessWidget {
-  const RegisterSection({super.key});
+class RegisterSection extends StatefulWidget {
+  const RegisterSection({super.key, required this.formKey});
+  final GlobalKey<FormState> formKey;
+
+  @override
+  State<RegisterSection> createState() => _RegisterSectionState();
+}
+
+class _RegisterSectionState extends State<RegisterSection> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,20 +33,18 @@ class RegisterSection extends StatelessWidget {
       children: [
         Text('Full Name', style: Styles.body2Medium),
         SizedBox(height: 8.h),
-        TextFormField(
-          decoration: InputDecoration(hintText: 'Enter your full name'),
-        ),
+        AuthTextField(hint: 'Enter your full name', controller: nameController),
         SizedBox(height: 16.h),
-        TextFeildsSection(),
+        TextFeildsSection(
+          emailController: emailController,
+          passwordController: passwordController,
+        ),
         SizedBox(height: 24.h),
-        MainButton(
-          text: 'Create Account',
-          onTap: () {
-            GoRouter.of(context).push(AppRoutes.kHomeView);
-          },
+        RegisterButtonBlocConsumer(
+          formKey: widget.formKey,
+          emailController: emailController,
+          passwordController: passwordController,
         ),
-        SizedBox(height: 16.h),
-        GoogleButton(text: 'Signup with Google'),
       ],
     );
   }
