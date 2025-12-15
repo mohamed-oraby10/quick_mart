@@ -1,12 +1,12 @@
-import 'package:quick_mart/Features/Auth/data/models/user_model.dart';
+import 'package:quick_mart/Features/Profile/domain/entities/user_entity.dart';
 
 abstract class ProfileLocalDataSource {
-  UserModel fetchUserData();
+  UserEntity fetchUserData();
 }
 
 class ProfileLocalDataSourceImpl implements ProfileLocalDataSource{
   @override
-  UserModel fetchUserData() {
+  UserEntity fetchUserData() {
     // TODO: implement fetchUserData
     throw UnimplementedError();
   }

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:quick_mart/Features/Auth/data/models/user_model.dart';
 import 'package:quick_mart/core/utils/constants.dart';
+import 'package:quick_mart/core/utils/functions/save_local_user_data.dart';
 
 abstract class ProfileRemoteDataSource {
   Future<UserModel> fetchUserData();
@@ -15,11 +16,13 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .get();
     var userData = userCollection.data();
-    return UserModel(
+    var userModel = UserModel(
       name: userData?['name'] ?? '',
       email: userData?['email'] ?? '',
       id: userData?['id'] ?? '',
       imageUrl: userData?['image'] ?? '',
     );
+    saveLocalUserData(userModel);
+    return userModel;
   }
 }
