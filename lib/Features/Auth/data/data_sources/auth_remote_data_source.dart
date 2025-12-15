@@ -6,7 +6,7 @@ import 'package:quick_mart/Features/Auth/data/models/user_model.dart';
 import 'package:quick_mart/core/utils/constants.dart';
 
 abstract class AuthRemoteDataSource {
-  Future<void> signupWithEmailAndPassword({
+  Future<UserCredential> signupWithEmailAndPassword({
     required String email,
     required String password,
   });
@@ -17,7 +17,8 @@ abstract class AuthRemoteDataSource {
     required String password,
   });
   Future<void> updatePassword();
-  Future<void> saveUserData({required UserCredential user});
+  Future<void> updateUserProfile({required String name, String? imageUrl});
+  Future<void> saveUserData({required UserCredential user,required String name});
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -50,16 +51,16 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     UserCredential user = await FirebaseAuth.instance.signInWithCredential(
       credential,
     );
-    await saveUserData(user: user);
+    await saveUserData(user: user,name: user.user!.displayName ?? '');
     return user;
   }
 
   @override
-  Future<void> saveUserData({required UserCredential user}) async {
+  Future<void> saveUserData({required UserCredential user,required String name}) async {
     final UserModel userModel = UserModel(
       id: user.user!.uid,
       email: user.user!.email ?? '',
-      name: user.user!.displayName ?? '',
+      name:  name,
       imageUrl: user.user?.photoURL ?? '',
     );
     try {
@@ -73,17 +74,33 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
-  Future<void> signupWithEmailAndPassword({
+  Future<UserCredential> signupWithEmailAndPassword({
     required String email,
     required String password,
   }) async {
     try {
-      UserCredential user = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
-      await saveUserData(user: user);
+      return await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
     } on FirebaseAuthException catch (e) {
       throw e;
     }
+  }
+
+  @override
+  Future<void> updateUserProfile({
+    required String name,
+    String? imageUrl,
+  }) async {
+    final user = FirebaseAuth.instance.currentUser!;
+    await user.updateDisplayName(name);
+
+    if (imageUrl != null && imageUrl.isNotEmpty) {
+      await user.updatePhotoURL(imageUrl);
+    }
+
+    await user.reload();
   }
 
   @override

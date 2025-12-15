@@ -39,12 +39,19 @@ class AuthRepoImpl extends AuthRepo {
   Future<Either<AuthFailure, void>> signupWithEmailAndPassword({
     required String email,
     required String password,
+    required String name,
+    String? imageUrl,
   }) async {
     try {
-      await authRemoteDataSource.signupWithEmailAndPassword(
+      final user = await authRemoteDataSource.signupWithEmailAndPassword(
         email: email,
         password: password,
       );
+      await authRemoteDataSource.updateUserProfile(
+        name: name,
+        imageUrl: imageUrl,
+      );
+      await authRemoteDataSource.saveUserData(user: user, name: name);
       return right(null);
     } on FirebaseAuthException catch (e) {
       return left(AuthFailure.fromFirebase(e.code));
@@ -62,5 +69,4 @@ class AuthRepoImpl extends AuthRepo {
     // TODO: implement emailVerification
     throw UnimplementedError();
   }
-
 }

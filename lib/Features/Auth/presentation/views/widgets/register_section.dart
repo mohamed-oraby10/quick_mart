@@ -44,6 +44,7 @@ class _RegisterSectionState extends State<RegisterSection> {
           formKey: widget.formKey,
           emailController: emailController,
           passwordController: passwordController,
+          nameController: nameController,
         ),
       ],
     );

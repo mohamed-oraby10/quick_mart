@@ -5,6 +5,8 @@ abstract class AuthRepo {
   Future<Either<Failure, void>> signupWithEmailAndPassword({
     required String email,
     required String password,
+    required String name,
+    String? imageUrl,
   });
   Future<Either<Failure, void>> loginWithGoogle();
   Future<Either<Failure, void>> emailVerification();

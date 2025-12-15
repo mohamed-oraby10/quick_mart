@@ -13,10 +13,13 @@ class RegisterButtonBlocConsumer extends StatelessWidget {
     required this.formKey,
     required this.emailController,
     required this.passwordController,
+    required this.nameController,
   });
 
   final GlobalKey<FormState> formKey;
-  final TextEditingController emailController, passwordController;
+  final TextEditingController emailController,
+      passwordController,
+      nameController;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +47,7 @@ class RegisterButtonBlocConsumer extends StatelessWidget {
                 ).signupWithEmailAndPassword(
                   email: emailController.text.trim(),
                   password: passwordController.text.trim(),
+                  name: nameController.text.trim(),
                 );
               }
             },
