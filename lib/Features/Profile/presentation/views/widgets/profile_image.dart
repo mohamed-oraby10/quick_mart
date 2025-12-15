@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:icons_plus/icons_plus.dart';
 import 'package:quick_mart/Features/Profile/presentation/manager/fetch_user_data_cubit/fetch_user_data_cubit.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
@@ -25,7 +26,9 @@ class ProfileImage extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.r),
-                child: Image.network(state.user.image ?? '', fit: BoxFit.cover),
+                child: state.user.image!.isNotEmpty
+                    ? Image.network(state.user.image ?? '', fit: BoxFit.cover)
+                    : Icon(Iconsax.profile_tick_outline, size: 28.sp),
               ),
             ),
           );
