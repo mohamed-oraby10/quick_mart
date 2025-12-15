@@ -7,14 +7,18 @@ import 'package:quick_mart/Features/Profile/domain/repos/profile_repo.dart';
 
 class ProfileRepoImpl extends ProfileRepo {
   final ProfileRemoteDataSource profileRemoteDataSource;
-    final ProfileLocalDataSource profileLocalDataSource;
-
+  final ProfileLocalDataSource profileLocalDataSource;
 
   ProfileRepoImpl(this.profileRemoteDataSource, this.profileLocalDataSource);
   @override
   Future<Either<AuthFailure, UserEntity>> fetchUserData() async {
     try {
-      return right(await profileRemoteDataSource.fetchUserData());
+      var cachedUser = profileLocalDataSource.fetchUserData();
+      if (cachedUser != null) {
+        return right(cachedUser);
+      }
+      var user = await profileRemoteDataSource.fetchUserData();
+      return right(user);
     } catch (e) {
       return left(AuthFailure.unKnown());
     }

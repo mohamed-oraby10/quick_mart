@@ -5,10 +5,10 @@ import 'package:quick_mart/core/utils/styles.dart';
 void showErroeSnakBar(context, {required String content}) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      backgroundColor: AppColors.brandCyan,
+      backgroundColor: AppColors.generalRed,
       content: Text(
         content,
-        style: Styles.captionRegular.copyWith(color: AppColors.brandBlack),
+        style: Styles.captionRegular.copyWith(color: AppColors.brandWhite),
       ),
     ),
   );
