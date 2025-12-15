@@ -3,9 +3,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:quick_mart/Features/Profile/domain/entities/user_entity.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
+import 'package:quick_mart/core/utils/constants.dart';
 import 'package:quick_mart/core/utils/functions/setup_service_locator.dart';
 import 'package:quick_mart/core/utils/theme/theme_cubit/theme_cubit.dart';
 import 'package:quick_mart/core/utils/theme/theme_data/theme_data_dark.dart';
@@ -21,6 +24,9 @@ void main() async {
         : HydratedStorageDirectory((await getTemporaryDirectory()).path),
   );
   setupServiceLocator();
+  await Hive.initFlutter();
+  Hive.registerAdapter(UserEntityAdapter());
+  await Hive.openBox<UserEntity>(kUsersBox);
   runApp(const QuickMart());
 }
 
