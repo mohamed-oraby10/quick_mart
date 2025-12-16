@@ -11,14 +11,18 @@ abstract class AuthRemoteDataSource {
     required String password,
   });
   Future<UserCredential> loginWithGoogle();
-  Future<void> emailVerification();
+  Future<void> sendEmailVerification();
+  Future<bool> isEmailVerified();
   Future<void> loginWithEmailAndPassword({
     required String email,
     required String password,
   });
   Future<void> updatePassword();
   Future<void> updateUserProfile({required String name, String? imageUrl});
-  Future<void> saveUserData({required UserCredential user,required String name});
+  Future<void> saveUserData({
+    required UserCredential user,
+    required String name,
+  });
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -51,16 +55,19 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     UserCredential user = await FirebaseAuth.instance.signInWithCredential(
       credential,
     );
-    await saveUserData(user: user,name: user.user!.displayName ?? '');
+    await saveUserData(user: user, name: user.user!.displayName ?? '');
     return user;
   }
 
   @override
-  Future<void> saveUserData({required UserCredential user,required String name}) async {
+  Future<void> saveUserData({
+    required UserCredential user,
+    required String name,
+  }) async {
     final UserModel userModel = UserModel(
       id: user.user!.uid,
       email: user.user!.email ?? '',
-      name:  name,
+      name: name,
       imageUrl: user.user?.photoURL ?? '',
     );
     try {
@@ -104,9 +111,19 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
-  Future<void> emailVerification() {
-    // TODO: implement emailVerification
-    throw UnimplementedError();
+  Future<void> sendEmailVerification() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null && !user.emailVerified) {
+      await user.sendEmailVerification();
+    }
+  }
+
+  @override
+  Future<bool> isEmailVerified() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return false;
+    await user.reload();
+    return user.emailVerified;
   }
 
   @override

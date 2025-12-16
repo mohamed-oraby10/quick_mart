@@ -1,16 +1,19 @@
 part of 'verify_email_cubit.dart';
 
-@immutable
-abstract class ResetPasswordState {}
+abstract class VerifyEmailState {}
 
-class ResetPasswordInitial extends ResetPasswordState {}
+class VerifyEmailInitial extends VerifyEmailState {}
 
-class ResetPasswordSuccess extends ResetPasswordState {}
+class VerifyEmailSuccess extends VerifyEmailState {}
 
-class ResetPasswordFailure extends ResetPasswordState {
+class VerifyEmailFailure extends VerifyEmailState {
   final String errMessage;
 
-  ResetPasswordFailure({required this.errMessage});
+  VerifyEmailFailure({required this.errMessage});
 }
 
-class ResetPasswordLoading extends ResetPasswordState {}
+class VerifyEmailLoading extends VerifyEmailState {}
+
+class EmailVerified extends VerifyEmailState {}
+
+class EmailNotVerified extends VerifyEmailState {}

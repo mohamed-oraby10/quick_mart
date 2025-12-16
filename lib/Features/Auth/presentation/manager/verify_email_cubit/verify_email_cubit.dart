@@ -1,21 +1,39 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quick_mart/Features/Auth/domain/use_cases/check_email_verified_user_case.dart';
 import 'package:quick_mart/Features/Auth/domain/use_cases/email_verification_use_case.dart';
 
 part 'verify_email_state.dart';
+class VerifyEmailCubit extends Cubit<VerifyEmailState> {
+  VerifyEmailCubit(
+    this.sendEmailVerificationUseCase,
+    this.checkEmailVerifiedUseCase,
+  ) : super(VerifyEmailInitial());
 
-class VerifyEmailCubit extends Cubit<ResetPasswordState> {
-  VerifyEmailCubit(this.emailVerificationUseCase) : super(ResetPasswordInitial());
-  final EmailVerificationUseCase emailVerificationUseCase;
-  Future<void> resetPassword({required String email}) async {
-    emit(ResetPasswordLoading());
-    var result = await emailVerificationUseCase.call();
+  final EmailVerificationUseCase sendEmailVerificationUseCase;
+  final CheckEmailVerifiedUseCase checkEmailVerifiedUseCase;
+
+  Future<void> sendEmail() async {
+    emit(VerifyEmailLoading());
+    final result = await sendEmailVerificationUseCase();
     result.fold(
-      (failure) {
-        emit(ResetPasswordFailure(errMessage: failure.errMessage));
-      },
-      (_) {
-        emit(ResetPasswordSuccess());
+      (failure) =>
+          emit(VerifyEmailFailure(errMessage: failure.errMessage)),
+      (_) => emit(VerifyEmailSuccess()),
+    );
+  }
+
+  Future<void> checkEmail() async {
+    emit(VerifyEmailLoading());
+    final result = await checkEmailVerifiedUseCase();
+    result.fold(
+      (failure) =>
+          emit(VerifyEmailFailure(errMessage: failure.errMessage)),
+      (isVerified) {
+        if (isVerified) {
+          emit(EmailVerified());
+        } else {
+          emit(EmailNotVerified());
+        }
       },
     );
   }

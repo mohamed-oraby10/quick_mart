@@ -9,7 +9,8 @@ abstract class AuthRepo {
     String? imageUrl,
   });
   Future<Either<Failure, void>> loginWithGoogle();
-  Future<Either<Failure, void>> emailVerification();
+  Future<Either<Failure, void>> sendEmailVerification();
+  Future<Either<Failure, bool>> checkEmailVerified();
   Future<Either<Failure, void>> loginWithEmailAndPassword({
     required String email,
     required String password,
