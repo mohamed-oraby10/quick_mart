@@ -29,7 +29,7 @@ class RegisterButtonBlocConsumer extends StatelessWidget {
     >(
       listener: (context, state) {
         if (state is SignupWithEmailAndPasswordSuccess) {
-          GoRouter.of(context).go(AppRoutes.kHomeView);
+          GoRouter.of(context).push(AppRoutes.kSuccessfulSentEmailView);
         } else if (state is SignupWithEmailAndPasswordFailure) {
           showErroeSnakBar(context, content: state.errMessage);
         }

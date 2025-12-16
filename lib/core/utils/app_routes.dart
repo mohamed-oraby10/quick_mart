@@ -1,10 +1,10 @@
 import 'package:go_router/go_router.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/confirmation_email_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/create_new_password_view.dart';
-import 'package:quick_mart/Features/Auth/presentation/views/email_verification_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/login_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/register_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/successful_password_view.dart';
+import 'package:quick_mart/Features/Auth/presentation/views/successful_sent_email_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/verify_email.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/cart_view.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/product_details_view.dart';
@@ -34,7 +34,6 @@ class AppRoutes {
   static const kOnboardingView = '/onboardingView';
   static const kLoginView = '/loginView';
   static const kRegisterView = '/registerView';
-  static const kEmailVerificationView = '/emailVerificationView';
   static const kConfirmationEmailView = '/confirmationEmailView';
   static const kVerifyEmail = '/verifyEmail';
   static const kCreateNewPasswordView = '/reateNewPasswordView';
@@ -59,6 +58,7 @@ class AppRoutes {
   static const kChangePasswordView = '/changePasswordView';
   static const kNewPasswordViewBody = '/newPasswordViewBody';
   static const kOrderHistoryView = '/orderHistoryView';
+  static const kSuccessfulSentEmailView = '/successfulSentEmailView';
 
   static final router = GoRouter(
     initialLocation: '/',
@@ -72,10 +72,6 @@ class AppRoutes {
       GoRoute(
         path: kRegisterView,
         builder: (context, state) => const RegisterView(),
-      ),
-      GoRoute(
-        path: kEmailVerificationView,
-        builder: (context, state) => const EmailVerificationView(),
       ),
       GoRoute(
         path: kConfirmationEmailView,
@@ -166,6 +162,10 @@ class AppRoutes {
       GoRoute(
         path: kOrderHistoryView,
         builder: (context, state) => const OrderHistoryView(),
+      ),
+      GoRoute(
+        path: kSuccessfulSentEmailView,
+        builder: (context, state) => const SuccessfulSentEmailView(),
       ),
     ],
   );
