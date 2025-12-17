@@ -12,6 +12,8 @@ class ResendLinkBlocConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<VerifyEmailCubit, VerifyEmailState>(
+      listenWhen: (previous, current) =>
+          current is VerifyEmailFailure || current is VerifyEmailSuccess,
       listener: (context, state) {
         if (state is VerifyEmailFailure) {
           showErroeSnakBar(context, content: state.errMessage);
@@ -22,17 +24,18 @@ class ResendLinkBlocConsumer extends StatelessWidget {
           );
         }
       },
+      buildWhen: (previous, current) =>
+          current is VerifyEmailLoading || current is VerifyEmailInitial,
       builder: (context, state) {
         if (state is VerifyEmailLoading) {
           return AppCircularProgressIndicator();
-        } else {
-          return CustomTextButton(
-            textButton: 'Resend link',
-            onTap: () {
-              BlocProvider.of<VerifyEmailCubit>(context).sendEmail();
-            },
-          );
         }
+        return CustomTextButton(
+          textButton: 'Resend link',
+          onTap: () {
+            BlocProvider.of<VerifyEmailCubit>(context).sendEmail();
+          },
+        );
       },
     );
   }

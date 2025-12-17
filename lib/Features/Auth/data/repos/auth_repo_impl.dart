@@ -84,4 +84,16 @@ class AuthRepoImpl extends AuthRepo {
       return left(AuthFailure.unKnown());
     }
   }
+
+  @override
+  Future<Either<AuthFailure, void>> resetPassword({
+    required String email,
+  }) async {
+    try {
+      await authRemoteDataSource.resetPassword(email: email);
+      return right(null);
+    } catch (e) {
+      return left(AuthFailure.unKnown());
+    }
+  }
 }

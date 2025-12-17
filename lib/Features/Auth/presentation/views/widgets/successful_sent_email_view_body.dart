@@ -9,21 +9,24 @@ class SuccessfulSentEmailViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SuccessfulBody(
-            title: 'Email confirmation sent successfully',
-            desc: 'We’ve sent a verification link to your email',
-          ),
-          SizedBox(height: 24.h),
-          ResendLinkBlocConsumer(),
-          SizedBox(height: 16.h),
-          VerifiedEmailButtonBlocConsumer(),
-        ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(height: 44.h),
+            SuccessfulBody(
+              title: 'Email confirmation sent successfully',
+              desc: 'We’ve sent a verification link to your email',
+            ),
+            SizedBox(height: 24.h),
+            ResendLinkBlocConsumer(),
+            SizedBox(height: 16.h),
+            VerifiedEmailButtonBlocConsumer(),
+          ],
+        ),
       ),
     );
   }

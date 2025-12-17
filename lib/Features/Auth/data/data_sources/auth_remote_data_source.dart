@@ -18,6 +18,7 @@ abstract class AuthRemoteDataSource {
     required String password,
   });
   Future<void> updatePassword();
+  Future<void> resetPassword({required String email});
   Future<void> updateUserProfile({required String name, String? imageUrl});
   Future<void> saveUserData({
     required UserCredential user,
@@ -130,5 +131,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   Future<void> updatePassword() {
     // TODO: implement updatePassword
     throw UnimplementedError();
+  }
+
+  @override
+  Future<void> resetPassword({required String email}) async {
+    await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
   }
 }
