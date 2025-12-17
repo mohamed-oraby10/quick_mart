@@ -6,7 +6,11 @@ import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class OnboardingTextSection extends StatelessWidget {
-  const OnboardingTextSection({super.key, required this.onboardingModel, required this.currentIndex});
+  const OnboardingTextSection({
+    super.key,
+    required this.onboardingModel,
+    required this.currentIndex,
+  });
   final OnboardingModel onboardingModel;
   final int currentIndex;
   @override
@@ -14,7 +18,10 @@ class OnboardingTextSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        OnboardingCard(image: onboardingModel.image, currentIndex: currentIndex,),
+        OnboardingCard(
+          image: onboardingModel.image,
+          currentIndex: currentIndex,
+        ),
         SizedBox(height: 24.h),
         Text(
           onboardingModel.title,

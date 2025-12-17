@@ -23,7 +23,7 @@ class ProductDetailsAppBar extends StatelessWidget {
                 height: 32.h,
                 width: 32.w,
                 decoration: BoxDecoration(
-                  color:context.customColors.modeColor,
+                  color: context.customColors.modeColor,
                   borderRadius: BorderRadius.circular(30.r),
                 ),
                 child: Center(

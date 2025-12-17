@@ -6,7 +6,7 @@ import 'package:quick_mart/core/utils/styles.dart';
 
 class SendEmailSection extends StatefulWidget {
   const SendEmailSection({super.key, required this.formKey});
-  final GlobalKey<FormState> formKey ;
+  final GlobalKey<FormState> formKey;
   @override
   State<SendEmailSection> createState() => _SendEmailSectionState();
 }
@@ -22,7 +22,10 @@ class _SendEmailSectionState extends State<SendEmailSection> {
         SizedBox(height: 8.h),
         AuthTextField(hint: 'Enter your email', controller: emailController),
         SizedBox(height: 24.h),
-        ResetPasswordButttonBlocConsumer(emailController: emailController,formKey: widget.formKey),
+        ResetPasswordButttonBlocConsumer(
+          emailController: emailController,
+          formKey: widget.formKey,
+        ),
       ],
     );
   }

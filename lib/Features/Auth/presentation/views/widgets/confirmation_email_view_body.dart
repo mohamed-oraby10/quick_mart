@@ -19,7 +19,7 @@ class ConfirmationEmailViewBody extends StatelessWidget {
             SizedBox(height: 44.h),
             ConfirmationTextSection(),
             SizedBox(height: 16.h),
-            SendEmailSection(formKey: formKey,),
+            SendEmailSection(formKey: formKey),
           ],
         ),
       ),

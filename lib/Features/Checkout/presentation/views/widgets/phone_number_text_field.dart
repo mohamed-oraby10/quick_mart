@@ -14,8 +14,7 @@ class PhoneNumberTextField extends StatelessWidget {
         color: AppColors.grey100,
       ),
       dropdownIcon: Icon(Icons.arrow_drop_down_sharp, size: 24.sp),
-      decoration: InputDecoration(
-      ),
+      decoration: InputDecoration(),
       initialCountryCode: 'EG',
       onChanged: (value) {},
     );

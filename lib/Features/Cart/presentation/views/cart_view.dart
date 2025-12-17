@@ -9,8 +9,8 @@ class CartView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body:
-      // EmptyCard(),
-      CartViewBody(),
+          // EmptyCard(),
+          CartViewBody(),
       bottomNavigationBar: AppBottomNavigationBar(),
     );
   }

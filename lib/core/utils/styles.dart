@@ -51,7 +51,7 @@ class Styles {
     letterSpacing: 0,
   );
 
-  //heading 3 
+  //heading 3
   static TextStyle heading3Bold = TextStyle(
     fontFamily: AppFonts.plusJakartaSans,
     fontSize: 18.sp,
@@ -85,7 +85,7 @@ class Styles {
     letterSpacing: 0,
   );
 
-  //body 1 
+  //body 1
   static TextStyle body1Medium = TextStyle(
     fontFamily: AppFonts.plusJakartaSans,
     fontSize: 16.sp,
@@ -117,7 +117,7 @@ class Styles {
     letterSpacing: 0.07,
   );
 
-  //caption 
+  //caption
   static TextStyle captionSemiBold = TextStyle(
     fontFamily: AppFonts.plusJakartaSans,
     fontSize: 12.sp,
@@ -131,7 +131,7 @@ class Styles {
     letterSpacing: 0.06,
   );
 
-  //overline 
+  //overline
   static TextStyle overlineSemiBold = TextStyle(
     fontFamily: AppFonts.plusJakartaSans,
     fontSize: 10.sp,

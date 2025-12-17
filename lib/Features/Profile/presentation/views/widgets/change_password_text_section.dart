@@ -4,7 +4,11 @@ import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class ChangePasswordTextSection extends StatelessWidget {
-  const ChangePasswordTextSection({super.key, required this.title, required this.desc});
+  const ChangePasswordTextSection({
+    super.key,
+    required this.title,
+    required this.desc,
+  });
   final String title, desc;
 
   @override

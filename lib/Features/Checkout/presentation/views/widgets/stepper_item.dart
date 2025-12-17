@@ -30,12 +30,7 @@ class StepperItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Icon(icon, size: 24.sp, color: color),
-        Text(
-          text,
-          style: Styles.captionSemiBold.copyWith(
-            color: color,
-          ),
-        ),
+        Text(text, style: Styles.captionSemiBold.copyWith(color: color)),
       ],
     );
   }

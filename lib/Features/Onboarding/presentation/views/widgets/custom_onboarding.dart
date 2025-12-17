@@ -25,7 +25,10 @@ class CustomOnboarding extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: 44.h),
-          OnboardingTextSection(onboardingModel: onboardingModel, currentIndex: currentIndex,),
+          OnboardingTextSection(
+            onboardingModel: onboardingModel,
+            currentIndex: currentIndex,
+          ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 24.h),
             child: currentIndex == 2

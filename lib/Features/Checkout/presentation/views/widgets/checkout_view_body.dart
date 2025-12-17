@@ -20,9 +20,9 @@ class CheckoutViewBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CheckoutStepperSection(isShipping: true,),
+            CheckoutStepperSection(isShipping: true),
             AppTextField(hint: 'Enter full name', text: 'Full Name'),
-               Text('Phone Number', style: Styles.body2Medium),
+            Text('Phone Number', style: Styles.body2Medium),
             SizedBox(height: 8.h),
             PhoneNumberTextField(),
             AppTextField(hint: 'Enter street address', text: 'Street Address'),

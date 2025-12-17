@@ -9,8 +9,7 @@ class WishlistView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: 
-      EmptyWishlist(),
+      body: EmptyWishlist(),
       //  WishlistViewBody(),
       bottomNavigationBar: AppBottomNavigationBar(),
     );

@@ -57,6 +57,7 @@ class AuthRepoImpl extends AuthRepo {
       return left(AuthFailure.fromFirebase(e.code));
     }
   }
+
   @override
   Future<Either<AuthFailure, void>> resetPassword({
     required String email,

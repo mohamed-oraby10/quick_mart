@@ -6,8 +6,6 @@ class CreateNewPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body:CreateNewPasswordViewBody() ,
-    );
+    return const Scaffold(body: CreateNewPasswordViewBody());
   }
 }

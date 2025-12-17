@@ -19,7 +19,7 @@ class CheckoutReviewBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CheckoutStepperSection(isReview: true,),
+              CheckoutStepperSection(isReview: true),
               ShinppingOrderSection(),
               SizedBox(height: 16.h),
               OrderInfoSection(),

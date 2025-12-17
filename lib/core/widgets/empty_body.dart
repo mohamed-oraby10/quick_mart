@@ -32,7 +32,7 @@ class EmptyBody extends StatelessWidget {
               child: Text(title, style: Styles.heading2Bold),
             ),
             Text(
-            desc,
+              desc,
               style: Styles.body2Regular.copyWith(
                 color: context.customColors.secondaryColor,
               ),

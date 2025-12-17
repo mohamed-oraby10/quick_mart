@@ -12,6 +12,9 @@ void setupServiceLocator() {
     AuthRepoImpl(AuthRemoteDataSourceImpl()),
   );
   getIt.registerSingleton<ProfileRepoImpl>(
-    ProfileRepoImpl(ProfileRemoteDataSourceImpl(),ProfileLocalDataSourceImpl()),
+    ProfileRepoImpl(
+      ProfileRemoteDataSourceImpl(),
+      ProfileLocalDataSourceImpl(),
+    ),
   );
 }

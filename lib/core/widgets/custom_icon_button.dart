@@ -11,11 +11,7 @@ class CustomIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: onTap,
-      icon: Icon(
-        icon,
-        color: context.customColors.modeColor,
-        size: 32.sp,
-      ),
+      icon: Icon(icon, color: context.customColors.modeColor, size: 32.sp),
     );
   }
 }

@@ -4,7 +4,7 @@ import 'package:quick_mart/Features/Home/presentation/views/widgets/category_ite
 
 class CategoriesGridView extends StatelessWidget {
   const CategoriesGridView({super.key, this.onTap});
-final void Function()? onTap;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -19,7 +19,10 @@ final void Function()? onTap;
           childAspectRatio: 1.4,
         ),
         itemBuilder: (context, index) {
-          return CategoryItem(categoryModel: categoriesList[index],onTap: onTap,);
+          return CategoryItem(
+            categoryModel: categoriesList[index],
+            onTap: onTap,
+          );
         },
       ),
     );

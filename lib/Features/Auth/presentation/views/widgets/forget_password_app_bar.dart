@@ -6,7 +6,12 @@ import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 import 'package:quick_mart/core/widgets/arrow_left_icon.dart';
 
 class ForgetPasswordAppBar extends StatelessWidget {
-  const ForgetPasswordAppBar({super.key, required this.text, this.title, this.count});
+  const ForgetPasswordAppBar({
+    super.key,
+    required this.text,
+    this.title,
+    this.count,
+  });
   final String text;
   final String? title;
   final String? count;

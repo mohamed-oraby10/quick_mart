@@ -17,7 +17,7 @@ class AppLogo extends StatelessWidget {
           AssetsData.logoText,
           height: 12.h,
           width: 72.w,
-          color: context.customColors.modeColor
+          color: context.customColors.modeColor,
         ),
       ],
     );

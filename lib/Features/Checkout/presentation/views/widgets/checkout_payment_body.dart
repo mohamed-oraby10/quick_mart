@@ -21,7 +21,7 @@ class CheckoutPaymentBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CheckoutStepperSection(isPayment: true,),
+              CheckoutStepperSection(isPayment: true),
               PaymentMethodsRow(),
               SizedBox(height: 24.h),
               CardDetails(),

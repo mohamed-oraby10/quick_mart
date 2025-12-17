@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RowElevatedButton extends StatelessWidget {
-  const RowElevatedButton({super.key, required this.text, required this.icon, this.onTap});
+  const RowElevatedButton({
+    super.key,
+    required this.text,
+    required this.icon,
+    this.onTap,
+  });
   final String text;
   final IconData icon;
   final void Function()? onTap;

@@ -11,7 +11,7 @@ class ExpirationTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-           Text('Expiration', style: Styles.body2Medium),
+        Text('Expiration', style: Styles.body2Medium),
         SizedBox(
           width: 160.w,
           height: 60.h,

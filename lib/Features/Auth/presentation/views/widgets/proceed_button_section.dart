@@ -16,7 +16,7 @@ class ProceedButtonSection extends StatelessWidget {
         PinEmail(),
         CustomTextButton(textButton: 'Resend Code'),
         SizedBox(height: 24.h),
-        MainButton(text: 'Proceed',onTap: onTap,)
+        MainButton(text: 'Proceed', onTap: onTap),
       ],
     );
   }

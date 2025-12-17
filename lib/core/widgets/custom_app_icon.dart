@@ -7,6 +7,6 @@ class CustomAppIcon extends StatelessWidget {
   final IconData icon;
   @override
   Widget build(BuildContext context) {
-    return  Icon(icon,size: 24.sp,color: context.customColors.buttonColor,);
+    return Icon(icon, size: 24.sp, color: context.customColors.buttonColor);
   }
 }

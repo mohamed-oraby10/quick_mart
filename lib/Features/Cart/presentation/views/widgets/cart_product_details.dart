@@ -6,7 +6,7 @@ import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class CartProductDetails extends StatelessWidget {
   const CartProductDetails({super.key, required this.isWishlist});
-final bool isWishlist;
+  final bool isWishlist;
   @override
   Widget build(BuildContext context) {
     return Column(

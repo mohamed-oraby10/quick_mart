@@ -4,6 +4,10 @@ import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/core/errors/failure.dart';
 
 abstract class HomeRepo {
-  Future<Either<Failure, List<CategoryEntity>>> fetchCategories({required int pageNumber});
-  Future<Either<Failure, List<ProductEntity>>> fetchLeatestProducts({required int pageNumber});
+  Future<Either<Failure, List<CategoryEntity>>> fetchCategories({
+    required int pageNumber,
+  });
+  Future<Either<Failure, List<ProductEntity>>> fetchLeatestProducts({
+    required int pageNumber,
+  });
 }

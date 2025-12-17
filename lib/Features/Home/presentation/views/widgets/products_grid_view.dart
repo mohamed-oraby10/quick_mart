@@ -15,10 +15,12 @@ class ProductsGridView extends StatelessWidget {
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 8,
-        childAspectRatio: .7
+        childAspectRatio: .7,
       ),
       itemBuilder: (context, index) {
-        return LeatestProductItem(onTap: ()  => GoRouter.of(context).push(AppRoutes.kProductDetailsView),);
+        return LeatestProductItem(
+          onTap: () => GoRouter.of(context).push(AppRoutes.kProductDetailsView),
+        );
       },
     );
   }

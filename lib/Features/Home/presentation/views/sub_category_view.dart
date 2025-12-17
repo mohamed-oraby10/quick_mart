@@ -9,7 +9,7 @@ class SubCategoryView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       bottomNavigationBar: AppBottomNavigationBar(),
-      body:SubCategoryViewBody() ,
+      body: SubCategoryViewBody(),
     );
   }
 }
