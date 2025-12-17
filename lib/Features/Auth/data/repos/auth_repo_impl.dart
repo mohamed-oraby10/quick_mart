@@ -52,39 +52,11 @@ class AuthRepoImpl extends AuthRepo {
         imageUrl: imageUrl,
       );
       await authRemoteDataSource.saveUserData(user: user, name: name);
-      await authRemoteDataSource.sendEmailVerification();
       return right(null);
     } on FirebaseAuthException catch (e) {
       return left(AuthFailure.fromFirebase(e.code));
     }
   }
-
-  @override
-  Future<Either<AuthFailure, void>> updatePassword() {
-    // TODO: implement updatePassword
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<Either<AuthFailure, void>> sendEmailVerification() async {
-    try {
-      await authRemoteDataSource.sendEmailVerification();
-      return right(null);
-    } catch (e) {
-      return left(AuthFailure.unKnown());
-    }
-  }
-
-  @override
-  Future<Either<AuthFailure, bool>> checkEmailVerified() async {
-    try {
-      final result = await authRemoteDataSource.isEmailVerified();
-      return right(result);
-    } catch (e) {
-      return left(AuthFailure.unKnown());
-    }
-  }
-
   @override
   Future<Either<AuthFailure, void>> resetPassword({
     required String email,

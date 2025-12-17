@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/auth_text_section.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/google_button.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/login_section.dart';
+import 'package:quick_mart/core/utils/app_routes.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
@@ -23,9 +24,9 @@ class LoginViewBody extends StatelessWidget {
                 title: 'Login',
                 desc: 'Don’t have an account?',
                 loginText: 'Signup',
-                onTap: () => GoRouter.of(context).pop(),
+                onTap: () => GoRouter.of(context).go(AppRoutes.kRegisterView),
               ),
-              LoginSection(formKey: formKey,),
+              LoginSection(formKey: formKey),
               SizedBox(height: 16.h),
               GoogleButton(text: 'Login with Google'),
             ],

@@ -24,7 +24,7 @@ class RegisterViewBody extends StatelessWidget {
                 title: 'Signup',
                 desc: 'Already have an account?',
                 loginText: 'Login',
-                onTap: () => GoRouter.of(context).push(AppRoutes.kLoginView),
+                onTap: () => GoRouter.of(context).go(AppRoutes.kLoginView),
               ),
               RegisterSection(formKey: formKey),
               SizedBox(height: 16.h),

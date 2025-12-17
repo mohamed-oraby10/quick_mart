@@ -11,13 +11,10 @@ abstract class AuthRemoteDataSource {
     required String password,
   });
   Future<UserCredential> loginWithGoogle();
-  Future<void> sendEmailVerification();
-  Future<bool> isEmailVerified();
   Future<void> loginWithEmailAndPassword({
     required String email,
     required String password,
   });
-  Future<void> updatePassword();
   Future<void> resetPassword({required String email});
   Future<void> updateUserProfile({required String name, String? imageUrl});
   Future<void> saveUserData({
@@ -109,28 +106,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     }
 
     await user.reload();
-  }
-
-  @override
-  Future<void> sendEmailVerification() async {
-    final user = FirebaseAuth.instance.currentUser;
-    if (user != null && !user.emailVerified) {
-      await user.sendEmailVerification();
-    }
-  }
-
-  @override
-  Future<bool> isEmailVerified() async {
-    final user = FirebaseAuth.instance.currentUser;
-    if (user == null) return false;
-    await user.reload();
-    return user.emailVerified;
-  }
-
-  @override
-  Future<void> updatePassword() {
-    // TODO: implement updatePassword
-    throw UnimplementedError();
   }
 
   @override

@@ -6,7 +6,6 @@ import 'package:quick_mart/Features/Auth/presentation/views/login_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/register_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/reset_password_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/successful_password_view.dart';
-import 'package:quick_mart/Features/Auth/presentation/views/successful_sent_email_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/verify_email.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/cart_view.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/product_details_view.dart';
@@ -60,7 +59,6 @@ class AppRoutes {
   static const kChangePasswordView = '/changePasswordView';
   static const kNewPasswordViewBody = '/newPasswordViewBody';
   static const kOrderHistoryView = '/orderHistoryView';
-  static const kSuccessfulSentEmailView = '/successfulSentEmailView';
   static const kResetPasswordView = '/resetPasswordView';
 
   static final router = GoRouter(
@@ -165,10 +163,6 @@ class AppRoutes {
       GoRoute(
         path: kOrderHistoryView,
         builder: (context, state) => const OrderHistoryView(),
-      ),
-      GoRoute(
-        path: kSuccessfulSentEmailView,
-        builder: (context, state) => const SuccessfulSentEmailView(),
       ),
       GoRoute(
         path: kResetPasswordView,
