@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quick_mart/Features/Home/domain/data_sources/categories_home_list.dart';
+import 'package:quick_mart/Features/Home/data/data_sources/categories_home_list.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/category_home_item.dart';
 
 class CategoriesListView extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:quick_mart/Features/Home/domain/models/category_model.dart';
+import 'package:quick_mart/Features/Home/data/models/category_model.dart';
 
 final List<CategoryModel> categoriesList = [
   CategoryModel('assets/images/el.png', 'Electronics'),

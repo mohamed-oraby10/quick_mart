@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quick_mart/Features/Home/domain/data_sources/categories_list.dart';
+import 'package:quick_mart/Features/Home/data/data_sources/categories_list.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/category_item.dart';
 
 class CategoriesGridView extends StatelessWidget {
