@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/confirmation_email_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/create_new_password_view.dart';
@@ -169,9 +170,12 @@ class AppRoutes {
         path: kSuccessfulSentEmailView,
         builder: (context, state) => const SuccessfulSentEmailView(),
       ),
-       GoRoute(
+      GoRoute(
         path: kResetPasswordView,
-        builder: (context, state) => const ResetPasswordView(),
+        builder: (context, state) {
+          final emailController = state.extra as TextEditingController;
+          return ResetPasswordView(emailController: emailController);
+        },
       ),
     ],
   );

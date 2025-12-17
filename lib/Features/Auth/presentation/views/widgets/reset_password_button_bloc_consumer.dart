@@ -22,7 +22,7 @@ class ResetPasswordButttonBlocConsumer extends StatelessWidget {
         if (state is ResetPasswordFailure) {
           showErroeSnakBar(context, content: state.errMessage);
         } else if (state is ResetPasswordSuccess) {
-          GoRouter.of(context).push(AppRoutes.kResetPasswordView);
+          GoRouter.of(context).push(AppRoutes.kResetPasswordView,extra: emailController);
         }
       },
       builder: (context, state) {

@@ -7,14 +7,16 @@ import 'package:quick_mart/Features/Auth/presentation/views/widgets/reset_passwo
 import 'package:quick_mart/core/utils/functions/setup_service_locator.dart';
 
 class ResetPasswordView extends StatelessWidget {
-  const ResetPasswordView({super.key});
-
+  const ResetPasswordView({super.key, required this.emailController});
+  final TextEditingController emailController;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
           ResetPasswordCubit(ResetPasswordUseCase(getIt.get<AuthRepoImpl>())),
-      child: const Scaffold(body: ResetPasswordViewBody()),
+      child: Scaffold(
+        body: ResetPasswordViewBody(emailController: emailController),
+      ),
     );
   }
 }

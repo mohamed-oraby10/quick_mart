@@ -4,15 +4,22 @@ import 'package:quick_mart/Features/Auth/presentation/views/widgets/resend_link_
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/successful_body.dart';
 import 'package:quick_mart/core/widgets/main_button.dart';
 
+// ignore: must_be_immutable
 class ResetPasswordViewBody extends StatefulWidget {
-  const ResetPasswordViewBody({super.key});
+  ResetPasswordViewBody({super.key, required this.emailController});
+  TextEditingController emailController;
 
   @override
   State<ResetPasswordViewBody> createState() => _ResetPasswordViewBodyState();
 }
 
 class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
-  TextEditingController emailController = TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    widget.emailController = TextEditingController();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -29,7 +36,7 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
             ),
             SizedBox(height: 24.h),
             ResendLinkResetPasswordButtonBlocConsumer(
-              emailController: emailController,
+              emailController: widget.emailController,
             ),
             SizedBox(height: 16.h),
             MainButton(text: 'Proceed', onTap: () {}),
