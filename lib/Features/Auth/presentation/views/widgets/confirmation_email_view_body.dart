@@ -8,16 +8,20 @@ class ConfirmationEmailViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: 44.h),
-          ConfirmationTextSection(),
-          SizedBox(height: 16.h),
-          SendEmailSection(),
-        ],
+    GlobalKey<FormState> formKey = GlobalKey();
+    return Form(
+      key: formKey,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 44.h),
+            ConfirmationTextSection(),
+            SizedBox(height: 16.h),
+            SendEmailSection(formKey: formKey,),
+          ],
+        ),
       ),
     );
   }
