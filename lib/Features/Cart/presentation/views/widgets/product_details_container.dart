@@ -3,12 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/add_to_cart_button_row.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/color_and_quantity_section.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/deatils_section.dart';
+import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class ProductDetailsContainer extends StatelessWidget {
-  const ProductDetailsContainer({super.key});
-
+  const ProductDetailsContainer({super.key, required this.product});
+  final ProductEntity product;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,7 +29,7 @@ class ProductDetailsContainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 24.h),
-              DetailsSection(),
+              DetailsSection(product: product),
               ColorAndQuantitySection(),
               AddToCartButtonRow(),
             ],

@@ -14,6 +14,7 @@ import 'package:quick_mart/Features/Checkout/presentation/views/order_items_view
 import 'package:quick_mart/Features/Checkout/presentation/views/order_place_successfully_view.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/checkout_payment_body.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/checkout_review_body.dart';
+import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/Features/Home/presentation/views/categories_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/exclusive_sales_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/home_view.dart';
@@ -113,7 +114,10 @@ class AppRoutes {
       ),
       GoRoute(
         path: kProductDetailsView,
-        builder: (context, state) => const ProductDetailsView(),
+        builder: (context, state) {
+          final product = state.extra as ProductEntity;
+          return ProductDetailsView(product: product);
+        },
       ),
       GoRoute(path: kCartView, builder: (context, state) => const CartView()),
       GoRoute(

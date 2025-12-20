@@ -21,7 +21,9 @@ class ProductsGridView extends StatelessWidget {
       ),
       itemBuilder: (context, index) {
         return LeatestProductItem(
-          onTap: () => GoRouter.of(context).push(AppRoutes.kProductDetailsView),
+          onTap: () => GoRouter.of(
+            context,
+          ).push(AppRoutes.kProductDetailsView, extra: products[index]),
           product: products[index],
         );
       },

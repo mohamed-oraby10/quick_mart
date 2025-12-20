@@ -10,19 +10,22 @@ class BadgeItem extends StatelessWidget {
   final Color bageColor;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(6.r),
-      decoration: BoxDecoration(
-        color: bageColor,
-        borderRadius: BorderRadius.circular(8.r),
-      ),
-      child: Center(
-        child: Text(
-          text,
-          style: Styles.overlineSemiBold.copyWith(
-            color: context.isDarkMode
-                ? AppColors.brandBlack
-                : AppColors.brandWhite,
+    return Padding(
+      padding: EdgeInsets.only(right: 8.w),
+      child: Container(
+        padding: EdgeInsets.all(6.r),
+        decoration: BoxDecoration(
+          color: bageColor,
+          borderRadius: BorderRadius.circular(8.r),
+        ),
+        child: Center(
+          child: Text(
+            text,
+            style: Styles.overlineSemiBold.copyWith(
+              color: context.isDarkMode
+                  ? AppColors.brandBlack
+                  : AppColors.brandWhite,
+            ),
           ),
         ),
       ),

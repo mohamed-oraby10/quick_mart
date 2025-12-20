@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class ProductTitleAndPrice extends StatelessWidget {
-  const ProductTitleAndPrice({super.key});
-
+  const ProductTitleAndPrice({super.key, required this.product});
+final ProductEntity product;  
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -12,7 +13,7 @@ class ProductTitleAndPrice extends StatelessWidget {
       children: [
         Expanded(
           child: Text(
-            'Loop Silicone Strong Magnetic watch',
+           product.productTitle,
             maxLines: 2,
             style: Styles.heading3Bold,
           ),
@@ -20,7 +21,7 @@ class ProductTitleAndPrice extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('\$ 15.25', style: Styles.heading3Bold),
+            Text('\$ ${product.productPrice}', style: Styles.heading3Bold),
             Text(
               '\$ 20.00',
               style: Styles.body2Regular.copyWith(
