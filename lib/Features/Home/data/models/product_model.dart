@@ -52,6 +52,7 @@ class ProductModel extends ProductEntity {
     this.images,
     this.thumbnail,
   }) : super(
+         reviewsCount: reviews,
          productId: id!,
          productTitle: title!,
          desc: description ?? '',

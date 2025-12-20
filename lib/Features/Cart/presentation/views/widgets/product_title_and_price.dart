@@ -5,15 +5,16 @@ import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class ProductTitleAndPrice extends StatelessWidget {
   const ProductTitleAndPrice({super.key, required this.product});
-final ProductEntity product;  
+  final ProductEntity product;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
           child: Text(
-           product.productTitle,
+            product.productTitle,
             maxLines: 2,
             style: Styles.heading3Bold,
           ),
@@ -23,7 +24,7 @@ final ProductEntity product;
           children: [
             Text('\$ ${product.productPrice}', style: Styles.heading3Bold),
             Text(
-              '\$ 20.00',
+              '\$${(product.productPrice - ((product.discount / 100) * product.productPrice)).toStringAsFixed(2)}',
               style: Styles.body2Regular.copyWith(
                 color: context.customColors.secondaryColor,
                 decoration: TextDecoration.lineThrough,

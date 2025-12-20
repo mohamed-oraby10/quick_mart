@@ -12,29 +12,26 @@ class RatingRow extends StatelessWidget {
   final ProductEntity product;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8.h),
-      child: Row(
-        children: [
-          RatingBar.builder(
-            unratedColor: context.customColors.buttonColor,
-            initialRating: product.productRating.toDouble(),
-            minRating: 1,
-            direction: Axis.horizontal,
-            allowHalfRating: true,
-            itemCount: 5,
-            itemSize: 12.sp,
-            itemPadding: EdgeInsets.symmetric(horizontal: 3.w),
-            itemBuilder: (context, _) =>
-                Icon(Iconsax.star_bulk, color: AppColors.generalOrange2),
-            onRatingUpdate: (rating) {},
-          ),
-          Text(
-            '${product.productRating} (2,495 reviews)',
-            style: Styles.overlineSemiBold,
-          ),
-        ],
-      ),
+    return Row(
+      children: [
+        RatingBar.builder(
+          unratedColor: context.customColors.buttonColor,
+          initialRating: product.productRating.toDouble(),
+          minRating: 1,
+          direction: Axis.horizontal,
+          allowHalfRating: true,
+          itemCount: 5,
+          itemSize: 12.sp,
+          itemPadding: EdgeInsets.symmetric(horizontal: 3.w),
+          itemBuilder: (context, _) =>
+              Icon(Iconsax.star_bulk, color: AppColors.generalOrange2),
+          onRatingUpdate: (rating) {},
+        ),
+        Text(
+          '${product.productRating} (${product.reviewsCount?.length ?? 0} reviews)',
+          style: Styles.overlineSemiBold,
+        ),
+      ],
     );
   }
 }
