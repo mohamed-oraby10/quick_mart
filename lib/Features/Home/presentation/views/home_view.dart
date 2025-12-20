@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quick_mart/Features/Home/data/repos/home_repo_impl.dart';
+import 'package:quick_mart/Features/Home/domain/use_cases/fetch_leatest_products_use_case.dart';
 import 'package:quick_mart/Features/Home/presentation/manager/fetch_leatest_product_cubit/fetch_leatest_products_cubit.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/home_view_body.dart';
 import 'package:quick_mart/Features/Profile/data/repos/profile_repo_impl.dart';
@@ -14,14 +16,26 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (_) {
-        final cubit = FetchUserDataCubit(
-          FetchUserDataUseCase(getIt.get<ProfileRepoImpl>()),
-        );
-        cubit.fetchUserData();
-        return cubit;
-      }),
-      BlocProvider(create: (_) => FetchLeatestProductsCubit())],
+      providers: [
+        BlocProvider(
+          create: (_) {
+            final cubit = FetchUserDataCubit(
+              FetchUserDataUseCase(getIt.get<ProfileRepoImpl>()),
+            );
+            cubit.fetchUserData();
+            return cubit;
+          },
+        ),
+        BlocProvider(
+          create: (_) {
+            final cubit = FetchLeatestProductsCubit(
+              FetchLeatestProductsUseCase(getIt.get<HomeRepoImpl>()),
+            );
+            cubit.fetchLeatestProducts(pageNumber: 1);
+            return cubit;
+          },
+        ),
+      ],
       child: const Scaffold(
         bottomNavigationBar: AppBottomNavigationBar(),
         body: HomeViewBody(),

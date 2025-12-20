@@ -15,7 +15,7 @@ class ProductsViewBody extends StatelessWidget {
         children: [
           SizedBox(height: 44.h),
           ProductsListAppBar(title: 'Smart Watches'),
-          Expanded(child: ProductsGridView()),
+          // Expanded(child: ProductsGridView(product: null,)),
         ],
       ),
     );
