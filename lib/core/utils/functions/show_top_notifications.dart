@@ -6,7 +6,7 @@ import 'package:quick_mart/core/widgets/app_slide_notification.dart';
 void showTopNotification(
   BuildContext context,
   String message,
-  ProductEntity product,
+  List<ProductEntity> products,
 ) {
   OverlayState overlayState = Overlay.of(context);
   late OverlayEntry overlayEntry;
@@ -22,7 +22,7 @@ void showTopNotification(
           child: Builder(
             builder: (context) => Theme(
               data: Theme.of(context),
-              child: SlideNotification(message: message, product: product),
+              child: SlideNotification(message: message, products: products),
             ),
           ),
         ),

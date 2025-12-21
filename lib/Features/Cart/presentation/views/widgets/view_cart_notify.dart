@@ -10,9 +10,13 @@ import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 import 'package:quick_mart/core/widgets/custom_icon.dart';
 
 class ViewCartNotify extends StatelessWidget {
-  const ViewCartNotify({super.key, required this.message, required this.product});
+  const ViewCartNotify({
+    super.key,
+    required this.message,
+    required this.products,
+  });
   final String message;
-  final ProductEntity product;
+  final List<ProductEntity> products;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,7 +33,8 @@ class ViewCartNotify extends StatelessWidget {
           Expanded(child: Text(message, style: Styles.captionSemiBold)),
           SizedBox(width: 8.w),
           TextButton(
-            onPressed: () => GoRouter.of(context).push(AppRoutes.kCartView,extra: product),
+            onPressed: () =>
+                GoRouter.of(context).push(AppRoutes.kCartView, extra: products),
             child: Text(
               'View Cart',
               style: Styles.captionSemiBold.copyWith(

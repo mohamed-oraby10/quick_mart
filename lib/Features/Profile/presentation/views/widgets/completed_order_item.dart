@@ -18,9 +18,9 @@ class CompletedOrderItem extends StatelessWidget {
           SizedBox(height: 8.h),
           Row(
             children: [
-              CartProductImage(),
-              SizedBox(width: 8.w),
-              Expanded(child: CartProductDetails(isWishlist: false)),
+              // CartProductImage(),
+              // SizedBox(width: 8.w),
+              // Expanded(child: CartProductDetails(isWishlist: false)),
             ],
           ),
         ],

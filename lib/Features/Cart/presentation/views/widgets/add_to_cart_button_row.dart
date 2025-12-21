@@ -7,7 +7,7 @@ import 'package:quick_mart/core/widgets/row_elevated_button.dart';
 
 class AddToCartButtonRow extends StatelessWidget {
   const AddToCartButtonRow({super.key, required this.product});
-final ProductEntity product;
+  final ProductEntity product;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,11 +20,15 @@ final ProductEntity product;
             child: ElevatedButton(onPressed: null, child: Text('Buy Now')),
           ),
           RowElevatedButton(
-            onTap: () => showTopNotification(
-              context,
-              "The product has been added to your cart",
-              product
-            ),
+            onTap: () {
+              List<ProductEntity> cartProducts = [];
+              cartProducts.add(product);
+              showTopNotification(
+                context,
+                "The product has been added to your cart",
+                cartProducts,
+              );
+            },
             text: 'Add To Cart',
             icon: Iconsax.shopping_cart_outline,
           ),

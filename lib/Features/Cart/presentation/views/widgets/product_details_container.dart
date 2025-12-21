@@ -31,7 +31,7 @@ class ProductDetailsContainer extends StatelessWidget {
               SizedBox(height: 24.h),
               DetailsSection(product: product),
               ColorAndQuantitySection(),
-              AddToCartButtonRow(product: product),
+              AddToCartButtonRow(product: product,),
             ],
           ),
         ),

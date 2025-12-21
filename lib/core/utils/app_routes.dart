@@ -122,8 +122,8 @@ class AppRoutes {
       GoRoute(
         path: kCartView,
         builder: (context, state) {
-          final product = state.extra as ProductEntity;
-          return CartView(product: product);
+          final products = state.extra as List<ProductEntity>;
+          return CartView(products: products);
         },
       ),
       GoRoute(
