@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:icons_plus/icons_plus.dart';
-import 'package:quick_mart/core/utils/app_routes.dart';
+import 'package:quick_mart/core/utils/functions/show_top_notifications.dart';
 import 'package:quick_mart/core/widgets/row_elevated_button.dart';
 
 class AddToCartButtonRow extends StatelessWidget {
@@ -20,7 +19,10 @@ class AddToCartButtonRow extends StatelessWidget {
             child: ElevatedButton(onPressed: null, child: Text('Buy Now')),
           ),
           RowElevatedButton(
-            onTap: () => GoRouter.of(context).push(AppRoutes.kCartView),
+            onTap: () => showTopNotification(
+              context,
+              "The product has been added to your cart",
+            ),
             text: 'Add To Cart',
             icon: Iconsax.shopping_cart_outline,
           ),
