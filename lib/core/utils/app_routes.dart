@@ -122,7 +122,7 @@ class AppRoutes {
       GoRoute(
         path: kCartView,
         builder: (context, state) {
-          final products = state.extra as List<ProductEntity>;
+          final products = state.extra as List<ProductEntity>? ?? [];
           return CartView(products: products);
         },
       ),
