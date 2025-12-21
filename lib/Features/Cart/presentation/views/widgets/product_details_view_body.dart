@@ -12,8 +12,8 @@ class ProductDetailsViewBody extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ProductImageDetails(product: product,),
-        Expanded(child: ProductDetailsContainer(product: product,)),
+        ProductImageDetails(product: product),
+        Expanded(child: ProductDetailsContainer(product: product)),
       ],
     );
   }

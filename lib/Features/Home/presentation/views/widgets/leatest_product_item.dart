@@ -35,7 +35,7 @@ class LeatestProductItem extends StatelessWidget {
               ),
             ),
             Text(
-              '\$${(product.productPrice + ((product.discount / 100) * product.productPrice)).toStringAsFixed(2)}',
+              '\$${(product.productPrice - ((product.discount / 100) * product.productPrice)).toStringAsFixed(2)}',
               style: Styles.overlineRegular.copyWith(
                 decoration: TextDecoration.lineThrough,
                 color: AppColors.grey100,
