@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/view_cart_notify.dart';
+import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 
 class SlideNotification extends StatefulWidget {
   final String message;
+  final ProductEntity product;
 
-  const SlideNotification({super.key, required this.message});
+  const SlideNotification({super.key, required this.message, required this.product});
 
   @override
   State<SlideNotification> createState() => _SlideNotificationState();
@@ -29,7 +31,7 @@ class _SlideNotificationState extends State<SlideNotification>
   Widget build(BuildContext context) {
     return SlideTransition(
       position: offset,
-      child: ViewCartNotify(message: widget.message),
+      child: ViewCartNotify(message: widget.message, product: widget.product),
     );
   }
 

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/core/widgets/app_slide_notification.dart';
 
-void showTopNotification(BuildContext context, String message) {
+void showTopNotification(
+  BuildContext context,
+  String message,
+  ProductEntity product,
+) {
   OverlayState overlayState = Overlay.of(context);
   late OverlayEntry overlayEntry;
 
@@ -17,7 +22,7 @@ void showTopNotification(BuildContext context, String message) {
           child: Builder(
             builder: (context) => Theme(
               data: Theme.of(context),
-              child: SlideNotification(message: message),
+              child: SlideNotification(message: message, product: product),
             ),
           ),
         ),

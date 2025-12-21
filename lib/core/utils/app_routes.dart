@@ -119,7 +119,13 @@ class AppRoutes {
           return ProductDetailsView(product: product);
         },
       ),
-      GoRoute(path: kCartView, builder: (context, state) => const CartView()),
+      GoRoute(
+        path: kCartView,
+        builder: (context, state) {
+          final product = state.extra as ProductEntity;
+          return CartView(product: product);
+        },
+      ),
       GoRoute(
         path: kWishlist,
         builder: (context, state) => const WishlistView(),

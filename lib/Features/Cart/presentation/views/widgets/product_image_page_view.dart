@@ -11,7 +11,7 @@ class ProductImagePageView extends StatelessWidget {
   Widget build(BuildContext context) {
     PageController pageController = PageController();
     return SizedBox(
-      height: 310.h,
+      height: 320.h,
       child: PageView.builder(
         itemCount: product.productImages.length,
         controller: pageController,
@@ -30,6 +30,7 @@ class ProductImagePageView extends StatelessWidget {
                 pageController: pageController,
                 length: product.productImages.length,
               ),
+              SizedBox(height: 12.h),
             ],
           );
         },
