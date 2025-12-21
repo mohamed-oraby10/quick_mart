@@ -34,12 +34,10 @@ class _FavouriteIconState extends State<FavouriteIcon> {
             child: Icon(
               isFavourite ? Iconsax.heart_bold : Iconsax.heart_outline,
               size: 12.sp,
-              color: context.isDarkMode
-                  ? isFavourite
-                        ? AppColors.generalRed
-                        : AppColors.brandBlack
-                  : isFavourite
+              color: isFavourite
                   ? AppColors.generalRed
+                  : context.isDarkMode
+                  ? AppColors.brandBlack
                   : AppColors.brandWhite,
             ),
           ),
