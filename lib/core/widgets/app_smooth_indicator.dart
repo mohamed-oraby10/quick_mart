@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quick_mart/Features/Onboarding/data/onboarding_list.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class PageIndicator extends StatelessWidget {
-  const PageIndicator({super.key, required this.pageController});
+class AppPageIndicator extends StatelessWidget {
+  const AppPageIndicator({
+    super.key,
+    required this.pageController,
+    required this.length,
+  });
   final PageController pageController;
+  final int length;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +24,7 @@ class PageIndicator extends StatelessWidget {
       child: Center(
         child: SmoothPageIndicator(
           controller: pageController,
-          count: onboardingList.length,
+          count: length,
           effect: SlideEffect(
             dotHeight: 6.h,
             dotWidth: 6.w,

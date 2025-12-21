@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/Features/Onboarding/data/models/onboarding_model.dart';
+import 'package:quick_mart/Features/Onboarding/data/onboarding_list.dart';
 import 'package:quick_mart/Features/Onboarding/presentation/views/widgets/login_button_row.dart';
 import 'package:quick_mart/Features/Onboarding/presentation/views/widgets/onboarding_text_section.dart';
-import 'package:quick_mart/Features/Onboarding/presentation/views/widgets/page_indecator.dart';
+import 'package:quick_mart/core/widgets/app_smooth_indicator.dart';
 
 class CustomOnboarding extends StatelessWidget {
   const CustomOnboarding({
@@ -35,7 +36,10 @@ class CustomOnboarding extends StatelessWidget {
                 ? LoginButtonRow()
                 : ElevatedButton(onPressed: onTap, child: Text('Next')),
           ),
-          PageIndicator(pageController: pageController),
+          AppPageIndicator(
+            pageController: pageController,
+            length: onboardingList.length,
+          ),
         ],
       ),
     );
