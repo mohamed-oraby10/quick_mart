@@ -33,6 +33,7 @@ class GoogleButton extends StatelessWidget {
               backgroundColor: context.isDarkMode
                   ? AppColors.brandBlack
                   : AppColors.brandWhite,
+              foregroundColor: context.customColors.modeColor,
             ),
             onPressed: () {
               BlocProvider.of<LoginWithGoogleCubit>(context).loginWithGoogle();
