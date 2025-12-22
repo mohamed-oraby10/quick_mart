@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:quick_mart/core/utils/styles.dart';
-import 'package:quick_mart/core/widgets/custom_elevated_button.dart';
+import 'package:quick_mart/core/widgets/disabled_app_button.dart';
 import 'package:quick_mart/core/widgets/main_button.dart';
 
 class BottomSheetBody extends StatelessWidget {
@@ -20,10 +19,7 @@ class BottomSheetBody extends StatelessWidget {
           SizedBox(height: 24.h),
           MainButton(text: 'Delete (1) product', onTap: () {}),
           SizedBox(height: 12.h),
-          CustomElevatedButton(
-            buttonText: 'Cancel',
-            onTap: () => GoRouter.of(context).pop(),
-          ),
+          DisabledAppButton(),
         ],
       ),
     );

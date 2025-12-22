@@ -29,6 +29,7 @@ class GoogleButton extends StatelessWidget {
         } else {
           return ElevatedButton(
             style: ElevatedButton.styleFrom(
+              elevation: 0,
               side: BorderSide(color: context.customColors.buttonColor),
               backgroundColor: context.isDarkMode
                   ? AppColors.brandBlack
