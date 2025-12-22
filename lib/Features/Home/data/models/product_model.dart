@@ -61,6 +61,7 @@ class ProductModel extends ProductEntity {
          discount: discountPercentage ?? 0,
          productTags: tags ?? [],
          productImages: images ?? [],
+         stockCount: stock ?? 0
        );
 
   // factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(

@@ -10,8 +10,10 @@ class ProductEntity {
   final List<String> productTags;
   final List<String> productImages;
   final List<Review>? reviewsCount;
+  final num stockCount;
 
   ProductEntity({
+    required this.stockCount,
     required this.reviewsCount,
     required this.productId,
     required this.productTitle,

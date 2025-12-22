@@ -30,7 +30,7 @@ class ProductDetailsContainer extends StatelessWidget {
             children: [
               SizedBox(height: 24.h),
               DetailsSection(product: product),
-              ColorAndQuantitySection(),
+              ColorAndQuantitySection(product: product,),
               AddToCartButtonRow(product: product,),
             ],
           ),
