@@ -6,7 +6,11 @@ import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class CartProductDetails extends StatelessWidget {
-  const CartProductDetails({super.key, required this.isWishlist, required this.product});
+  const CartProductDetails({
+    super.key,
+    required this.isWishlist,
+    required this.product,
+  });
   final bool isWishlist;
   final ProductEntity product;
   @override
@@ -15,7 +19,7 @@ class CartProductDetails extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-         product.productTitle,
+          product.productTitle,
           style: Styles.body2Medium,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
@@ -23,7 +27,7 @@ class CartProductDetails extends StatelessWidget {
         SizedBox(height: 8.h),
         Text('\$${product.productPrice}', style: Styles.captionSemiBold),
         Text(
-          '\$10.00',
+          '\$${(product.productPrice + ((product.discount / 100) * product.productPrice)).toStringAsFixed(2)}',
           style: Styles.overlineRegular.copyWith(
             decoration: TextDecoration.lineThrough,
             color: context.customColors.secondaryColor,

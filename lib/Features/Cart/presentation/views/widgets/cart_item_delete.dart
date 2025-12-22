@@ -54,7 +54,10 @@ class CartItemDelete extends StatelessWidget {
               children: [
                 CustomCheckBox(fillColor: AppColors.brandCyan, scale: 1.2),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () => showModalBottomSheet(
+                    context: context,
+                    builder: (context) => WishlistDeleteBottomSheet(),
+                  ),
                   icon: Icon(
                     Iconsax.trash_outline,
                     size: 24.sp,
