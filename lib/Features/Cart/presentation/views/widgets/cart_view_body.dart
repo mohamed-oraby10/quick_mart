@@ -24,7 +24,7 @@ class CartViewBody extends StatelessWidget {
           OrderInfoSection(),
           SizedBox(height: 24.h),
           MainButton(
-            text: 'Checkout (2)',
+            text: 'Checkout (${products.length})',
             onTap: () => GoRouter.of(context).push(AppRoutes.kCheckoutView),
           ),
         ],
