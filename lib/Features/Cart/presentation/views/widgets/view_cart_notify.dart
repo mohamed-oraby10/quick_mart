@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/utils/assets_data.dart';
@@ -10,13 +9,8 @@ import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 import 'package:quick_mart/core/widgets/custom_icon.dart';
 
 class ViewCartNotify extends StatelessWidget {
-  const ViewCartNotify({
-    super.key,
-    required this.message,
-    required this.products,
-  });
+  const ViewCartNotify({super.key, required this.message});
   final String message;
-  final List<ProductEntity> products;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,8 +27,7 @@ class ViewCartNotify extends StatelessWidget {
           Expanded(child: Text(message, style: Styles.captionSemiBold)),
           SizedBox(width: 8.w),
           TextButton(
-            onPressed: () =>
-                GoRouter.of(context).push(AppRoutes.kCartView, extra: products),
+            onPressed: () => GoRouter.of(context).push(AppRoutes.kCartView),
             child: Text(
               'View Cart',
               style: Styles.captionSemiBold.copyWith(

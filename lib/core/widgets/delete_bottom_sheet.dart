@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/Features/Wishlist/presentation/views/widgets/bottom_sheet_body.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
-class WishlistDeleteBottomSheet extends StatelessWidget {
-  const WishlistDeleteBottomSheet({super.key});
-
+class DeleteBottomSheet extends StatelessWidget {
+  const DeleteBottomSheet({
+    super.key,
+    required this.product,
+    required this.text,
+  });
+  final ProductEntity product;
+  final String text;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +25,7 @@ class WishlistDeleteBottomSheet extends StatelessWidget {
           topRight: Radius.circular(24.r),
         ),
       ),
-      child: BottomSheetBody(),
+      child: BottomSheetBody(product: product, text: text),
     );
   }
 }

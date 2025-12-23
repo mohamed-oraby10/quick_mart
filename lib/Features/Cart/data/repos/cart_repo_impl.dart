@@ -9,11 +9,18 @@ class CartRepoImpl implements CartRepo {
     required int quantity,
   }) {
     cartProducts.add(product);
-    return cartProducts;
+    return List.from(cartProducts);
   }
 
   @override
-  void removeFromCart({required ProductEntity product}) {
+  List<ProductEntity> removeFromCart({required ProductEntity product}) {
     cartProducts.remove(product);
+    return List.from(cartProducts);
+  }
+
+  
+  @override
+  List<ProductEntity> getCartProducts() {
+    return List.from(cartProducts); 
   }
 }

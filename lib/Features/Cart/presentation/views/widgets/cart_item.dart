@@ -25,7 +25,7 @@ class CartItem extends StatelessWidget {
           CartProductImage(image: product.productImages[0],),
           SizedBox(width: 8.w),
           Expanded(child: CartProductDetails(isWishlist: isWishlist, product: product,)),
-          CartItemDelete(isWishlist: isWishlist, isOrderView: isOrderView),
+          CartItemDelete(isWishlist: isWishlist, isOrderView: isOrderView, protect: null, product: product,),
         ],
       ),
     );
