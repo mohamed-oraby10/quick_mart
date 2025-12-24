@@ -1,26 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:quick_mart/Features/Cart/presentation/manager/cart_cubit/cart_cubit.dart';
+import 'package:quick_mart/Features/Cart/presentation/manager/cart_cubit/cart_state.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
+// ignore: must_be_immutable
 class ProductQuantity extends StatefulWidget {
-  const ProductQuantity({
+   ProductQuantity({
     super.key,
     this.isWishlist = false,
     required this.product,
+    required this.quantity,
   });
   final bool isWishlist;
   final ProductEntity product;
+  int quantity = 1;
 
   @override
   State<ProductQuantity> createState() => _ProductQuantityState();
 }
 
 class _ProductQuantityState extends State<ProductQuantity> {
-  int quantity = 0;
   @override
   Widget build(BuildContext context) {
     return IntrinsicWidth(
@@ -38,9 +43,9 @@ class _ProductQuantityState extends State<ProductQuantity> {
               onPressed: widget.isWishlist
                   ? null
                   : () {
-                      if (quantity > 0) {
+                      if (widget.quantity > 0) {
                         setState(() {
-                          quantity--;
+                          widget.quantity--;
                         });
                       }
                     },
@@ -51,15 +56,19 @@ class _ProductQuantityState extends State<ProductQuantity> {
                 color: context.customColors.modeColor,
               ),
             ),
-            Text(quantity.toString(), style: Styles.body1Medium),
+            BlocBuilder<CartCubit, CartState>(
+              builder: (context, state) {
+                return Text(widget.quantity.toString(), style: Styles.body1Medium);
+              },
+            ),
             IconButton(
               disabledColor: AppColors.grey100,
               onPressed: widget.isWishlist
                   ? null
                   : () {
-                      if (quantity < widget.product.stockCount) {
+                      if (widget.quantity < widget.product.stockCount) {
                         setState(() {
-                          quantity++;
+                          widget.quantity++;
                         });
                       }
                     },

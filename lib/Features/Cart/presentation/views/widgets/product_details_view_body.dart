@@ -13,7 +13,7 @@ class ProductDetailsViewBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ProductImageDetails(product: product,),
-        Expanded(child: ProductDetailsContainer(product: product)),
+        Expanded(child: ProductDetailsContainer(product: product, quantity: 0,)),
       ],
     );
   }

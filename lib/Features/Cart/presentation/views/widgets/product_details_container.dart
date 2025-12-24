@@ -8,8 +8,9 @@ import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class ProductDetailsContainer extends StatelessWidget {
-  const ProductDetailsContainer({super.key, required this.product});
+  const ProductDetailsContainer({super.key, required this.product, required this.quantity});
   final ProductEntity product;
+  final int quantity;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,8 +31,8 @@ class ProductDetailsContainer extends StatelessWidget {
             children: [
               SizedBox(height: 24.h),
               DetailsSection(product: product),
-              ColorAndQuantitySection(product: product,),
-              AddToCartButtonRow(product: product,),
+              ColorAndQuantitySection(product: product, quantity: quantity),
+              AddToCartButtonRow(product: product, quantity: quantity),
             ],
           ),
         ),
