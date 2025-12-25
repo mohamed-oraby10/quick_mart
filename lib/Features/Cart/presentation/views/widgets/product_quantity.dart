@@ -46,9 +46,9 @@ class ProductQuantity extends StatelessWidget {
                   onPressed: isWishlist
                       ? null
                       : () {
-                          if (cartItem.quantity > 0) {
-                            
-                          }
+                          BlocProvider.of<CartCubit>(
+                            context,
+                          ).decreaseQuantity(product: cartItem.product);
                         },
                   icon: Icon(Iconsax.minus_outline, size: 24.sp),
                 ),

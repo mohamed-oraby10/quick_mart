@@ -17,6 +17,11 @@ class CartCubit extends Cubit<CartState> {
     emit(CartLoaded(result));
   }
 
+  void decreaseQuantity({required ProductEntity product}) {
+    cartRepo.decreaseQuantity(product: product);
+    emit(CartLoaded(cartRepo.getCartProducts()));
+  }
+
   void remove(ProductEntity product) {
     final products = cartRepo.removeFromCart(product: product);
     emit(CartLoaded(products));

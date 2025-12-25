@@ -17,7 +17,7 @@ class CartRepoImpl implements CartRepo {
       cartItems[index] = exitstingItem.copyWith(
         quantity: exitstingItem.quantity + quantity,
       );
-    } else  {
+    } else {
       cartItems.add(CartItemEntity(product: product, quantity: quantity));
     }
     return List.from(cartItems);
@@ -33,6 +33,26 @@ class CartRepoImpl implements CartRepo {
 
   @override
   List<CartItemEntity> getCartProducts() {
+    return List.from(cartItems);
+  }
+
+  @override
+  List<CartItemEntity> decreaseQuantity({required ProductEntity product}) {
+    final index = cartItems.indexWhere(
+      (item) => item.product.productId == product.productId,
+    );
+
+    if (index == -1) return List.from(cartItems);
+
+    final existingItem = cartItems[index];
+
+    if (existingItem.quantity > 1) {
+      cartItems[index] = existingItem.copyWith(
+        quantity: existingItem.quantity - 1,
+      );
+    } else {
+      cartItems.remove(existingItem);
+    }
     return List.from(cartItems);
   }
 }
