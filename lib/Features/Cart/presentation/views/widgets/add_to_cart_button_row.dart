@@ -26,7 +26,7 @@ class AddToCartButtonRow extends StatelessWidget {
             onTap: () {
               BlocProvider.of<CartCubit>(
                 context,
-              ).addToCart(product: product, quantity: quantity);
+              ).addToCart(product: product, quantity: 1);
               showTopNotification(
                 context,
                 "The product has been added to your cart",

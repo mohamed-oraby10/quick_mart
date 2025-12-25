@@ -14,10 +14,10 @@ class CartView extends StatelessWidget {
       body: BlocBuilder<CartCubit, CartState>(
         builder: (context, state) {
           if (state is CartLoaded) {
-            if (state.products.isEmpty) {
+            if (state.cartItems.isEmpty) {
               return const EmptyCart();
             }
-            return CartViewBody(products: state.products);
+            return CartViewBody(products: state.cartItems);
           }
           return const EmptyCart();
         },

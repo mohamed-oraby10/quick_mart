@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/cart_item.dart';
-import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 
 class CartItemsListView extends StatelessWidget {
   const CartItemsListView({super.key, required this.products});
-  final List<ProductEntity> products;
+  final List<CartItemEntity> products;
   @override
   Widget build(BuildContext context) {
     return SizedBox(

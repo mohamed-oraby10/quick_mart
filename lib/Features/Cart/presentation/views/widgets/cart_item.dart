@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/cart_item_delete.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/cart_product_details.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/cart_product_image.dart';
-import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 
 class CartItem extends StatelessWidget {
   const CartItem({
@@ -14,7 +14,7 @@ class CartItem extends StatelessWidget {
   });
   final bool isWishlist;
   final bool isOrderView;
-  final ProductEntity product;
+  final CartItemEntity product;
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +22,10 @@ class CartItem extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 8.h),
       child: Row(
         children: [
-          CartProductImage(image: product.productImages[0],),
+          CartProductImage(image: product.product.productImages[0],),
           SizedBox(width: 8.w),
-          Expanded(child: CartProductDetails(isWishlist: isWishlist, product: product,)),
-          CartItemDelete(isWishlist: isWishlist, isOrderView: isOrderView, protect: null, product: product,),
+          Expanded(child: CartProductDetails(isWishlist: isWishlist, product: product.product,)),
+          CartItemDelete(isWishlist: isWishlist, isOrderView: isOrderView, protect: null, product: product.product,),
         ],
       ),
     );

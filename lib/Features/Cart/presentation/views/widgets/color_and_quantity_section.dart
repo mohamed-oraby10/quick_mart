@@ -20,7 +20,7 @@ class ColorAndQuantitySection extends StatelessWidget {
         // SizedBox(height: 12.h),
         Text('Quantity', style: Styles.captionSemiBold),
         SizedBox(height: 8.h),
-        ProductQuantity(product: product, quantity: quantity,),
+        ProductQuantity( productId: product.productId),
       ],
     );
   }

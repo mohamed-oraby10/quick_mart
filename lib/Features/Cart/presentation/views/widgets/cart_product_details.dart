@@ -35,7 +35,7 @@ class CartProductDetails extends StatelessWidget {
           ),
         ),
         SizedBox(height: 8.h),
-        ProductQuantity(isWishlist: isWishlist,product: product, quantity: 1,),
+        ProductQuantity(isWishlist: isWishlist,productId: product.productId,),
       ],
     );
   }

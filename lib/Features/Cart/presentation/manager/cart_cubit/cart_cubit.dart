@@ -12,10 +12,9 @@ class CartCubit extends Cubit<CartState> {
     emit(CartLoaded(cartRepo.getCartProducts()));
   }
 
-
   void addToCart({required ProductEntity product, required int quantity}) {
-    cartRepo.addToCart(product: product, quantity: quantity);
-    emit(CartLoaded(cartRepo.getCartProducts()));
+    var result = cartRepo.addToCart(product: product, quantity: quantity);
+    emit(CartLoaded(result));
   }
 
   void remove(ProductEntity product) {

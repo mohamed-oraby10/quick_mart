@@ -4,83 +4,74 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:quick_mart/Features/Cart/presentation/manager/cart_cubit/cart_cubit.dart';
 import 'package:quick_mart/Features/Cart/presentation/manager/cart_cubit/cart_state.dart';
-import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
-import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
-// ignore: must_be_immutable
-class ProductQuantity extends StatefulWidget {
-   ProductQuantity({
+class ProductQuantity extends StatelessWidget {
+  const ProductQuantity({
     super.key,
     this.isWishlist = false,
-    required this.product,
-    required this.quantity,
+    required this.productId,
   });
+
   final bool isWishlist;
-  final ProductEntity product;
-  int quantity = 1;
+  final int productId;
 
-  @override
-  State<ProductQuantity> createState() => _ProductQuantityState();
-}
-
-class _ProductQuantityState extends State<ProductQuantity> {
   @override
   Widget build(BuildContext context) {
-    return IntrinsicWidth(
-      child: Container(
-        padding: EdgeInsets.all(4.r),
-        decoration: BoxDecoration(
-          border: Border.all(color: context.customColors.buttonColor),
-          borderRadius: BorderRadius.circular(8.r),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              padding: EdgeInsets.zero,
-              onPressed: widget.isWishlist
-                  ? null
-                  : () {
-                      if (widget.quantity > 0) {
-                        setState(() {
-                          widget.quantity--;
-                        });
-                      }
-                    },
-              disabledColor: AppColors.grey100,
-              icon: Icon(
-                Iconsax.minus_outline,
-                size: 24.sp,
-                color: context.customColors.modeColor,
-              ),
+    return BlocBuilder<CartCubit, CartState>(
+      builder: (context, state) {
+        if (state is! CartLoaded) {
+          return const SizedBox();
+        }
+
+        final cartItem = state.cartItems
+            .where((item) => item.product.productId == productId)
+            .firstOrNull;
+
+        if (cartItem == null) {
+          return const SizedBox();
+        }
+
+        return IntrinsicWidth(
+          child: Container(
+            padding: EdgeInsets.all(4.r),
+            decoration: BoxDecoration(
+              border: Border.all(color: context.customColors.buttonColor),
+              borderRadius: BorderRadius.circular(8.r),
             ),
-            BlocBuilder<CartCubit, CartState>(
-              builder: (context, state) {
-                return Text(widget.quantity.toString(), style: Styles.body1Medium);
-              },
+            child: Row(
+              children: [
+                IconButton(
+                  onPressed: isWishlist
+                      ? null
+                      : () {
+                          if (cartItem.quantity > 0) {
+                            
+                          }
+                        },
+                  icon: Icon(Iconsax.minus_outline, size: 24.sp),
+                ),
+                Text(cartItem.quantity.toString(), style: Styles.body1Medium),
+                IconButton(
+                  onPressed: isWishlist
+                      ? null
+                      : () {
+                          if (cartItem.quantity <=
+                              cartItem.product.stockCount) {
+                            context.read<CartCubit>().addToCart(
+                              product: cartItem.product,
+                              quantity: 1,
+                            );
+                          }
+                        },
+                  icon: Icon(Iconsax.add_outline, size: 24.sp),
+                ),
+              ],
             ),
-            IconButton(
-              disabledColor: AppColors.grey100,
-              onPressed: widget.isWishlist
-                  ? null
-                  : () {
-                      if (widget.quantity < widget.product.stockCount) {
-                        setState(() {
-                          widget.quantity++;
-                        });
-                      }
-                    },
-              icon: Icon(
-                Iconsax.add_outline,
-                size: 24.sp,
-                color: context.customColors.modeColor,
-              ),
-            ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
