@@ -1,5 +1,11 @@
+import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
+import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
+
 abstract class WishlistRepo {
-  List<int> addToWishlist({required int productId});
-  List<int> removeFromWishlist({required int productId});
-  List<int> getWishlistProducts();
+  List<CartItemEntity> addToWishlist({
+    required int productId,
+    required ProductEntity product,
+  });
+  List<CartItemEntity> removeFromWishlist({required int productId});
+  List<CartItemEntity> getWishlistProducts();
 }
