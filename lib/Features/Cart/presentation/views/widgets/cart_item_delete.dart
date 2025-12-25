@@ -66,7 +66,13 @@ class CartItemDelete extends StatelessWidget {
           : Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CustomCheckBox(fillColor: AppColors.brandCyan, scale: 1.2),
+                CustomCheckBox(
+                  fillColor: AppColors.brandCyan,
+                  scale: 1.2,
+                  onChanged: (value) {
+                    BlocProvider.of<CartCubit>(context).remove(product);
+                  },
+                ),
                 IconButton(
                   onPressed: () => showModalBottomSheet(
                     context: context,
