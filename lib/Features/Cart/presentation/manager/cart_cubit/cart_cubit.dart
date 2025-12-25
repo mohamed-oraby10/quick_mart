@@ -26,4 +26,9 @@ class CartCubit extends Cubit<CartState> {
     final products = cartRepo.removeFromCart(product: product);
     emit(CartLoaded(products));
   }
+
+  void toggleItem(int productId) {
+    cartRepo.toggleSelection(productId: productId);
+    emit(CartLoaded(cartRepo.getCartProducts()));
+  }
 }

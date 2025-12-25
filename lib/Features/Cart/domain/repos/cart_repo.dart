@@ -9,4 +9,5 @@ abstract class CartRepo {
   List<CartItemEntity> removeFromCart({required ProductEntity product});
   List<CartItemEntity> decreaseQuantity({required ProductEntity product});
   List<CartItemEntity> getCartProducts();
+  void toggleSelection({required int productId});
 }

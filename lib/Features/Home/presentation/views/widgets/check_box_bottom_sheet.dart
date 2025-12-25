@@ -14,7 +14,7 @@ class CheckBoxBottomSheet extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 12.h),
       child: Row(
         children: [
-          CustomCheckBox(fillColor: AppColors.generalBlue, scale: 1.5),
+          // CustomCheckBox(fillColor: AppColors.generalBlue, scale: 1.5),
           SizedBox(width: 5.w),
           Text(text, style: Styles.body2Medium),
         ],

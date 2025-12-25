@@ -22,10 +22,20 @@ class CartItem extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 8.h),
       child: Row(
         children: [
-          CartProductImage(image: product.product.productImages[0],),
+          CartProductImage(image: product.product.productImages[0]),
           SizedBox(width: 8.w),
-          Expanded(child: CartProductDetails(isWishlist: isWishlist, product: product.product,)),
-          CartItemDelete(isWishlist: isWishlist, isOrderView: isOrderView, protect: null, product: product.product,),
+          Expanded(
+            child: CartProductDetails(
+              isWishlist: isWishlist,
+              product: product.product,
+            ),
+          ),
+          CartItemDelete(
+            isWishlist: isWishlist,
+            isOrderView: isOrderView,
+            product: product.product,
+            cartItem: product,
+          ),
         ],
       ),
     );

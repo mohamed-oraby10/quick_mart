@@ -13,6 +13,7 @@ class CartViewBody extends StatelessWidget {
   final List<CartItemEntity> products;
   @override
   Widget build(BuildContext context) {
+    final selectedCount = products.where((item) => item.isSelected).length;
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
@@ -23,10 +24,14 @@ class CartViewBody extends StatelessWidget {
           CartItemsListView(products: products),
           OrderInfoSection(products: products),
           SizedBox(height: 24.h),
-          MainButton(
-            text: 'Checkout (${products.length})',
-            onTap: () => GoRouter.of(context).push(AppRoutes.kCheckoutView),
-          ),
+          products.any((item) => item.isSelected)
+              ? MainButton(
+                  text: 'Checkout ($selectedCount)',
+                  onTap: () {
+                    GoRouter.of(context).push(AppRoutes.kCheckoutView);
+                  },
+                )
+              : SizedBox(),
         ],
       ),
     );

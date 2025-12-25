@@ -10,10 +10,14 @@ class OrderInfoSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final totalPrice = products.fold<double>(
+   final totalPrice = products
+    .where((item) => item.isSelected)
+    .fold<double>(
       0,
-      (sum, item) => sum + (item.quantity * item.product.productPrice),
+      (sum, item) =>
+          sum + item.quantity * item.product.productPrice,
     );
+
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

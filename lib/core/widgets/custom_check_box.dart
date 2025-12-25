@@ -8,17 +8,18 @@ class CustomCheckBox extends StatelessWidget {
     super.key,
     required this.fillColor,
     required this.scale,
-    this.onChanged,
+    this.onChanged, required this.isChecked,
   });
   final Color fillColor;
   final double scale;
   final void Function(bool?)? onChanged;
+  final bool isChecked ;
   @override
   Widget build(BuildContext context) {
     return Transform.scale(
       scale: scale,
       child: Checkbox(
-        value: true,
+        value: isChecked,
         onChanged: onChanged,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(4.r),

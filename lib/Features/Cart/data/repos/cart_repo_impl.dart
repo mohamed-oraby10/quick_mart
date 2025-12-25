@@ -55,4 +55,16 @@ class CartRepoImpl implements CartRepo {
     }
     return List.from(cartItems);
   }
+
+  @override
+  void toggleSelection({required int productId}) {
+    final index = cartItems.indexWhere(
+      (item) => item.product.productId == productId,
+    );
+
+    if (index != -1) {
+      final item = cartItems[index];
+      cartItems[index] = item.copyWith(isSelected: !item.isSelected);
+    }
+  }
 }
