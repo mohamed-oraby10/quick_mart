@@ -21,7 +21,7 @@ class CartViewBody extends StatelessWidget {
           SizedBox(height: 44.h),
           CartViewAppBar(),
           CartItemsListView(products: products),
-          OrderInfoSection(),
+          OrderInfoSection(products: products),
           SizedBox(height: 24.h),
           MainButton(
             text: 'Checkout (${products.length})',

@@ -22,7 +22,7 @@ class CheckoutReviewBody extends StatelessWidget {
               CheckoutStepperSection(isReview: true),
               ShinppingOrderSection(),
               SizedBox(height: 16.h),
-              OrderInfoSection(),
+              // OrderInfoSection(),
               SizedBox(height: 48.h),
               MainButton(
                 text: 'Place Order',

@@ -74,7 +74,7 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
           setState(() {
             currentIndex = value;
           });
-          GoRouter.of(context).go(targetRoute);
+          GoRouter.of(context).push(targetRoute);
         },
         currentIndex: currentIndex,
         type: BottomNavigationBarType.fixed,
