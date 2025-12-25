@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quick_mart/Features/Cart/presentation/views/widgets/product_quantity.dart';
+import 'package:quick_mart/Features/Cart/presentation/views/widgets/product_quantity_bloc_builder.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
@@ -35,7 +35,10 @@ class CartProductDetails extends StatelessWidget {
           ),
         ),
         SizedBox(height: 8.h),
-        ProductQuantity(isWishlist: isWishlist,productId: product.productId,),
+        ProductQuantityBuilder(
+          isWishlist: isWishlist,
+          productId: product.productId,
+        ),
       ],
     );
   }
