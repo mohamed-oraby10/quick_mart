@@ -11,7 +11,7 @@ class WishlistListView extends StatelessWidget {
     return Expanded(
       child: ListView.builder(
         padding: EdgeInsets.zero,
-        itemCount: 2,
+        itemCount: products.length,
         physics: BouncingScrollPhysics(),
         itemBuilder: (context, index) {
           return CartItem(

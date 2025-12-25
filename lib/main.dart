@@ -9,6 +9,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:quick_mart/Features/Cart/data/repos/cart_repo_impl.dart';
 import 'package:quick_mart/Features/Cart/presentation/manager/cart_cubit/cart_cubit.dart';
 import 'package:quick_mart/Features/Profile/domain/entities/user_entity.dart';
+import 'package:quick_mart/Features/Wishlist/data/repos/wishlist_repo_impl.dart';
+import 'package:quick_mart/Features/Wishlist/presentation/manager/cubit/wishlist_cubit.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/utils/constants.dart';
 import 'package:quick_mart/core/utils/functions/setup_service_locator.dart';
@@ -40,9 +42,8 @@ class QuickMart extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<ThemeCubit>(create: (context) => ThemeCubit()),
-        BlocProvider<CartCubit>(
-          create: (context) => CartCubit(CartRepoImpl()),
-        ),
+        BlocProvider<CartCubit>(create: (context) => CartCubit(CartRepoImpl())),
+        BlocProvider(create: (context) => WishlistCubit(WishlistRepoImpl())),
       ],
       child: ScreenUtilInit(
         designSize: Size(360, 800),

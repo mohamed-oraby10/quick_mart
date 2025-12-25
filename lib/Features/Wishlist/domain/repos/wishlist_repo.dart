@@ -6,6 +6,6 @@ abstract class WishlistRepo {
     required int productId,
     required ProductEntity product,
   });
-  List<CartItemEntity> removeFromWishlist({required int productId});
+  List<CartItemEntity> removeFromWishlist({required ProductEntity product});
   List<CartItemEntity> getWishlistProducts();
 }

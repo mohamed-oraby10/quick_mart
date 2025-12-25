@@ -20,13 +20,14 @@ class WishlistRepoImpl implements WishlistRepo {
 
   @override
   List<CartItemEntity> getWishlistProducts() {
-    // TODO: implement getWishlistProducts
-    throw UnimplementedError();
+    return List.from(wishlistItems);
   }
 
   @override
-  List<CartItemEntity> removeFromWishlist({required int productId}) {
-    // TODO: implement removeFromWishlist
-    throw UnimplementedError();
+  List<CartItemEntity> removeFromWishlist({required ProductEntity product}) {
+    wishlistItems.removeWhere(
+      (item) => item.product.productId == product.productId,
+    );
+    return List.from(wishlistItems);
   }
 }

@@ -10,9 +10,11 @@ class DeleteBottomSheet extends StatelessWidget {
     super.key,
     required this.product,
     required this.text,
+    this.isWishlist = false,
   });
   final ProductEntity product;
   final String text;
+  final bool isWishlist;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,7 +27,11 @@ class DeleteBottomSheet extends StatelessWidget {
           topRight: Radius.circular(24.r),
         ),
       ),
-      child: BottomSheetBody(product: product, text: text),
+      child: BottomSheetBody(
+        product: product,
+        text: text,
+        isWishlist: isWishlist,
+      ),
     );
   }
 }

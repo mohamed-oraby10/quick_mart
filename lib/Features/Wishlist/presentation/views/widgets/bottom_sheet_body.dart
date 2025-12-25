@@ -5,15 +5,22 @@ import 'package:go_router/go_router.dart';
 import 'package:quick_mart/Features/Cart/presentation/manager/cart_cubit/cart_cubit.dart';
 import 'package:quick_mart/Features/Cart/presentation/manager/cart_cubit/cart_state.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
+import 'package:quick_mart/Features/Wishlist/presentation/manager/cubit/wishlist_cubit.dart';
 import 'package:quick_mart/core/utils/functions/show_success_snack_bar.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/widgets/disabled_app_button.dart';
 import 'package:quick_mart/core/widgets/main_button.dart';
 
 class BottomSheetBody extends StatelessWidget {
-  const BottomSheetBody({super.key, required this.product, required this.text});
+  const BottomSheetBody({
+    super.key,
+    required this.product,
+    required this.text,
+    required this.isWishlist,
+  });
   final ProductEntity product;
   final String text;
+  final bool isWishlist;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -37,9 +44,9 @@ class BottomSheetBody extends StatelessWidget {
             child: MainButton(
               text: 'Delete (1) product',
               onTap: () {
-                BlocProvider.of<CartCubit>(
-                  context,
-                ).remove( product);
+                isWishlist
+                    ? BlocProvider.of<WishlistCubit>(context).remove(product)
+                    : BlocProvider.of<CartCubit>(context).remove(product);
               },
             ),
           ),

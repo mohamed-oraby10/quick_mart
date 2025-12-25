@@ -24,7 +24,10 @@ class ProductImage extends StatelessWidget {
             width: 150.w,
           ),
         ),
-        Align(alignment: Alignment.topRight, child: FavouriteIcon()),
+        Align(
+          alignment: Alignment.topRight,
+          child: FavouriteIcon(product: product),
+        ),
       ],
     );
   }
