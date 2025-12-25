@@ -11,7 +11,7 @@ class ProductImageDetails extends StatelessWidget {
     return Stack(
       children: [
         ProductImagePageView(product: product),
-        ProductDetailsAppBar(),
+        ProductDetailsAppBar(product: product),
       ],
     );
   }
