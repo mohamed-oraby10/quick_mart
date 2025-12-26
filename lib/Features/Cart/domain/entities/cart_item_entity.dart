@@ -1,8 +1,14 @@
+import 'package:hive/hive.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
+part 'cart_item_entity.g.dart';
 
+@HiveType(typeId: 2)
 class CartItemEntity {
+  @HiveField(0)
   final ProductEntity product;
+  @HiveField(1)
   final int quantity;
+  @HiveField(2)
   final bool isSelected;
 
   CartItemEntity({

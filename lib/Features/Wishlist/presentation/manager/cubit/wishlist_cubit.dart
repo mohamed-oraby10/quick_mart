@@ -14,14 +14,6 @@ class WishlistCubit extends Cubit<WishlistState> {
     emit(WishlistLoaded(wishlistRepo.getWishlistProducts()));
   }
 
-  void addToWishlist({required ProductEntity product}) {
-    var result = wishlistRepo.addToWishlist(
-      productId: product.productId,
-      product: product,
-    );
-    emit(WishlistLoaded(result));
-  }
-
   void remove(ProductEntity product) {
     final products = wishlistRepo.removeFromWishlist(product: product);
     emit(WishlistLoaded(products));
