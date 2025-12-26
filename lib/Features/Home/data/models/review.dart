@@ -1,8 +1,17 @@
+import 'package:hive/hive.dart';
+part 'review.g.dart';
+
+@HiveType(typeId: 3)
 class Review {
+  @HiveField(0)
   int? rating;
+  @HiveField(1)
   String? comment;
+  @HiveField(2)
   DateTime? date;
+  @HiveField(3)
   String? reviewerName;
+  @HiveField(4)
   String? reviewerEmail;
 
   Review({

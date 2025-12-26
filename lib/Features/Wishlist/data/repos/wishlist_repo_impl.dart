@@ -1,10 +1,13 @@
 import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
+import 'package:quick_mart/Features/Wishlist/data/data_sources/wishlist_local_data_source.dart';
 import 'package:quick_mart/Features/Wishlist/domain/repos/wishlist_repo.dart';
-import 'package:quick_mart/core/utils/functions/save_wishlist_items.dart';
 
 class WishlistRepoImpl implements WishlistRepo {
   final List<CartItemEntity> wishlistItems = [];
+  final WishlistLocalDataSource wishlistLocalDataSource;
+
+  WishlistRepoImpl(this.wishlistLocalDataSource);
 
   @override
   List<CartItemEntity> addToWishlist({
@@ -17,14 +20,14 @@ class WishlistRepoImpl implements WishlistRepo {
     if (index == -1) {
       wishlistItems.add(CartItemEntity(product: product, quantity: 1));
     }
-    return List.from(wishlistItems);
+    List<CartItemEntity> wishlistProducts = List.from(wishlistItems);
+    wishlistLocalDataSource.cacheWishlistItems(wishlistProducts);
+    return wishlistProducts;
   }
 
   @override
   List<CartItemEntity> getWishlistProducts() {
-    List<CartItemEntity> wishlistProducts = List.from(wishlistItems);
-    saveWishlistItems(wishlistProducts);
-    return wishlistProducts;
+    return wishlistLocalDataSource.fetchWishlistItems();
   }
 
   @override
@@ -32,6 +35,7 @@ class WishlistRepoImpl implements WishlistRepo {
     wishlistItems.removeWhere(
       (item) => item.product.productId == product.productId,
     );
+    wishlistLocalDataSource.deleteWishlistItem(product: product);
     return List.from(wishlistItems);
   }
 

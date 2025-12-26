@@ -13,7 +13,7 @@ class WishlistCubit extends Cubit<WishlistState> {
   void loadWishlist() {
     emit(WishlistLoaded(wishlistRepo.getWishlistProducts()));
   }
-
+  
   void remove(ProductEntity product) {
     final products = wishlistRepo.removeFromWishlist(product: product);
     emit(WishlistLoaded(products));

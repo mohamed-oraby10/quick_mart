@@ -9,8 +9,10 @@ import 'package:path_provider/path_provider.dart';
 import 'package:quick_mart/Features/Cart/data/repos/cart_repo_impl.dart';
 import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Cart/presentation/manager/cart_cubit/cart_cubit.dart';
+import 'package:quick_mart/Features/Home/data/models/review.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/Features/Profile/domain/entities/user_entity.dart';
+import 'package:quick_mart/Features/Wishlist/data/data_sources/wishlist_local_data_source.dart';
 import 'package:quick_mart/Features/Wishlist/data/repos/wishlist_repo_impl.dart';
 import 'package:quick_mart/Features/Wishlist/presentation/manager/cubit/wishlist_cubit.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
@@ -33,8 +35,9 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(UserEntityAdapter());
   await Hive.openBox<UserEntity>(kUsersBox);
-  Hive.registerAdapter(CartItemEntityAdapter());
+  Hive.registerAdapter(ReviewAdapter());
   Hive.registerAdapter(ProductEntityAdapter());
+  Hive.registerAdapter(CartItemEntityAdapter());
   await Hive.openBox<CartItemEntity>(kWishlistBox);
   runApp(const QuickMart());
 }
@@ -50,7 +53,8 @@ class QuickMart extends StatelessWidget {
         BlocProvider<CartCubit>(create: (context) => CartCubit(CartRepoImpl())),
         BlocProvider(
           create: (context) =>
-              WishlistCubit(WishlistRepoImpl())..loadWishlist(),
+              WishlistCubit(WishlistRepoImpl(WishlistLocalDataSourceImpl()))
+                ..loadWishlist(),
         ),
       ],
       child: ScreenUtilInit(
