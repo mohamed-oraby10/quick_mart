@@ -7,7 +7,9 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:quick_mart/Features/Cart/data/repos/cart_repo_impl.dart';
+import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Cart/presentation/manager/cart_cubit/cart_cubit.dart';
+import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/Features/Profile/domain/entities/user_entity.dart';
 import 'package:quick_mart/Features/Wishlist/data/repos/wishlist_repo_impl.dart';
 import 'package:quick_mart/Features/Wishlist/presentation/manager/cubit/wishlist_cubit.dart';
@@ -31,6 +33,9 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(UserEntityAdapter());
   await Hive.openBox<UserEntity>(kUsersBox);
+  Hive.registerAdapter(CartItemEntityAdapter());
+  Hive.registerAdapter(ProductEntityAdapter());
+  await Hive.openBox<CartItemEntity>(kWishlistBox);
   runApp(const QuickMart());
 }
 

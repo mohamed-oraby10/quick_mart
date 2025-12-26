@@ -1,6 +1,7 @@
 import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/Features/Wishlist/domain/repos/wishlist_repo.dart';
+import 'package:quick_mart/core/utils/functions/save_wishlist_items.dart';
 
 class WishlistRepoImpl implements WishlistRepo {
   final List<CartItemEntity> wishlistItems = [];
@@ -21,7 +22,9 @@ class WishlistRepoImpl implements WishlistRepo {
 
   @override
   List<CartItemEntity> getWishlistProducts() {
-    return List.from(wishlistItems);
+    List<CartItemEntity> wishlistProducts = List.from(wishlistItems);
+    saveWishlistItems(wishlistProducts);
+    return wishlistProducts;
   }
 
   @override
