@@ -10,11 +10,12 @@ class WishlistRepoImpl implements WishlistRepo {
     required int productId,
     required ProductEntity product,
   }) {
-    // final index = wishlistItems.indexWhere(
-    //   (item) => item.product.productId == product.productId,
-    // );
-
-    wishlistItems.add(CartItemEntity(product: product, quantity: 1));
+    final index = wishlistItems.indexWhere(
+      (item) => item.product.productId == product.productId,
+    );
+    if (index == -1) {
+      wishlistItems.add(CartItemEntity(product: product, quantity: 1));
+    }
     return List.from(wishlistItems);
   }
 
@@ -29,5 +30,19 @@ class WishlistRepoImpl implements WishlistRepo {
       (item) => item.product.productId == product.productId,
     );
     return List.from(wishlistItems);
+  }
+
+  @override
+  void toggleSelection({required ProductEntity product}) {
+    final index = wishlistItems.indexWhere(
+      (item) => item.product.productId == product.productId,
+    );
+
+    if (index != -1) {
+      final item = wishlistItems[index];
+      removeFromWishlist(product: item.product);
+    } else {
+      addToWishlist(productId: product.productId, product: product);
+    }
   }
 }

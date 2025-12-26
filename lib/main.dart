@@ -43,7 +43,10 @@ class QuickMart extends StatelessWidget {
       providers: [
         BlocProvider<ThemeCubit>(create: (context) => ThemeCubit()),
         BlocProvider<CartCubit>(create: (context) => CartCubit(CartRepoImpl())),
-        BlocProvider(create: (context) => WishlistCubit(WishlistRepoImpl())),
+        BlocProvider(
+          create: (context) =>
+              WishlistCubit(WishlistRepoImpl())..loadWishlist(),
+        ),
       ],
       child: ScreenUtilInit(
         designSize: Size(360, 800),

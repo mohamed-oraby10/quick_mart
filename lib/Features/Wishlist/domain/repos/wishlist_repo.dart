@@ -8,4 +8,5 @@ abstract class WishlistRepo {
   });
   List<CartItemEntity> removeFromWishlist({required ProductEntity product});
   List<CartItemEntity> getWishlistProducts();
+  void toggleSelection({required ProductEntity product});
 }

@@ -10,7 +10,7 @@ class WishlistCubit extends Cubit<WishlistState> {
   WishlistCubit(this.wishlistRepo) : super(WishlistInitial());
   final WishlistRepo wishlistRepo;
 
-  void loadCart() {
+  void loadWishlist() {
     emit(WishlistLoaded(wishlistRepo.getWishlistProducts()));
   }
 
@@ -23,9 +23,12 @@ class WishlistCubit extends Cubit<WishlistState> {
   }
 
   void remove(ProductEntity product) {
-    final products = wishlistRepo.removeFromWishlist(
-      product: product,
-    );
+    final products = wishlistRepo.removeFromWishlist(product: product);
     emit(WishlistLoaded(products));
+  }
+
+  void toggleItem(ProductEntity product) {
+    wishlistRepo.toggleSelection(product: product);
+    emit(WishlistLoaded(wishlistRepo.getWishlistProducts()));
   }
 }
