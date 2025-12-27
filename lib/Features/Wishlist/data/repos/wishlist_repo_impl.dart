@@ -4,7 +4,6 @@ import 'package:quick_mart/Features/Wishlist/data/data_sources/wishlist_local_da
 import 'package:quick_mart/Features/Wishlist/domain/repos/wishlist_repo.dart';
 
 class WishlistRepoImpl implements WishlistRepo {
-  final List<CartItemEntity> wishlistItems = [];
   final WishlistLocalDataSource wishlistLocalDataSource;
 
   WishlistRepoImpl(this.wishlistLocalDataSource);
@@ -14,15 +13,8 @@ class WishlistRepoImpl implements WishlistRepo {
     required int productId,
     required ProductEntity product,
   }) {
-    final index = wishlistItems.indexWhere(
-      (item) => item.product.productId == product.productId,
-    );
-    if (index == -1) {
-      wishlistItems.add(CartItemEntity(product: product, quantity: 1));
-    }
-    List<CartItemEntity> wishlistProducts = List.from(wishlistItems);
-    wishlistLocalDataSource.cacheWishlistItems(wishlistProducts);
-    return wishlistProducts;
+    wishlistLocalDataSource.cacheWishlistItems(product);
+    return wishlistLocalDataSource.fetchWishlistItems();
   }
 
   @override
@@ -32,24 +24,16 @@ class WishlistRepoImpl implements WishlistRepo {
 
   @override
   List<CartItemEntity> removeFromWishlist({required ProductEntity product}) {
-    wishlistItems.removeWhere(
-      (item) => item.product.productId == product.productId,
-    );
     wishlistLocalDataSource.deleteWishlistItem(product: product);
-    return List.from(wishlistItems);
+    return wishlistLocalDataSource.fetchWishlistItems();
   }
 
   @override
   void toggleSelection({required ProductEntity product}) {
-    final index = wishlistItems.indexWhere(
-      (item) => item.product.productId == product.productId,
-    );
-
-    if (index != -1) {
-      final item = wishlistItems[index];
-      removeFromWishlist(product: item.product);
+    if (wishlistLocalDataSource.contains(product.productId)) {
+      wishlistLocalDataSource.deleteWishlistItem(product: product);
     } else {
-      addToWishlist(productId: product.productId, product: product);
+      wishlistLocalDataSource.cacheWishlistItems(product);
     }
   }
 }
