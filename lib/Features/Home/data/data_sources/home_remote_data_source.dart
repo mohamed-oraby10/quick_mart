@@ -16,10 +16,14 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   Future<List<CategoryEntity>> fetchCategories({
     required int pageNumber,
   }) async {
-    // TODO: implement fetchCategories
-    throw UnimplementedError();
+    final data = await apiService.get(endPoint: 'category-list');
+    final categories = data as List;
 
-    // await apiService.get(endPoint: 'category-list');
+    return categories
+        .map<CategoryEntity>(
+          (category) => CategoryEntity(categoryName: category.toString()),
+        )
+        .toList();
   }
 
   @override

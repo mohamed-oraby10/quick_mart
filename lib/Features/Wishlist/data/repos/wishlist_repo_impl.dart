@@ -10,7 +10,6 @@ class WishlistRepoImpl implements WishlistRepo {
 
   @override
   List<CartItemEntity> addToWishlist({
-    required int productId,
     required ProductEntity product,
   }) {
     wishlistLocalDataSource.cacheWishlistItems(product);

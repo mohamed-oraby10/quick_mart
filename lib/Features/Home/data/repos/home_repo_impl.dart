@@ -13,9 +13,17 @@ class HomeRepoImpl extends HomeRepo {
   @override
   Future<Either<ServerFailure, List<CategoryEntity>>> fetchCategories({
     required int pageNumber,
-  }) {
-    // TODO: implement fetchCategories
-    throw UnimplementedError();
+  }) async {
+    try {
+      return right(
+        await homeRemoteDataSource.fetchCategories(pageNumber: pageNumber),
+      );
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
   }
 
   @override
