@@ -6,6 +6,10 @@ import 'package:quick_mart/core/utils/api_service.dart';
 abstract class HomeRemoteDataSource {
   Future<List<CategoryEntity>> fetchCategories({required int pageNumber});
   Future<List<ProductEntity>> fetchLeatestProducts({required int pageNumber});
+  Future<List<ProductEntity>> fetchProductsByCategory({
+    required int pageNumber,
+    required String categoryName,
+  });
 }
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
@@ -47,5 +51,18 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
     return filteredProducts
         .map<ProductEntity>((json) => ProductModel.fromJson(json))
         .toList();
+  }
+
+  @override
+  Future<List<ProductEntity>> fetchProductsByCategory({
+    required int pageNumber,
+    required String categoryName,
+  }) async {
+    var data = await apiService.get(endPoint: 'category/$categoryName');
+    List<ProductEntity> products = [];
+    for (var product in data['products']) {
+      products.add(ProductModel.fromJson(product));
+    }
+    return products;
   }
 }

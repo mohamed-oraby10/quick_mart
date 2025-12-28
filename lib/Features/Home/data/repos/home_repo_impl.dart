@@ -41,4 +41,10 @@ class HomeRepoImpl extends HomeRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+  
+  @override
+  Future<Either<Failure, List<ProductEntity>>> fetchProductsByCategory({required int pageNumber, required String categoryName}) {
+    // TODO: implement fetchProductsByCategory
+    throw UnimplementedError();
+  }
 }

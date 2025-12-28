@@ -26,6 +26,8 @@ class CategoryItem extends StatelessWidget {
           child: Text(
             category.categoryName,
             style: Styles.captionSemiBold,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
           ),
         ),

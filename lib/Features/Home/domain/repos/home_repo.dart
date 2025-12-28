@@ -10,4 +10,8 @@ abstract class HomeRepo {
   Future<Either<Failure, List<ProductEntity>>> fetchLeatestProducts({
     required int pageNumber,
   });
+   Future<Either<Failure, List<ProductEntity>>> fetchProductsByCategory({
+    required int pageNumber,
+    required String categoryName
+  });
 }
