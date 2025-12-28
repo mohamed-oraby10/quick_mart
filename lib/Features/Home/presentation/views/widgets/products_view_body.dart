@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quick_mart/Features/Home/presentation/views/widgets/products_grid_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/products_list_app_bar.dart';
+import 'package:quick_mart/Features/Home/presentation/views/widgets/products_grid_view_bloc_builder.dart';
 
 class ProductsViewBody extends StatelessWidget {
-  const ProductsViewBody({super.key});
-
+  const ProductsViewBody({super.key, required this.categoryName});
+  final String categoryName;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,8 +14,8 @@ class ProductsViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 44.h),
-          ProductsListAppBar(title: 'Smart Watches'),
-          // Expanded(child: ProductsGridView(product: null,)),
+          ProductsListAppBar(title: categoryName),
+          Expanded(child: ProductsGridViewBlocBuilder()),
         ],
       ),
     );

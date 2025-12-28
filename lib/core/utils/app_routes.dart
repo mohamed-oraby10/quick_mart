@@ -102,7 +102,10 @@ class AppRoutes {
       ),
       GoRoute(
         path: kProductsView,
-        builder: (context, state) => const ProductsView(),
+        builder: (context, state) {
+          final categoryName = state.extra as String;
+          return ProductsView(categoryName: categoryName);
+        },
       ),
       GoRoute(
         path: kProductsSearchView,
