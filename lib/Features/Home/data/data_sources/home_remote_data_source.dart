@@ -17,12 +17,11 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
     required int pageNumber,
   }) async {
     final data = await apiService.get(endPoint: 'category-list');
-    final categories = data as List;
+
+    final categories = data as List<dynamic>;
 
     return categories
-        .map<CategoryEntity>(
-          (category) => CategoryEntity(categoryName: category.toString()),
-        )
+        .map<CategoryEntity>((e) => CategoryEntity(categoryName: e))
         .toList();
   }
 
