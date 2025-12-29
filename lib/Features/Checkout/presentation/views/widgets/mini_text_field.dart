@@ -24,7 +24,13 @@ class MiniTextField extends StatelessWidget {
           height: 60.h,
           child: Padding(
             padding: EdgeInsets.only(bottom: 12.h),
-            child: TextField(
+            child: TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Field is required';
+                }
+                return null;
+              },
               onChanged: (value) {},
               decoration: InputDecoration(hintText: hint),
             ),

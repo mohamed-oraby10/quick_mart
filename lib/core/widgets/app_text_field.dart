@@ -20,7 +20,13 @@ class AppTextField extends StatelessWidget {
         SizedBox(height: 8.h),
         Padding(
           padding: EdgeInsets.only(bottom: 12.h),
-          child: TextField(
+          child: TextFormField(
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Field is required';
+              }
+              return null;
+            },
             onChanged: onChanged,
             decoration: InputDecoration(hintText: hint),
           ),
