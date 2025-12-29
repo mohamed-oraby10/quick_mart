@@ -1,16 +1,16 @@
 import 'package:quick_mart/Features/Checkout/domain/entities/order_entity.dart';
-import 'package:quick_mart/Features/Home/data/models/product_model.dart';
+import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 
 class OrderModel extends OrderEntity {
-  final int orderId;
-  final int userId;
+  final String orderId;
+  final String userId;
   final String customerFullName;
   final String phoneNumber;
   final String streetAddress;
   final String country;
   final String province;
   final String cityName;
-  final List<ProductModel> products;
+  final List<ProductEntity> products;
 
   OrderModel({
     required this.userId,
