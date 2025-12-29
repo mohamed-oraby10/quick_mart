@@ -5,12 +5,12 @@ import 'package:quick_mart/core/utils/styles.dart';
 class AppTextField extends StatelessWidget {
   const AppTextField({
     super.key,
-    this.onChanged,
     required this.hint,
     required this.text,
+    this.controller,
   });
-  final void Function(String)? onChanged;
   final String hint, text;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,13 +21,13 @@ class AppTextField extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(bottom: 12.h),
           child: TextFormField(
+            controller: controller,
             validator: (value) {
               if (value!.isEmpty) {
                 return 'Field is required';
               }
               return null;
             },
-            onChanged: onChanged,
             decoration: InputDecoration(hintText: hint),
           ),
         ),

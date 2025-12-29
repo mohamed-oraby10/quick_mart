@@ -18,6 +18,11 @@ class CheckoutViewBody extends StatefulWidget {
 
 class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  TextEditingController nameController = TextEditingController(),
+      addressController = TextEditingController(),
+      countyController = TextEditingController(),
+      provinceController = TextEditingController(),
+      cityController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -29,16 +34,25 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CheckoutStepperSection(isShipping: true),
-              AppTextField(hint: 'Enter full name', text: 'Full Name'),
+              AppTextField(
+                hint: 'Enter full name',
+                text: 'Full Name',
+                controller: nameController,
+              ),
               Text('Phone Number', style: Styles.body2Medium),
               SizedBox(height: 8.h),
               PhoneNumberTextField(),
               AppTextField(
                 hint: 'Enter street address',
                 text: 'Street Address',
+                controller: addressController,
               ),
               ShippingOrderDetailsRow(),
-              AppTextField(hint: 'Enter City', text: 'City'),
+              AppTextField(
+                hint: 'Enter City',
+                text: 'City',
+                controller: cityController,
+              ),
               SizedBox(height: 12.h),
               MainButton(
                 text: 'Save',
