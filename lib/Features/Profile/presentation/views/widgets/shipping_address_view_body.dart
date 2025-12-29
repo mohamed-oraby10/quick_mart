@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/phone_number_text_field.dart';
-import 'package:quick_mart/Features/Checkout/presentation/views/widgets/shipping_order_details_row.dart';
+// import 'package:quick_mart/Features/Checkout/presentation/views/widgets/shipping_order_details_row.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/widgets/app_text_field.dart';
 import 'package:quick_mart/core/widgets/custom_app_bar.dart';
@@ -25,7 +25,7 @@ class ShippingAddressViewBody extends StatelessWidget {
             Text('Phone Number', style: Styles.body2Medium),
             PhoneNumberTextField(),
             AppTextField(hint: 'Enter street address', text: 'Street Address'),
-            ShippingOrderDetailsRow(),
+            // ShippingOrderDetailsRow(),
             AppTextField(hint: 'Enter City', text: 'City'),
             SizedBox(height: 24.h),
             MainButton(text: 'Save', onTap: () {}),

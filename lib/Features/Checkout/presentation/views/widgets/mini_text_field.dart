@@ -3,15 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 
 class MiniTextField extends StatelessWidget {
-  const MiniTextField({
-    super.key,
-    this.onChanged,
-    required this.hint,
-    required this.text,
-  });
-  final void Function(String)? onChanged;
+  const MiniTextField({super.key, required this.hint, required this.text, required this.controller});
   final String hint;
   final String text;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,13 +20,13 @@ class MiniTextField extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.only(bottom: 12.h),
             child: TextFormField(
+              controller: controller,
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Field is required';
                 }
                 return null;
               },
-              onChanged: (value) {},
               decoration: InputDecoration(hintText: hint),
             ),
           ),
