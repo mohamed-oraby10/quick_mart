@@ -1,5 +1,5 @@
+import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Checkout/domain/entities/order_entity.dart';
-import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 
 class OrderModel extends OrderEntity {
   final String orderId;
@@ -10,7 +10,7 @@ class OrderModel extends OrderEntity {
   final String country;
   final String province;
   final String cityName;
-  final List<ProductEntity> products;
+  final List<CartItemEntity> products;
 
   OrderModel({
     required this.userId,

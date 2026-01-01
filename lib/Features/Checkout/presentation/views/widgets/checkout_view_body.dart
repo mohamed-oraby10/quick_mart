@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/checkout_stepper_section.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/phone_number_text_field.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/save_shipping_details_bloc_consumer_button.dart';
@@ -8,7 +9,8 @@ import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/widgets/app_text_field.dart';
 
 class CheckoutViewBody extends StatefulWidget {
-  const CheckoutViewBody({super.key});
+  const CheckoutViewBody({super.key, required this.products});
+  final List<CartItemEntity> products;
 
   @override
   State<CheckoutViewBody> createState() => _CheckoutViewBodyState();
@@ -56,6 +58,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
               ),
               SizedBox(height: 12.h),
               SaveShippingDetailsBlocConsumerButton(
+                products:widget.products,
                 formKey: formKey,
                 nameController: nameController,
                 addressController: addressController,

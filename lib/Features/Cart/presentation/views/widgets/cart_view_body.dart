@@ -28,7 +28,9 @@ class CartViewBody extends StatelessWidget {
               ? MainButton(
                   text: 'Checkout ($selectedCount)',
                   onTap: () {
-                    GoRouter.of(context).push(AppRoutes.kCheckoutView);
+                    GoRouter.of(
+                      context,
+                    ).push(AppRoutes.kCheckoutView, extra: products);
                   },
                 )
               : SizedBox(),

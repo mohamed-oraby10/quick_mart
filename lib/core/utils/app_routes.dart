@@ -7,6 +7,7 @@ import 'package:quick_mart/Features/Auth/presentation/views/register_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/reset_password_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/successful_password_view.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/verify_email.dart';
+import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/cart_view.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/product_details_view.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/checkout_view.dart';
@@ -134,7 +135,9 @@ class AppRoutes {
       ),
       GoRoute(
         path: kCheckoutView,
-        builder: (context, state) => const CheckoutView(),
+        builder: (context, state) {
+          final products = state.extra as List<CartItemEntity>;
+          return CheckoutView(products: products );},
       ),
       GoRoute(
         path: kCheckoutPaymentBody,

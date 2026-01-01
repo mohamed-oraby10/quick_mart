@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Checkout/domain/entities/order_entity.dart';
 import 'package:quick_mart/Features/Checkout/presentation/manager/save_order_cubit/save_order_cubit.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
@@ -17,9 +18,9 @@ class SaveShippingDetailsBlocConsumerButton extends StatelessWidget {
     required this.addressController,
     required this.countyController,
     required this.provinceController,
-    required this.cityController,
+    required this.cityController, required this.products,
   });
-
+  final List<CartItemEntity> products;
   final GlobalKey<FormState> formKey;
   final TextEditingController nameController,
       addressController,
@@ -34,7 +35,7 @@ class SaveShippingDetailsBlocConsumerButton extends StatelessWidget {
         if (state is SaveOrderSuccess) {
           showSuccessSnakBar(
             context,
-            content: 'your order is palced successfully',
+            content: 'Your order is palced successfully',
           );
           GoRouter.of(context).push(AppRoutes.kCheckoutPaymentBody);
         } else if (state is SaveOrderFailure) {
@@ -57,7 +58,7 @@ class SaveShippingDetailsBlocConsumerButton extends StatelessWidget {
                   countryName: countyController.text,
                   provinceName: provinceController.text,
                   city: cityController.text,
-                  productsList: [],
+                  productsList: products,
                 ),
               );
             }

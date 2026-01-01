@@ -1,4 +1,4 @@
-import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
+import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 
 class OrderEntity {
   final String fullName;
@@ -7,7 +7,7 @@ class OrderEntity {
   final String countryName;
   final String provinceName;
   final String city;
-  final List<ProductEntity> productsList;
+  final List<CartItemEntity> productsList;
 
   OrderEntity({
     required this.fullName,
