@@ -28,7 +28,11 @@ class HomeViewBody extends StatelessWidget {
             ),
             CategoriesListView(),
             SizedBox(height: 24.h),
-            HomeRow(text: 'Latest Products'),
+            HomeRow(
+              text: 'Latest Products',
+              onTap: () =>
+                  GoRouter.of(context).push(AppRoutes.kLeatestProductsView),
+            ),
             SizedBox(height: 12.h),
             LeatestProductsGridViewBlocConsumer(),
           ],

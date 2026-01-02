@@ -19,6 +19,7 @@ import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/Features/Home/presentation/views/categories_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/exclusive_sales_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/home_view.dart';
+import 'package:quick_mart/Features/Home/presentation/views/leatest_products_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/products_search_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/products_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/sub_category_view.dart';
@@ -62,6 +63,7 @@ class AppRoutes {
   static const kNewPasswordViewBody = '/newPasswordViewBody';
   static const kOrderHistoryView = '/orderHistoryView';
   static const kResetPasswordView = '/resetPasswordView';
+  static const kLeatestProductsView = '/leatestProductsView';
 
   static final router = GoRouter(
     initialLocation: '/',
@@ -134,10 +136,15 @@ class AppRoutes {
         builder: (context, state) => const WishlistView(),
       ),
       GoRoute(
+        path: kLeatestProductsView,
+        builder: (context, state) => const LeatestProductsView(),
+      ),
+      GoRoute(
         path: kCheckoutView,
         builder: (context, state) {
           final products = state.extra as List<CartItemEntity>;
-          return CheckoutView(products: products );},
+          return CheckoutView(products: products);
+        },
       ),
       GoRoute(
         path: kCheckoutPaymentBody,
