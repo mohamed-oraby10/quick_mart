@@ -5,15 +5,15 @@ import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class CategoryHomeItem extends StatelessWidget {
-  const CategoryHomeItem({super.key, required this.categoryEntity});
+  const CategoryHomeItem({super.key, required this.categoryEntity, this.onTap});
   final CategoryEntity categoryEntity;
-
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: 12.h, right: 8.w),
       child: GestureDetector(
-        onTap: () {},
+        onTap: onTap,
         child: Container(
           height: 60.h,
           width: 76.w,

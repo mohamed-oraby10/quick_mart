@@ -11,13 +11,14 @@ class ProductsGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       padding: EdgeInsets.zero,
-      physics: BouncingScrollPhysics(),
+      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
       itemCount: products.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 8,
         mainAxisSpacing: 20,
-        childAspectRatio: .75
+        childAspectRatio: .75,
       ),
       itemBuilder: (context, index) {
         return LeatestProductItem(

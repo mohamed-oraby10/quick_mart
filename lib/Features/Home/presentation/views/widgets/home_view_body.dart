@@ -13,24 +13,26 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: 44.h),
-          HomeAppBar(),
-          ExclusiveSalesContainer(),
-          HomeRow(
-            text: 'Categories',
-            onTap: () => GoRouter.of(context).push(AppRoutes.kCategoriesView),
-          ),
-          CategoriesListView(),
-          SizedBox(height: 24.h),
-          HomeRow(text: 'Latest Products'),
-          SizedBox(height: 12.h),
-          Expanded(child: LeatestProductsGridViewBlocConsumer()),
-        ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 44.h),
+            HomeAppBar(),
+            ExclusiveSalesContainer(),
+            HomeRow(
+              text: 'Categories',
+              onTap: () => GoRouter.of(context).push(AppRoutes.kCategoriesView),
+            ),
+            CategoriesListView(),
+            SizedBox(height: 24.h),
+            HomeRow(text: 'Latest Products'),
+            SizedBox(height: 12.h),
+            LeatestProductsGridViewBlocConsumer(),
+          ],
+        ),
       ),
     );
   }
