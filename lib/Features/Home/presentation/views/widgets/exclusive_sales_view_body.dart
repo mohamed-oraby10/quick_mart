@@ -1,23 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quick_mart/Features/Home/presentation/views/widgets/exclusive_sales_grid_view_bloc_builder.dart';
-import 'package:quick_mart/Features/Home/presentation/views/widgets/products_list_app_bar.dart';
+import 'package:quick_mart/Features/Home/presentation/views/widgets/custom_products_view_body.dart';
 
 class ExclusiveSalesViewBody extends StatelessWidget {
   const ExclusiveSalesViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsetsGeometry.symmetric(horizontal: 16.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: 44.h),
-          ProductsListAppBar(title: 'Exclusive Sales'),
-          Expanded(child: ExclusiveSalesGridViewBolcBuilder()),
-        ],
-      ),
-    );
+    return CustomProductsViewBody(appBarTitle: 'Exclusive Sales');
   }
 }

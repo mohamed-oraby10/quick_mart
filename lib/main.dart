@@ -10,7 +10,10 @@ import 'package:quick_mart/Features/Cart/data/repos/cart_repo_impl.dart';
 import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Cart/presentation/manager/cart_cubit/cart_cubit.dart';
 import 'package:quick_mart/Features/Home/data/models/review.dart';
+import 'package:quick_mart/Features/Home/data/repos/home_repo_impl.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
+import 'package:quick_mart/Features/Home/domain/use_cases/find_searched_products_use_case.dart';
+import 'package:quick_mart/Features/Home/presentation/manager/find_searced_products_cubit/find_searched_products_cubit.dart';
 import 'package:quick_mart/Features/Profile/domain/entities/user_entity.dart';
 import 'package:quick_mart/Features/Wishlist/data/data_sources/wishlist_local_data_source.dart';
 import 'package:quick_mart/Features/Wishlist/data/repos/wishlist_repo_impl.dart';
@@ -51,6 +54,12 @@ class QuickMart extends StatelessWidget {
       providers: [
         BlocProvider<ThemeCubit>(create: (context) => ThemeCubit()),
         BlocProvider<CartCubit>(create: (context) => CartCubit(CartRepoImpl())),
+        BlocProvider<FindSearchedProductsCubit>(
+          create: (context) => FindSearchedProductsCubit(
+            FindSearchedProductsUseCase(getIt.get<HomeRepoImpl>()),
+          ),
+        ),
+
         BlocProvider(
           create: (context) =>
               WishlistCubit(WishlistRepoImpl(WishlistLocalDataSourceImpl()))
