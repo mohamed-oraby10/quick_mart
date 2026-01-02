@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:quick_mart/Features/Home/presentation/views/widgets/search_filter_bottom_sheet.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
@@ -22,7 +23,12 @@ class ProductsListAppBar extends StatelessWidget {
             Text(title, style: Styles.body2Medium),
             Spacer(),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (context) => SearchFilterBottomSheet(),
+                );
+              },
               icon: Icon(Iconsax.setting_4_outline, size: 32.sp),
             ),
             IconButton(

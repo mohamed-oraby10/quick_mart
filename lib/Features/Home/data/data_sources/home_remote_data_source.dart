@@ -13,6 +13,7 @@ abstract class HomeRemoteDataSource {
   Future<List<ProductEntity>> findSearchedProducts({
     required String productName,
   });
+  Future<List<ProductEntity>> filterProducts();
 }
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
@@ -79,5 +80,12 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
       products.add(ProductModel.fromJson(product));
     }
     return products;
+  }
+
+  @override
+  Future<List<ProductEntity>> filterProducts() async {
+    final products = fetchLeatestProducts(pageNumber: 1);
+    return await products
+      ..sort((a, b) => a.productPrice.compareTo(b.productPrice));
   }
 }

@@ -13,7 +13,7 @@ class SearchFilterBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
-      height: 388.h,
+      height: 280.h,
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(

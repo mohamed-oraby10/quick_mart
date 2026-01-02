@@ -7,20 +7,14 @@ class BottomSheetListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> options = [
-      'Price (Low to High)',
-      'Price (High to Low)',
-      'A-Z',
-      'Z-A',
-    ];
     return SizedBox(
-      height: 224.h,
+      height: 120.h,
       width: double.infinity,
-      child: ListView.builder(
-        itemCount: options.length,
-        itemBuilder: (BuildContext context, int index) {
-          return CheckBoxBottomSheet(text: options[index]);
-        },
+      child: ListView(
+        children: [
+          CheckBoxBottomSheet(text: 'Price (Low to High)'),
+          CheckBoxBottomSheet(text: 'Price (High to Low)'),
+        ],
       ),
     );
   }

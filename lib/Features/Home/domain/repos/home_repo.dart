@@ -17,4 +17,5 @@ abstract class HomeRepo {
    Future<Either<Failure, List<ProductEntity>>> findSearchedProducts({
     required String productName
   });
+   Future<Either<Failure, List<ProductEntity>>> filterProducts();
 }

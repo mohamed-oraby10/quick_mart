@@ -79,4 +79,10 @@ class HomeRepoImpl extends HomeRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+  
+  @override
+  Future<Either<Failure, List<ProductEntity>>> filterProducts() {
+    // TODO: implement filterProducts
+    throw UnimplementedError();
+  }
 }
