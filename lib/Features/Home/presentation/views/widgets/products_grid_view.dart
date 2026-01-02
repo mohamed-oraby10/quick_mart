@@ -5,13 +5,18 @@ import 'package:quick_mart/Features/Home/presentation/views/widgets/leatest_prod
 import 'package:quick_mart/core/utils/app_routes.dart';
 
 class ProductsGridView extends StatelessWidget {
-  const ProductsGridView({super.key, required this.products});
+  const ProductsGridView({
+    super.key,
+    required this.products,
+    this.scrollPhysics = const BouncingScrollPhysics(),
+  });
   final List<ProductEntity> products;
+  final ScrollPhysics? scrollPhysics;
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       padding: EdgeInsets.zero,
-      physics: NeverScrollableScrollPhysics(),
+      physics: scrollPhysics,
       shrinkWrap: true,
       itemCount: products.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

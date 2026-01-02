@@ -19,7 +19,10 @@ class LeatestProductsGridViewBlocConsumer extends StatelessWidget {
       builder: (context, state) {
         if (state is FetchLeatestProductsSuccess) {
           {
-            return ProductsGridView(products: state.products);
+            return ProductsGridView(
+              products: state.products,
+              scrollPhysics: NeverScrollableScrollPhysics(),
+            );
           }
         } else if (state is FetchLeatestProductsLoading) {
           return AppCircularProgressIndicator();
