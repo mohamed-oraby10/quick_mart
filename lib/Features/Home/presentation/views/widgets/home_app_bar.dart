@@ -11,13 +11,22 @@ class HomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         AppLogo(),
-        Spacer(),
-        CustomIconButton(icon: Iconsax.search_normal_1_outline),
-        SizedBox(width: 12.w),
-        ProfileImage(),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12.w),
+            child: TextField(),
+          ),
+        ),
+        // Row(
+        //   children: [
+        //     CustomIconButton(icon: Iconsax.search_normal_1_outline),
+        //     SizedBox(width: 12.w),
+        //     ProfileImage(),
+        //   ],
+        // ),
       ],
     );
   }

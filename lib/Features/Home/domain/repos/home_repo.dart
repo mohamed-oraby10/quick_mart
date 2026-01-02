@@ -14,4 +14,7 @@ abstract class HomeRepo {
     required int pageNumber,
     required String categoryName
   });
+   Future<Either<Failure, List<ProductEntity>>> findSearchedProducts({
+    required String productName
+  });
 }

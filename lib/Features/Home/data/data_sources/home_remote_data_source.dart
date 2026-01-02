@@ -10,6 +10,9 @@ abstract class HomeRemoteDataSource {
     required int pageNumber,
     required String categoryName,
   });
+  Future<List<ProductEntity>> findSearchedProducts({
+    required String productName,
+  });
 }
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
@@ -59,6 +62,18 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
     required String categoryName,
   }) async {
     var data = await apiService.get(endPoint: 'category/$categoryName');
+    List<ProductEntity> products = [];
+    for (var product in data['products']) {
+      products.add(ProductModel.fromJson(product));
+    }
+    return products;
+  }
+
+  @override
+  Future<List<ProductEntity>> findSearchedProducts({
+    required String productName,
+  }) async {
+    var data = await apiService.get(endPoint: 'search?q=$productName');
     List<ProductEntity> products = [];
     for (var product in data['products']) {
       products.add(ProductModel.fromJson(product));
