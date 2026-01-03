@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart/Features/Home/presentation/manager/fetch_leatest_product_cubit/fetch_leatest_products_cubit.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/bottom_sheet_list_view.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/styles.dart';
@@ -29,7 +31,14 @@ class SearchFilterBottomSheet extends StatelessWidget {
           Text('Filter', style: Styles.body1Medium),
           SizedBox(height: 16.h),
           BottomSheetListView(),
-          MainButton(text: 'Apply', onTap: () {}),
+          MainButton(
+            text: 'Apply',
+            onTap: () {
+              BlocProvider.of<FetchLeatestProductsCubit>(
+                context,
+              ).filterProducts();
+            },
+          ),
         ],
       ),
     );

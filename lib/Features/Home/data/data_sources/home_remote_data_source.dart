@@ -84,8 +84,11 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
 
   @override
   Future<List<ProductEntity>> filterProducts() async {
-    final products = fetchLeatestProducts(pageNumber: 1);
-    return await products
+    final products = await fetchLeatestProducts(pageNumber: 1);
+
+    final sortedProducts = List<ProductEntity>.from(products)
       ..sort((a, b) => a.productPrice.compareTo(b.productPrice));
+
+    return sortedProducts;
   }
 }

@@ -79,10 +79,16 @@ class HomeRepoImpl extends HomeRepo {
       return left(ServerFailure(e.toString()));
     }
   }
-  
+
   @override
-  Future<Either<Failure, List<ProductEntity>>> filterProducts() {
-    // TODO: implement filterProducts
-    throw UnimplementedError();
+  Future<Either<Failure, List<ProductEntity>>> filterProducts() async {
+    try {
+      return right(await homeRemoteDataSource.filterProducts());
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
   }
 }

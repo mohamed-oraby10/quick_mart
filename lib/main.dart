@@ -12,7 +12,12 @@ import 'package:quick_mart/Features/Cart/presentation/manager/cart_cubit/cart_cu
 import 'package:quick_mart/Features/Home/data/models/review.dart';
 import 'package:quick_mart/Features/Home/data/repos/home_repo_impl.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
+import 'package:quick_mart/Features/Home/domain/use_cases/fetch_leatest_products_use_case.dart';
+import 'package:quick_mart/Features/Home/domain/use_cases/fetch_products_by_category_use_case.dart';
+import 'package:quick_mart/Features/Home/domain/use_cases/filter_products_use_case.dart';
 import 'package:quick_mart/Features/Home/domain/use_cases/find_searched_products_use_case.dart';
+import 'package:quick_mart/Features/Home/presentation/manager/fetch_leatest_product_cubit/fetch_leatest_products_cubit.dart';
+import 'package:quick_mart/Features/Home/presentation/manager/fetch_products_by_category_cubit/fetch_products_by_category_cubit.dart';
 import 'package:quick_mart/Features/Home/presentation/manager/find_searced_products_cubit/find_searched_products_cubit.dart';
 import 'package:quick_mart/Features/Profile/domain/entities/user_entity.dart';
 import 'package:quick_mart/Features/Wishlist/data/data_sources/wishlist_local_data_source.dart';
@@ -54,9 +59,20 @@ class QuickMart extends StatelessWidget {
       providers: [
         BlocProvider<ThemeCubit>(create: (context) => ThemeCubit()),
         BlocProvider<CartCubit>(create: (context) => CartCubit(CartRepoImpl())),
+        BlocProvider<FetchProductsByCategoryCubit>(
+          create: (context) => FetchProductsByCategoryCubit(
+            FetchProductsByCategoryUseCase(getIt.get<HomeRepoImpl>()),
+          ),
+        ),
         BlocProvider<FindSearchedProductsCubit>(
           create: (context) => FindSearchedProductsCubit(
             FindSearchedProductsUseCase(getIt.get<HomeRepoImpl>()),
+          ),
+        ),
+        BlocProvider<FetchLeatestProductsCubit>(
+          create: (context) => FetchLeatestProductsCubit(
+            FetchLeatestProductsUseCase(getIt.get<HomeRepoImpl>()),
+            FilterProductsUseCase(getIt.get<HomeRepoImpl>()),
           ),
         ),
 

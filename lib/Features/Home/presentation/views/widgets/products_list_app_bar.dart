@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:quick_mart/Features/Home/presentation/manager/fetch_leatest_product_cubit/fetch_leatest_products_cubit.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/search_filter_bottom_sheet.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/utils/styles.dart';
@@ -26,7 +28,12 @@ class ProductsListAppBar extends StatelessWidget {
               onPressed: () {
                 showModalBottomSheet(
                   context: context,
-                  builder: (context) => SearchFilterBottomSheet(),
+                  builder: (_) {
+                    return BlocProvider.value(
+                      value: context.read<FetchLeatestProductsCubit>(),
+                      child: const SearchFilterBottomSheet(),
+                    );
+                  },
                 );
               },
               icon: Icon(Iconsax.setting_4_outline, size: 32.sp),
