@@ -22,6 +22,12 @@ class AccountManagementSection extends StatelessWidget {
           onTap: () => GoRouter.of(context).push(AppRoutes.kChangePasswordView),
         ),
         ProfileItem(
+          icon: Iconsax.global_outline,
+          title: 'Language',
+          onTap: () => GoRouter.of(context).push(AppRoutes.kLanguageView),
+        ),
+        SizedBox(height: 10.h),
+        ProfileItem(
           icon: Iconsax.mobile_outline,
           title: 'Dark Theme',
           isModeIcon: true,

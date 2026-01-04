@@ -25,6 +25,7 @@ import 'package:quick_mart/Features/Home/presentation/views/products_view.dart';
 import 'package:quick_mart/Features/Home/presentation/views/sub_category_view.dart';
 import 'package:quick_mart/Features/Onboarding/presentation/views/onboarding_view.dart';
 import 'package:quick_mart/Features/Profile/presentation/views/change_password_view.dart';
+import 'package:quick_mart/Features/Profile/presentation/views/language_view.dart';
 import 'package:quick_mart/Features/Profile/presentation/views/order_history_view.dart';
 import 'package:quick_mart/Features/Profile/presentation/views/payment_method_view.dart';
 import 'package:quick_mart/Features/Profile/presentation/views/profile_view.dart';
@@ -64,6 +65,7 @@ class AppRoutes {
   static const kOrderHistoryView = '/orderHistoryView';
   static const kResetPasswordView = '/resetPasswordView';
   static const kLeatestProductsView = '/leatestProductsView';
+  static const kLanguageView = '/languageView';
 
   static final router = GoRouter(
     initialLocation: '/',
@@ -192,6 +194,10 @@ class AppRoutes {
           final emailController = state.extra as TextEditingController;
           return ResetPasswordView(emailController: emailController);
         },
+      ),
+      GoRoute(
+        path: kLanguageView,
+        builder: (context, state) => const LanguageView(),
       ),
     ],
   );
