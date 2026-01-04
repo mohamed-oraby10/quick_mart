@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
+import 'package:quick_mart/core/utils/app_fonts.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 
 ThemeData getLightTheme() {
   return ThemeData(
-    fontFamily: 'PlusJakartaSans',
+    fontFamily: AppFonts.plusJakartaSans,
     scaffoldBackgroundColor: AppColors.brandWhite,
     brightness: Brightness.light,
     colorScheme: ColorScheme.fromSeed(

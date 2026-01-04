@@ -37,4 +37,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get get_started => 'ابدأ';
+
+  @override
+  String get language => 'اللغة';
 }

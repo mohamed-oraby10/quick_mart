@@ -13,7 +13,7 @@ class LanguageView extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(height: 44.h),
-          CustomAppBar(text: context.locale.next),
+          CustomAppBar(text: context.locale.language),
           LanguageTap(title: 'العربية'),
           LanguageTap(title: 'English'),
         ],

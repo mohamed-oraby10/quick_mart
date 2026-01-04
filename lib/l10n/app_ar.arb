@@ -8,5 +8,7 @@
   "skip_for_now": "تخطى الان",
   "next": "التالي",
   "login": "تسجيل",
-  "get_started": "ابدأ"
+  "get_started": "ابدأ",
+    "language":"اللغة"
+
 }
