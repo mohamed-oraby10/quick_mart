@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
@@ -23,6 +24,7 @@ import 'package:quick_mart/Features/Profile/domain/entities/user_entity.dart';
 import 'package:quick_mart/Features/Wishlist/data/data_sources/wishlist_local_data_source.dart';
 import 'package:quick_mart/Features/Wishlist/data/repos/wishlist_repo_impl.dart';
 import 'package:quick_mart/Features/Wishlist/presentation/manager/cubit/wishlist_cubit.dart';
+import 'package:quick_mart/core/cubits/language_cubit/language_cubit.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/utils/constants.dart';
 import 'package:quick_mart/core/utils/functions/setup_service_locator.dart';
@@ -30,6 +32,7 @@ import 'package:quick_mart/core/utils/theme/theme_cubit/theme_cubit.dart';
 import 'package:quick_mart/core/utils/theme/theme_data/theme_data_dark.dart';
 import 'package:quick_mart/core/utils/theme/theme_data/theme_data_light.dart';
 import 'package:quick_mart/firebase_options.dart';
+import 'package:quick_mart/l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -58,6 +61,7 @@ class QuickMart extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<ThemeCubit>(create: (context) => ThemeCubit()),
+        BlocProvider<LanguageCubit>(create: (context) => LanguageCubit()),
         BlocProvider<CartCubit>(create: (context) => CartCubit(CartRepoImpl())),
         BlocProvider<FetchProductsByCategoryCubit>(
           create: (context) => FetchProductsByCategoryCubit(
@@ -89,13 +93,25 @@ class QuickMart extends StatelessWidget {
         builder: (context, child) {
           return BlocBuilder<ThemeCubit, ThemeMode>(
             builder: (context, newMode) {
-              return MaterialApp.router(
-                debugShowCheckedModeBanner: false,
-                title: 'Flutter Demo',
-                darkTheme: getDarkTheme(),
-                theme: getLightTheme(),
-                themeMode: newMode,
-                routerConfig: AppRoutes.router,
+              return BlocBuilder<LanguageCubit, Locale>(
+                builder: (context, locale) {
+                  return MaterialApp.router(
+                    locale: locale,
+                    supportedLocales: const [Locale('ar'), Locale('en')],
+                    localizationsDelegates: const [
+                      AppLocalizations.delegate,
+                      GlobalMaterialLocalizations.delegate,
+                      GlobalWidgetsLocalizations.delegate,
+                      GlobalCupertinoLocalizations.delegate,
+                    ],
+                    debugShowCheckedModeBanner: false,
+                    title: 'Flutter Demo',
+                    darkTheme: getDarkTheme(),
+                    theme: getLightTheme(),
+                    themeMode: newMode,
+                    routerConfig: AppRoutes.router,
+                  );
+                },
               );
             },
           );
