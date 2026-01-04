@@ -6,7 +6,6 @@ import 'package:quick_mart/core/utils/styles.dart';
 
 ThemeData getDarkTheme() {
   return ThemeData(
-    fontFamily: AppFonts.plusJakartaSans,
     scaffoldBackgroundColor: AppColors.brandBlack,
     brightness: Brightness.dark,
     colorScheme: ColorScheme.fromSeed(
@@ -14,6 +13,7 @@ ThemeData getDarkTheme() {
       brightness: Brightness.dark,
     ),
     textTheme: ThemeData.dark().textTheme.apply(
+      fontFamily: AppFonts.plusJakartaSans,
       bodyColor: AppColors.brandWhite,
       displayColor: AppColors.brandWhite,
     ),

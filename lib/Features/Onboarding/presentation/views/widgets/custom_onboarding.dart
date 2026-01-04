@@ -4,6 +4,7 @@ import 'package:quick_mart/Features/Onboarding/data/models/onboarding_model.dart
 import 'package:quick_mart/Features/Onboarding/data/onboarding_list.dart';
 import 'package:quick_mart/Features/Onboarding/presentation/views/widgets/login_button_row.dart';
 import 'package:quick_mart/Features/Onboarding/presentation/views/widgets/onboarding_text_section.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/widgets/app_smooth_indicator.dart';
 
 class CustomOnboarding extends StatelessWidget {
@@ -34,7 +35,7 @@ class CustomOnboarding extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 24.h),
             child: currentIndex == 2
                 ? LoginButtonRow()
-                : ElevatedButton(onPressed: onTap, child: Text('Next')),
+                : ElevatedButton(onPressed: onTap, child: Text(context.locale.next)),
           ),
           AppPageIndicator(
             pageController: pageController,
