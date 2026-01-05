@@ -1,20 +1,22 @@
+import 'package:flutter/widgets.dart';
 import 'package:quick_mart/Features/Onboarding/data/models/onboarding_model.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/assets_data.dart';
 
-final List<OnboardingModel> onboardingList = [
+List<OnboardingModel> onboardingList(BuildContext context) => [
   OnboardingModel(
     AssetsData.onBoarding1,
-    'Explore a wide range of products',
-    'Explore a wide range of products at your fingertips. QuickMart offers an extensive collection to suit your needs.',
+    context.locale.explore_products,
+    context.locale.explore_products_desc,
   ),
   OnboardingModel(
     AssetsData.onBoarding2,
-    'Unlock exclusive offers and discounts',
-    'Get access to limited-time deals and special promotions available only to our valued customers.',
+    context.locale.unlock_exclusive_offers,
+    context.locale.unlock_exclusive_offers_desc,
   ),
   OnboardingModel(
     AssetsData.onBoarding3,
-    'Safe and secure payments',
-    'QuickMart employs industry-leading encryption and trusted payment gateways to safeguard your financial information.',
+    context.locale.safe_secure_payments,
+    context.locale.safe_secure_payments_desc,
   ),
 ];

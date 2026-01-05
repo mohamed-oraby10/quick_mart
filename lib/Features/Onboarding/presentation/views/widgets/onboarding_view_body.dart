@@ -19,7 +19,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
   }
 
   void nextView() {
-    if (currentIndex < onboardingList.length - 1) {
+    if (currentIndex < onboardingList(context).length - 1) {
       pageController.nextPage(
         duration: const Duration(milliseconds: 600),
         curve: Curves.easeInOut,
@@ -33,12 +33,12 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
       onPageChanged: (index) {
         currentIndex = index;
       },
-      itemCount: onboardingList.length,
+      itemCount: onboardingList(context).length,
       controller: pageController,
       itemBuilder: (BuildContext context, int index) {
         return CustomOnboarding(
           pageController: pageController,
-          onboardingModel: onboardingList[index],
+          onboardingModel: onboardingList(context)[index],
           onTap: nextView,
           currentIndex: index,
         );

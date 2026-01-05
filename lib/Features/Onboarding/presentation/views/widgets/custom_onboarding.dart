@@ -39,7 +39,7 @@ class CustomOnboarding extends StatelessWidget {
           ),
           AppPageIndicator(
             pageController: pageController,
-            length: onboardingList.length,
+            length: onboardingList(context).length,
           ),
         ],
       ),
