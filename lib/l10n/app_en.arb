@@ -25,7 +25,7 @@
   "send": "Send",
   "email_verification": "Email Verification",
   "enter_6_digit_code": "Enter the 6-digit verification code send to your email address.",
-  "6_digit_verification_sent": "6-digit Verification code has been send to your email address.",
+  "digit_verification_sent": "6-digit Verification code has been send to your email address.",
   "resend_code": "Resend Code",
   "proceed": "Proceed",
   "create_password": "Create Password",
@@ -92,8 +92,9 @@
   "enter_province": "Enter Province",
   "city": "City",
   "enter_city": "Enter City",
-  "continue": "Continue",
-  
+  "follow_up": "Continue",
+      "language": "Language",
+
   "card_holder_name": "Card Holder Name",
   "enter_card_holder_name": "Enter card holder name",
   "card_number": "Card Number",
