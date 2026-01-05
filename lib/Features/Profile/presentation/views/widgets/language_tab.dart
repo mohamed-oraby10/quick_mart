@@ -1,23 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quick_mart/core/cubits/language_cubit/language_cubit.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class LanguageTap extends StatelessWidget {
-  const LanguageTap({super.key, required this.title});
+  const LanguageTap({super.key, required this.title, this.onTap});
   final String title;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LanguageCubit, Locale>(
-      builder: (context, locale) {
         return GestureDetector(
-          onTap: () {
-            context.read<LanguageCubit>().changeLanguage(
-              locale.languageCode == 'ar' ? 'en' : 'ar',
-            );
-          },
+          onTap: onTap,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -29,7 +22,5 @@ class LanguageTap extends StatelessWidget {
             ],
           ),
         );
-      },
-    );
   }
 }

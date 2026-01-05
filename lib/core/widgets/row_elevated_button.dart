@@ -14,7 +14,7 @@ class RowElevatedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 160.w,
+      width: 164.w,
       child: ElevatedButton(
         onPressed: onTap,
         child: Row(
