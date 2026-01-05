@@ -129,13 +129,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get categories => 'الفئات';
 
   @override
-  String get my_cart => 'سلتي';
+  String get my_cart => 'سلتى';
 
   @override
   String get wishlist => 'المفضلة';
 
   @override
-  String get profile => 'الملف الشخصي';
+  String get profile => 'حسابى';
 
   @override
   String get explore_products => 'استكشف مجموعة واسعة من المنتجات';
