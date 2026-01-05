@@ -381,5 +381,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get search => 'Search';
 
   @override
+  String get exclusive_sales => 'Exclusive Sales';
+
+  @override
   String get no_results_found => 'No results found.';
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
@@ -22,7 +23,7 @@ class DisabledAppButton extends StatelessWidget {
       onPressed: () {
         GoRouter.of(context).pop();
       },
-      child: Text('Cancel', style: Styles.button2),
+      child: Text(context.locale.cancel, style: Styles.button2),
     );
   }
 }

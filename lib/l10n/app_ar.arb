@@ -37,9 +37,9 @@
   "resend_link": "إعادة إرسال الرابط",
   "new_password_set_successfully": "تم تعيين كلمة المرور الجديدة بنجاح",
   "new_password_success_message": "تهانينا! تم تعيين كلمة المرور الخاصة بك بنجاح. يرجى الانتقال إلى شاشة تسجيل الدخول للتحقق من حسابك.",
-  
+  "exclusive_sales": "عروض حصرية",
   "home": "الرئيسية",
-  "categories": "الأقسام",
+  "categories": "الفئات",
   "my_cart": "سلتي",
   "wishlist": "المفضلة",
   "profile": "الملف الشخصي",

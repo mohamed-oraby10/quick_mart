@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 
 class AppTextField extends StatelessWidget {
@@ -24,7 +25,7 @@ class AppTextField extends StatelessWidget {
             controller: controller,
             validator: (value) {
               if (value!.isEmpty) {
-                return 'Field is required';
+                return context.locale.field_required;
               }
               return null;
             },

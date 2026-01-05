@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
@@ -40,7 +41,7 @@ class EmptyBody extends StatelessWidget {
             ),
             SizedBox(height: 24.h),
             MainButton(
-              text: 'Explore Categories',
+              text: context.locale.explore_categories,
               onTap: () => GoRouter.of(context).push(AppRoutes.kCategoriesView),
             ),
           ],

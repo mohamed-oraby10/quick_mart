@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/categories_grid_view.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/widgets/custom_app_bar.dart';
 
 class CategoriesViewBody extends StatelessWidget {
@@ -14,7 +15,7 @@ class CategoriesViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 44.h),
-          CustomAppBar(text: 'Categories'),
+          CustomAppBar(text: context.locale.categories),
           CategoriesGridView(),
         ],
       ),

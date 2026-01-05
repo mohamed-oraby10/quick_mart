@@ -6,6 +6,7 @@ import 'package:quick_mart/Features/Home/presentation/views/widgets/exclusive_sa
 import 'package:quick_mart/Features/Home/presentation/views/widgets/home_app_bar.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/home_row.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/leatest_products_grid_view_bloc_consumer.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -23,13 +24,13 @@ class HomeViewBody extends StatelessWidget {
             HomeAppBar(),
             ExclusiveSalesContainer(),
             HomeRow(
-              text: 'Categories',
+              text: context.locale.categories,
               onTap: () => GoRouter.of(context).push(AppRoutes.kCategoriesView),
             ),
             CategoriesListView(),
             SizedBox(height: 24.h),
             HomeRow(
-              text: 'Latest Products',
+              text: context.locale.latest_products,
               onTap: () =>
                   GoRouter.of(context).push(AppRoutes.kLeatestProductsView),
             ),

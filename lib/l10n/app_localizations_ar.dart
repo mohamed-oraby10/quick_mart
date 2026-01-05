@@ -123,7 +123,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get home => 'الرئيسية';
 
   @override
-  String get categories => 'الأقسام';
+  String get categories => 'الفئات';
 
   @override
   String get my_cart => 'سلتي';
@@ -379,6 +379,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get search => 'بحث';
+
+  @override
+  String get exclusive_sales => 'عروض حصرية';
 
   @override
   String get no_results_found => 'لم يتم العثور على نتائج.';

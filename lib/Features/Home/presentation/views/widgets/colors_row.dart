@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/product_colors_list_view.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 
 class ColorsRow extends StatelessWidget {
@@ -21,7 +22,7 @@ class ColorsRow extends StatelessWidget {
             GestureDetector(
               onTap: () {},
               child: Text(
-                'All 5 Colors',
+                context.locale.all_colors,
                 style: Styles.overlineRegular.copyWith(
                   decoration: TextDecoration.underline,
                 ),

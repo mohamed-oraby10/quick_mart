@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/Features/Home/presentation/manager/fetch_leatest_product_cubit/fetch_leatest_products_cubit.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/bottom_sheet_list_view.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
@@ -28,11 +29,11 @@ class SearchFilterBottomSheet extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 32.h),
-          Text('Filter', style: Styles.body1Medium),
+          Text(context.locale.filter, style: Styles.body1Medium),
           SizedBox(height: 16.h),
           BottomSheetListView(),
           MainButton(
-            text: 'Apply',
+            text: context.locale.apply,
             onTap: () {
               BlocProvider.of<FetchLeatestProductsCubit>(
                 context,

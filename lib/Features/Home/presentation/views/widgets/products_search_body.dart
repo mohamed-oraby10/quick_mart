@@ -7,6 +7,7 @@ import 'package:quick_mart/Features/Home/presentation/manager/find_searced_produ
 import 'package:quick_mart/Features/Home/presentation/views/widgets/search_filter_bottom_sheet.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/search_products_result.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/search_text_feild.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 import 'package:quick_mart/core/widgets/app_logo.dart';
@@ -50,7 +51,7 @@ class ProductsSearchBody extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 16.h),
-            child: Text('RECENT SEARCH', style: Styles.captionSemiBold),
+            child: Text(context.locale.recent_search, style: Styles.captionSemiBold),
           ),
           Expanded(child: SearchProductsResult()),
         ],

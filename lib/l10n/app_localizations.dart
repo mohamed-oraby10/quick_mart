@@ -839,6 +839,12 @@ abstract class AppLocalizations {
   /// **'Search'**
   String get search;
 
+  /// No description provided for @exclusive_sales.
+  ///
+  /// In en, this message translates to:
+  /// **'Exclusive Sales'**
+  String get exclusive_sales;
+
   /// No description provided for @no_results_found.
   ///
   /// In en, this message translates to:
