@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/resend_link_reset_password_button_bloc_consumer.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/successful_body.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/widgets/main_button.dart';
 
@@ -33,9 +34,9 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
           children: [
             SizedBox(height: 44.h),
             SuccessfulBody(
-              title: 'Password reset email sent',
+              title: context.locale.password_reset_email_sent,
               desc:
-                  'Password reset email link sent successfully. Check your mail',
+                  context.locale.password_reset_success,
             ),
             SizedBox(height: 24.h),
             ResendLinkResetPasswordButtonBlocConsumer(
@@ -43,7 +44,7 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
             ),
             SizedBox(height: 16.h),
             MainButton(
-              text: 'Proceed',
+              text: context.locale.proceed,
               onTap: () {
                 GoRouter.of(context).push(AppRoutes.kLoginView);
               },

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/auth_text_field.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/password_text_field.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 
 class TextFeildsSection extends StatelessWidget {
@@ -16,11 +17,11 @@ class TextFeildsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Email', style: Styles.body2Medium),
+        Text(context.locale.email, style: Styles.body2Medium),
         SizedBox(height: 8.h),
-        AuthTextField(hint: 'Enter your email', controller: emailController),
+        AuthTextField(hint: context.locale.enter_email, controller: emailController),
         SizedBox(height: 16.h),
-        Text('Password', style: Styles.body2Medium),
+        Text(context.locale.password, style: Styles.body2Medium),
         SizedBox(height: 8.h),
         PasswordTextField(controller: passwordController),
       ],

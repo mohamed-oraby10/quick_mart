@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quick_mart/Features/Auth/presentation/manager/reset_password_cubit/reset_password_cubit.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/functions/show_error_snak_bar.dart';
 import 'package:quick_mart/core/utils/functions/show_success_snack_bar.dart';
 import 'package:quick_mart/core/widgets/app_circular_progress_indicator.dart';
@@ -36,7 +37,7 @@ class ResendLinkResetPasswordButtonBlocConsumer extends StatelessWidget {
                 context,
               ).resetPassword(email: emailController.text.trim());
             },
-            textButton: 'Resend link',
+            textButton: context.locale.resend_link,
           );
         }
       },

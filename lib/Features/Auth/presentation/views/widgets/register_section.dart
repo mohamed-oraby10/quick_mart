@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/auth_text_field.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/register_button_bloc_consumer.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/text_feilds_section.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 
 class RegisterSection extends StatefulWidget {
@@ -31,9 +32,9 @@ class _RegisterSectionState extends State<RegisterSection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Full Name', style: Styles.body2Medium),
+        Text(context.locale.full_name, style: Styles.body2Medium),
         SizedBox(height: 8.h),
-        AuthTextField(hint: 'Enter your full name', controller: nameController),
+        AuthTextField(hint: context.locale.enter_full_name, controller: nameController),
         SizedBox(height: 16.h),
         TextFeildsSection(
           emailController: emailController,

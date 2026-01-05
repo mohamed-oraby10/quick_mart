@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/auth_text_section.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/google_button.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/widgets/register_section.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 
 class RegisterViewBody extends StatelessWidget {
@@ -21,14 +22,14 @@ class RegisterViewBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AuthTextSection(
-                title: 'Signup',
-                desc: 'Already have an account?',
-                loginText: 'Login',
+                title:context.locale.signup,
+                desc: context.locale.already_have_account,
+                loginText:context.locale.login,
                 onTap: () => GoRouter.of(context).go(AppRoutes.kLoginView),
               ),
               RegisterSection(formKey: formKey),
               SizedBox(height: 16.h),
-              GoogleButton(text: 'Signup with Google'),
+              GoogleButton(text: context.locale.signup_with_google),
             ],
           ),
         ),

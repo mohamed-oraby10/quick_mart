@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class PasswordTextField extends StatefulWidget {
@@ -19,13 +20,13 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
       obscureText: isObscure,
       validator: (value) {
         if (value!.isEmpty) {
-          return 'Field is required';
+          return context.locale.field_required;
         }
         return null;
       },
       controller: widget.controller,
       decoration: InputDecoration(
-        hintText: 'Enter your password',
+        hintText: context.locale.enter_password,
         suffixIcon: IconButton(
           onPressed: () {
             setState(() {

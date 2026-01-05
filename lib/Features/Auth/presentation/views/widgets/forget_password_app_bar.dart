@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
@@ -22,7 +23,7 @@ class ForgetPasswordAppBar extends StatelessWidget {
       children: [
         ArrowLeftIcon(),
         SizedBox(width: 12.w),
-        Text(title ?? 'Forget Password', style: Styles.body2Medium),
+        Text(title ?? context.locale.forget_password, style: Styles.body2Medium),
         Spacer(),
         RichText(
           text: TextSpan(

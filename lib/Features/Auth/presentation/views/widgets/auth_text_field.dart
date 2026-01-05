@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 
 class AuthTextField extends StatelessWidget {
   const AuthTextField({super.key, this.controller, required this.hint});
@@ -9,7 +10,7 @@ class AuthTextField extends StatelessWidget {
     return TextFormField(
       validator: (value) {
         if (value!.isEmpty) {
-          return 'Field is required';
+          return context.locale.field_required;
         }
         return null;
       },
