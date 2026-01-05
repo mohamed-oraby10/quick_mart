@@ -25,6 +25,7 @@ import 'package:quick_mart/Features/Wishlist/data/data_sources/wishlist_local_da
 import 'package:quick_mart/Features/Wishlist/data/repos/wishlist_repo_impl.dart';
 import 'package:quick_mart/Features/Wishlist/presentation/manager/cubit/wishlist_cubit.dart';
 import 'package:quick_mart/core/cubits/language_cubit/language_cubit.dart';
+import 'package:quick_mart/core/utils/app_fonts.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/utils/constants.dart';
 import 'package:quick_mart/core/utils/functions/setup_service_locator.dart';
@@ -95,6 +96,7 @@ class QuickMart extends StatelessWidget {
             builder: (context, newMode) {
               return BlocBuilder<LanguageCubit, Locale>(
                 builder: (context, locale) {
+                  final isArabic = locale.languageCode == 'ar';
                   return MaterialApp.router(
                     locale: locale,
                     supportedLocales: const [Locale('ar'), Locale('en')],
@@ -106,8 +108,16 @@ class QuickMart extends StatelessWidget {
                     ],
                     debugShowCheckedModeBanner: false,
                     title: 'Flutter Demo',
-                    darkTheme: getDarkTheme(),
-                    theme: getLightTheme(),
+                    darkTheme: getDarkTheme(
+                      fontName: isArabic
+                          ? AppFonts.cairo
+                          : AppFonts.plusJakartaSans,
+                    ),
+                    theme: getLightTheme(
+                      fontName: isArabic
+                          ? AppFonts.cairo
+                          : AppFonts.plusJakartaSans,
+                    ),
                     themeMode: newMode,
                     routerConfig: AppRoutes.router,
                   );

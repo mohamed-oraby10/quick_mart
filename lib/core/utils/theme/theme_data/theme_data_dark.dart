@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
-import 'package:quick_mart/core/utils/app_fonts.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 
-ThemeData getDarkTheme() {
+ThemeData getDarkTheme({required String fontName}) {
   return ThemeData(
     scaffoldBackgroundColor: AppColors.brandBlack,
     brightness: Brightness.dark,
@@ -13,7 +12,7 @@ ThemeData getDarkTheme() {
       brightness: Brightness.dark,
     ),
     textTheme: ThemeData.dark().textTheme.apply(
-      fontFamily: AppFonts.plusJakartaSans,
+      fontFamily: fontName,
       bodyColor: AppColors.brandWhite,
       displayColor: AppColors.brandWhite,
     ),
@@ -27,7 +26,7 @@ ThemeData getDarkTheme() {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.r),
         ),
-        textStyle: Styles.button2,
+        textStyle: Styles.button2.copyWith(fontFamily: fontName),
         minimumSize: Size(double.infinity, 60.h),
       ),
     ),
