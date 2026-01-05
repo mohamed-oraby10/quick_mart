@@ -209,6 +209,12 @@ abstract class AppLocalizations {
   /// **'Field is required'**
   String get field_required;
 
+  /// No description provided for @cart.
+  ///
+  /// In en, this message translates to:
+  /// **'cart'**
+  String get cart;
+
   /// No description provided for @forget_password.
   ///
   /// In en, this message translates to:

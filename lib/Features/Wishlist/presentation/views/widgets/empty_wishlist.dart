@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/assets_data.dart';
 import 'package:quick_mart/core/widgets/empty_body.dart';
 
@@ -9,8 +10,8 @@ class EmptyWishlist extends StatelessWidget {
   Widget build(BuildContext context) {
     return EmptyBody(
       image: AssetsData.wishList,
-      title: 'Your wishlist is empty',
-      desc: 'Tap heart button to start saving your favorite items.',
+      title: context.locale.your_wishlist_empty,
+      desc: context.locale.wishlist_empty_desc,
     );
   }
 }

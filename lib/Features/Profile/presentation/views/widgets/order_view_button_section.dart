@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
@@ -29,8 +30,8 @@ class OrderViewButtonSection extends StatelessWidget {
           labelColor: AppColors.brandWhite,
           unselectedLabelColor: context.customColors.modeColor,
           tabs: [
-            Text('Ongoing', style: Styles.button2),
-            Text('Completed', style: Styles.button2),
+            Text(context.locale.ongoing, style: Styles.button2),
+            Text(context.locale.completed, style: Styles.button2),
           ],
         ),
       ),

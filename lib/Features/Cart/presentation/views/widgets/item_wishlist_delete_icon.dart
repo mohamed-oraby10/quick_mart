@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/Features/Wishlist/presentation/manager/cubit/wishlist_cubit.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/widgets/delete_bottom_sheet.dart';
 
@@ -25,7 +26,7 @@ class ItemWishlistDeleteIcon extends StatelessWidget {
                 value: context.read<WishlistCubit>(),
                 child: DeleteBottomSheet(
                   product: product,
-                  text: 'wishlist',
+                  text:context.locale.wishlist,
                   isWishlist: true,
                 ),
               );

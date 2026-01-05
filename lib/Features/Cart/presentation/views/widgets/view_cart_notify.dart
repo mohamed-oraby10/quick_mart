@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/utils/assets_data.dart';
@@ -29,7 +30,7 @@ class ViewCartNotify extends StatelessWidget {
           TextButton(
             onPressed: () => GoRouter.of(context).push(AppRoutes.kCartView),
             child: Text(
-              'View Cart',
+              context.locale.view_cart,
               style: Styles.captionSemiBold.copyWith(
                 color: AppColors.brandCyan,
               ),

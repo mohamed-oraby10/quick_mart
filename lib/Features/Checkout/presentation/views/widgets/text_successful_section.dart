@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
@@ -13,7 +14,7 @@ class TextSuccessfulSection extends StatelessWidget {
       children: [
         SizedBox(height: 24.h),
         Text(
-          'Your order has been placed successfully',
+          context.locale.order_placed_successfully,
           textAlign: TextAlign.center,
           style: Styles.heading2Bold,
         ),

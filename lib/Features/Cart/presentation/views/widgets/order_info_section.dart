@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/order_info_row.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 
 class OrderInfoSection extends StatelessWidget {
@@ -22,19 +23,19 @@ class OrderInfoSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Order Info', style: Styles.body1Medium),
+        Text(context.locale.order_info, style: Styles.body1Medium),
         SizedBox(height: 12.h),
         OrderInfoRow(
-          title: 'Subtotal',
+          title: context.locale.subtotal,
           value: '\$${totalPrice.toStringAsFixed(2)}',
         ),
-        OrderInfoRow(title: 'Shipping Cost', value: '\$0.00'),
+        OrderInfoRow(title: context.locale.shipping_cost, value: '\$0.00'),
         Padding(
           padding: EdgeInsets.only(bottom: 17.h),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Total', style: Styles.body1Medium),
+              Text(context.locale.total, style: Styles.body1Medium),
               Text(
                 '\$${totalPrice.toStringAsFixed(2)}',
                 style: Styles.body1Medium,

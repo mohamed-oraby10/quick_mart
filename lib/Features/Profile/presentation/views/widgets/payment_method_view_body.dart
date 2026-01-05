@@ -4,6 +4,7 @@ import 'package:quick_mart/Features/Checkout/presentation/views/widgets/card_det
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/cvv_text_field.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/expiration_text_field.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/payment_methods_row.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/widgets/custom_app_bar.dart';
 import 'package:quick_mart/core/widgets/main_button.dart';
 
@@ -18,7 +19,7 @@ class PaymentMethodViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 10.h),
-          CustomAppBar(text: 'Payment Method'),
+          CustomAppBar(text: context.locale.payment_method),
           PaymentMethodsRow(),
           SizedBox(height: 24.h),
           CardDetails(),
@@ -27,7 +28,7 @@ class PaymentMethodViewBody extends StatelessWidget {
             children: [ExpirationTextField(), CvvTextField()],
           ),
           SizedBox(height: 125.h),
-          MainButton(text: 'Save', onTap: () {}),
+          MainButton(text: context.locale.save, onTap: () {}),
         ],
       ),
     );

@@ -66,6 +66,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get field_required => 'Field is required';
 
   @override
+  String get cart => 'cart';
+
+  @override
   String get forget_password => 'Forget Password';
 
   @override

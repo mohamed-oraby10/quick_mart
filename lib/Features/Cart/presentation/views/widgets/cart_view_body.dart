@@ -5,6 +5,7 @@ import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/cart_items_list_view.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/cart_view_app_bar.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/order_info_section.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/widgets/main_button.dart';
 
@@ -26,7 +27,7 @@ class CartViewBody extends StatelessWidget {
           SizedBox(height: 24.h),
           products.any((item) => item.isSelected)
               ? MainButton(
-                  text: 'Checkout ($selectedCount)',
+                  text: '${context.locale.checkout} ($selectedCount)',
                   onTap: () {
                     GoRouter.of(
                       context,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/mini_text_field.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 
 class ShippingOrderDetailsRow extends StatelessWidget {
   const ShippingOrderDetailsRow({
@@ -14,13 +15,13 @@ class ShippingOrderDetailsRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         MiniTextField(
-          hint: 'Enter Country',
-          text: 'Country',
+          hint: context.locale.enter_country,
+          text: context.locale.country,
           controller: countyController,
         ),
         MiniTextField(
-          hint: 'Enter Province',
-          text: 'Province',
+          hint: context.locale.enter_province,
+          text:context.locale.province,
           controller: provinceController,
         ),
       ],

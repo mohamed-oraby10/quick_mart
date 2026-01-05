@@ -74,13 +74,14 @@
   "reviews": "تقييمات",
   
   "your_cart_empty": "سلتك فارغة",
-  "cart_empty_desc": "يبدو أنك لم تضف أي شيء إلى سلتك. تصفح وابحث عن الأقسام الرئيسية.",
-  "explore_categories": "استكشف الأقسام",
+  "cart_empty_desc": "يبدو أنك لم تضف أي شيء إلى سلتك. تصفح وابحث عن الفئات الرئيسية.",
+  "explore_categories": "استكشف الفئات",
   
   "shipping": "الشحن",
   "payment": "الدفع",
   "review": "المراجعة",
   "finished": "منتهي",
+  "cart": "السلة",
   
   "full_name_label": "الاسم الكامل",
   "phone_number": "رقم الهاتف",

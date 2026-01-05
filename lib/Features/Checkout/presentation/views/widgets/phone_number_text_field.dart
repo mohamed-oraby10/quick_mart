@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 
@@ -13,7 +14,7 @@ class PhoneNumberTextField extends StatelessWidget {
     return IntlPhoneField(
       validator: (phone) {
         if (phone!.number.isEmpty) {
-          return 'phone is required';
+          return context.locale.field_required;
         }
         return null;
       },

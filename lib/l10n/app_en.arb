@@ -18,7 +18,7 @@
   "login_with_google": "Login with Google",
   "signup_with_google": "Signup with Google",
   "field_required": "Field is required",
-  
+  "cart":"cart",
   "forget_password": "Forget Password",
   "confirmation_email": "Confirmation Email",
   "enter_email_verification": "Enter your email address for verification.",

@@ -6,6 +6,7 @@ import 'package:quick_mart/Features/Checkout/presentation/views/widgets/checkout
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/cvv_text_field.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/expiration_text_field.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/payment_methods_row.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/widgets/main_button.dart';
 
@@ -31,7 +32,7 @@ class CheckoutPaymentBody extends StatelessWidget {
               ),
               SizedBox(height: 125.h),
               MainButton(
-                text: 'Continue',
+                text: context.locale.follow_up,
                 onTap: () {
                   GoRouter.of(context).push(AppRoutes.kCheckoutReviewBody);
                 },

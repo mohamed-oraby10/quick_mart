@@ -66,6 +66,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get field_required => 'هذا الحقل مطلوب';
 
   @override
+  String get cart => 'السلة';
+
+  @override
   String get forget_password => 'نسيت كلمة المرور';
 
   @override
@@ -210,10 +213,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get your_cart_empty => 'سلتك فارغة';
 
   @override
-  String get cart_empty_desc => 'يبدو أنك لم تضف أي شيء إلى سلتك. تصفح وابحث عن الأقسام الرئيسية.';
+  String get cart_empty_desc => 'يبدو أنك لم تضف أي شيء إلى سلتك. تصفح وابحث عن الفئات الرئيسية.';
 
   @override
-  String get explore_categories => 'استكشف الأقسام';
+  String get explore_categories => 'استكشف الفئات';
 
   @override
   String get shipping => 'الشحن';

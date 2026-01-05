@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/widgets/main_button.dart';
 
@@ -14,13 +15,13 @@ class VoucherBottomSheetBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 32.h),
-          Text('Voucher Code', style: Styles.body1Medium),
+          Text(context.locale.voucher_code, style: Styles.body1Medium),
           SizedBox(height: 16.h),
           TextField(
-            decoration: InputDecoration(hintText: 'Enter Voucher Code'),
+            decoration: InputDecoration(hintText: context.locale.enter_voucher_code),
           ),
           SizedBox(height: 24.h),
-          MainButton(text: 'Apply', onTap: () {}),
+          MainButton(text:context.locale.apply, onTap: () {}),
         ],
       ),
     );

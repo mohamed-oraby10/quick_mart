@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/text_successful_section.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/utils/assets_data.dart';
 import 'package:quick_mart/core/widgets/custom_container.dart';
@@ -31,7 +32,7 @@ class OrderPlaceViewBody extends StatelessWidget {
           ),
           TextSuccessfulSection(),
           MainButton(
-            text: 'Continue Shopping',
+            text: context.locale.continue_shopping,
             onTap: () => GoRouter.of(context).push(AppRoutes.kHomeView),
           ),
         ],

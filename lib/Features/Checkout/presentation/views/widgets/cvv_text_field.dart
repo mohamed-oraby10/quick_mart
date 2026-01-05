@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 
 class CvvTextField extends StatelessWidget {
@@ -11,7 +12,7 @@ class CvvTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('CVV', style: Styles.body2Medium),
+        Text(context.locale.cvv, style: Styles.body2Medium),
         SizedBox(
           width: 160.w,
           height: 60.h,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/card_text_field.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/widgets/app_text_field.dart';
 
 class CardDetails extends StatelessWidget {
@@ -10,7 +11,7 @@ class CardDetails extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AppTextField(hint: 'Enter card holder name', text: 'Card Holder Name'),
+        AppTextField(hint: context.locale.enter_card_holder_name, text: context.locale.card_holder_name),
         CardTextField(),
       ],
     );

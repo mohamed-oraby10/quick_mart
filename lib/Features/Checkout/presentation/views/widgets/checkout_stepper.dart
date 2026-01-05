@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/custom_divider.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/stepper_item.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 
 class CheckoutStepper extends StatelessWidget {
   const CheckoutStepper({
@@ -22,7 +23,7 @@ class CheckoutStepper extends StatelessWidget {
             icon: (isPayment || isReview)
                 ? Iconsax.box_1_bold
                 : Iconsax.box_outline,
-            text: 'Shipping',
+            text: context.locale.shipping,
             isActive: isShipping ? true : false,
             isCompleted: (isPayment || isReview) ? true : false,
           ),
@@ -31,14 +32,14 @@ class CheckoutStepper extends StatelessWidget {
             icon: isReview
                 ? Iconsax.card_tick_bold
                 : Iconsax.card_tick_1_outline,
-            text: 'Payment',
+            text: context.locale.payment,
             isActive: isPayment ? true : false,
             isCompleted: isReview ? true : false,
           ),
           CustomDivider(),
           StepperItem(
             icon: Iconsax.clipboard_tick_outline,
-            text: 'Review',
+            text: context.locale.review,
             isActive: isReview ? true : false,
           ),
         ],

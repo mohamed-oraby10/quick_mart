@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 
@@ -17,7 +18,7 @@ class OngoingOrderTime extends StatelessWidget {
       ),
       child: Center(
         child: Text(
-          'Estimated time: 7 working days',
+          context.locale.estimated_time,
           style: Styles.overlineSemiBold.copyWith(color: AppColors.brandWhite),
         ),
       ),

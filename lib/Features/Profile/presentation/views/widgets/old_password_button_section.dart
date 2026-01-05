@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quick_mart/Features/Profile/presentation/views/widgets/password_field_section.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/widgets/main_button.dart';
 
@@ -16,7 +17,7 @@ class OldPasswordButtonSection extends StatelessWidget {
         PasswordFieldSection(),
         SizedBox(height: 24.h),
         MainButton(
-          text: 'Continue',
+          text: context.locale.follow_up,
           onTap: () =>
               GoRouter.of(context).push(AppRoutes.kNewPasswordViewBody),
         ),

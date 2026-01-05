@@ -5,6 +5,7 @@ import 'package:quick_mart/Features/Checkout/presentation/views/widgets/checkout
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/phone_number_text_field.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/save_shipping_details_bloc_consumer_button.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/shipping_order_details_row.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/widgets/app_text_field.dart';
 
@@ -35,16 +36,16 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
             children: [
               CheckoutStepperSection(isShipping: true),
               AppTextField(
-                hint: 'Enter full name',
-                text: 'Full Name',
+                hint: context.locale.enter_full_name,
+                text: context.locale.full_name,
                 controller: nameController,
               ),
-              Text('Phone Number', style: Styles.body2Medium),
+              Text(context.locale.phone_number, style: Styles.body2Medium),
               SizedBox(height: 8.h),
               PhoneNumberTextField(),
               AppTextField(
-                hint: 'Enter street address',
-                text: 'Street Address',
+                hint: context.locale.enter_street_address,
+                text: context.locale.street_address,
                 controller: addressController,
               ),
               ShippingOrderDetailsRow(
@@ -52,8 +53,8 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                 provinceController: provinceController,
               ),
               AppTextField(
-                hint: 'Enter City',
-                text: 'City',
+                hint:context.locale.enter_city,
+                text: context.locale.city,
                 controller: cityController,
               ),
               SizedBox(height: 12.h),
