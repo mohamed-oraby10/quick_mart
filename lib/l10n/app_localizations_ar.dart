@@ -9,6 +9,9 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
+  String get tagline => 'المتجر الالكترونى رقم 1 في الوطن العربي';
+
+  @override
   String get skip_for_now => 'تخطي الآن';
 
   @override

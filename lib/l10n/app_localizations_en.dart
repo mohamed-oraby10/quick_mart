@@ -9,6 +9,9 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get tagline => 'The Arab World’s No 1 Ecommerce App';
+
+  @override
   String get skip_for_now => 'Skip for now';
 
   @override

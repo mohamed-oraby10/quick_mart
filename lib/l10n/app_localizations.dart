@@ -95,6 +95,12 @@ abstract class AppLocalizations {
     Locale('en')
   ];
 
+  /// No description provided for @tagline.
+  ///
+  /// In en, this message translates to:
+  /// **'The Arab World’s No 1 Ecommerce App'**
+  String get tagline;
+
   /// No description provided for @skip_for_now.
   ///
   /// In en, this message translates to:

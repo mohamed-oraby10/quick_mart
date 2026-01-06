@@ -9,17 +9,20 @@ class AppLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SvgPicture.asset(AssetsData.logoIcon, width: 30.w, height: 32.h),
-        SizedBox(width: 1.w),
-        SvgPicture.asset(
-          AssetsData.logoText,
-          height: 12.h,
-          width: 72.w,
-          color: context.customColors.modeColor,
-        ),
-      ],
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Row(
+        children: [
+          SvgPicture.asset(AssetsData.logoIcon, width: 30.w, height: 32.h),
+          SizedBox(width: 1.w),
+          SvgPicture.asset(
+            AssetsData.logoText,
+            height: 12.h,
+            width: 72.w,
+            color: context.customColors.modeColor,
+          ),
+        ],
+      ),
     );
   }
 }
