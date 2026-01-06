@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
+import 'package:quick_mart/core/utils/styles.dart';
 
 class ExclusiveSalesContainer extends StatelessWidget {
   const ExclusiveSalesContainer({super.key});
@@ -19,7 +21,20 @@ class ExclusiveSalesContainer extends StatelessWidget {
             borderRadius: BorderRadius.circular(24.r),
             color: Colors.grey,
           ),
-          child: Image.asset('assets/images/Banner.png', fit: BoxFit.fill),
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              Image.asset('assets/images/Banner.png', fit: BoxFit.cover),
+              Positioned(
+                left: 12.w,
+                bottom: 10.h,
+                child: Text(
+                  context.locale.exclusive_sales,
+                  style: Styles.heading2Bold,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
