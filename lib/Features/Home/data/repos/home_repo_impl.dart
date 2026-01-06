@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:quick_mart/Features/Home/data/data_sources/home_remote_data_source.dart';
+import 'package:quick_mart/Features/Home/domain/emuns/filter_type.dart';
 import 'package:quick_mart/Features/Home/domain/entities/category_entity.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/Features/Home/domain/repos/home_repo.dart';
@@ -81,9 +82,13 @@ class HomeRepoImpl extends HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<ProductEntity>>> filterProducts() async {
+  Future<Either<Failure, List<ProductEntity>>> filterProducts({
+    required FilterType filterType,
+  }) async {
     try {
-      return right(await homeRemoteDataSource.filterProducts());
+      return right(
+        await homeRemoteDataSource.filterProducts(filter: filterType),
+      );
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));

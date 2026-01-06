@@ -67,6 +67,7 @@ class QuickMart extends StatelessWidget {
         BlocProvider<FetchProductsByCategoryCubit>(
           create: (context) => FetchProductsByCategoryCubit(
             FetchProductsByCategoryUseCase(getIt.get<HomeRepoImpl>()),
+            FilterProductsUseCase(getIt.get<HomeRepoImpl>()),
           ),
         ),
         BlocProvider<FindSearchedProductsCubit>(

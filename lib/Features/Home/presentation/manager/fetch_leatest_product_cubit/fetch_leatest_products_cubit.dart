@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:quick_mart/Features/Home/domain/emuns/filter_type.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/Features/Home/domain/use_cases/fetch_leatest_products_use_case.dart';
 import 'package:quick_mart/Features/Home/domain/use_cases/filter_products_use_case.dart';
@@ -22,9 +23,9 @@ class FetchLeatestProductsCubit extends Cubit<FetchLeatestProductsState> {
     );
   }
 
-  Future<void> filterProducts() async {
+  Future<void> filterProducts({required FilterType filter}) async {
     emit(FetchLeatestProductsLoading());
-    var result = await filterProductsUseCase.call();
+    var result = await filterProductsUseCase.call(filter);
     result.fold(
       (failure) => emit(FetchLeatestProductsFailure(failure.errMessage)),
       (products) => emit(FetchLeatestProductsSuccess(products)),

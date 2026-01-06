@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icons_plus/icons_plus.dart';
-import 'package:quick_mart/Features/Home/presentation/manager/fetch_leatest_product_cubit/fetch_leatest_products_cubit.dart';
-import 'package:quick_mart/Features/Home/presentation/views/widgets/search_filter_bottom_sheet.dart';
+import 'package:quick_mart/Features/Home/presentation/views/widgets/filter_icon_button.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 import 'package:quick_mart/core/widgets/arrow_left_icon.dart';
 
 class ProductsListAppBar extends StatelessWidget {
-  const ProductsListAppBar({super.key, required this.title});
+  const ProductsListAppBar({
+    super.key,
+    required this.title,
+    this.isProductsView = false,
+  });
   final String title;
+  final bool isProductsView;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,20 +27,7 @@ class ProductsListAppBar extends StatelessWidget {
             SizedBox(width: 12.w),
             Text(title, style: Styles.body2Medium),
             Spacer(),
-            IconButton(
-              onPressed: () {
-                showModalBottomSheet(
-                  context: context,
-                  builder: (_) {
-                    return BlocProvider.value(
-                      value: context.read<FetchLeatestProductsCubit>(),
-                      child: const SearchFilterBottomSheet(),
-                    );
-                  },
-                );
-              },
-              icon: Icon(Iconsax.setting_4_outline, size: 32.sp),
-            ),
+            FilterIconButton(isProductsView: isProductsView),
             IconButton(
               onPressed: () =>
                   GoRouter.of(context).push(AppRoutes.kProductsSearchView),

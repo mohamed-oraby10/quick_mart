@@ -1,4 +1,5 @@
 import 'package:quick_mart/Features/Home/data/models/product_model.dart';
+import 'package:quick_mart/Features/Home/domain/emuns/filter_type.dart';
 import 'package:quick_mart/Features/Home/domain/entities/category_entity.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/core/utils/api_service.dart';
@@ -13,7 +14,7 @@ abstract class HomeRemoteDataSource {
   Future<List<ProductEntity>> findSearchedProducts({
     required String productName,
   });
-  Future<List<ProductEntity>> filterProducts();
+  Future<List<ProductEntity>> filterProducts({required FilterType filter});
 }
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
@@ -83,12 +84,19 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   }
 
   @override
-  Future<List<ProductEntity>> filterProducts() async {
+  Future<List<ProductEntity>> filterProducts({
+    required FilterType filter,
+  }) async {
     final products = await fetchLeatestProducts(pageNumber: 1);
 
-    final sortedProducts = List<ProductEntity>.from(products)
+    final lowToHighProducts = List<ProductEntity>.from(products)
       ..sort((a, b) => a.productPrice.compareTo(b.productPrice));
 
-    return sortedProducts;
+    final highToLowProducts = List<ProductEntity>.from(products)
+      ..sort((a, b) => b.productPrice.compareTo(a.productPrice));
+
+    return filter == FilterType.highToLow
+        ? highToLowProducts
+        : lowToHighProducts;
   }
 }

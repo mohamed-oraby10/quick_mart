@@ -14,7 +14,7 @@ class ProductsViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 44.h),
-          ProductsListAppBar(title: categoryName),
+          ProductsListAppBar(title: categoryName, isProductsView: true),
           Expanded(child: ProductsGridViewBlocBuilder()),
         ],
       ),
