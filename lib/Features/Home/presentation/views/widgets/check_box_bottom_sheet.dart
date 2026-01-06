@@ -8,7 +8,7 @@ class CheckBoxBottomSheet extends StatefulWidget {
   const CheckBoxBottomSheet({super.key, this.onChanged, required this.text});
   final void Function(bool?)? onChanged;
   final String text;
-
+  
   @override
   State<CheckBoxBottomSheet> createState() => _CheckBoxBottomSheetState();
 }

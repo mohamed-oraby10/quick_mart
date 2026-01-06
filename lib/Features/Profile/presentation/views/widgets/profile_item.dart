@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:quick_mart/Features/Profile/presentation/views/widgets/mode_switcher.dart';
+import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
@@ -37,7 +38,9 @@ class ProfileItem extends StatelessWidget {
                 : IconButton(
                     onPressed: onTap,
                     icon: Icon(
-                      Iconsax.arrow_right_3_outline,
+                      context.isArabic
+                          ? Iconsax.arrow_left_2_outline
+                          : Iconsax.arrow_right_3_outline,
                       size: 24.sp,
                       color: context.customColors.secondaryColor,
                     ),
