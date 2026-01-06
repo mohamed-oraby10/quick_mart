@@ -15,6 +15,7 @@ import 'package:quick_mart/Features/Home/data/repos/home_repo_impl.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/Features/Home/domain/use_cases/fetch_leatest_products_use_case.dart';
 import 'package:quick_mart/Features/Home/domain/use_cases/fetch_products_by_category_use_case.dart';
+import 'package:quick_mart/Features/Home/domain/use_cases/filter_categored_products_use_case.dart';
 import 'package:quick_mart/Features/Home/domain/use_cases/filter_products_use_case.dart';
 import 'package:quick_mart/Features/Home/domain/use_cases/find_searched_products_use_case.dart';
 import 'package:quick_mart/Features/Home/presentation/manager/fetch_leatest_product_cubit/fetch_leatest_products_cubit.dart';
@@ -67,7 +68,7 @@ class QuickMart extends StatelessWidget {
         BlocProvider<FetchProductsByCategoryCubit>(
           create: (context) => FetchProductsByCategoryCubit(
             FetchProductsByCategoryUseCase(getIt.get<HomeRepoImpl>()),
-            FilterProductsUseCase(getIt.get<HomeRepoImpl>()),
+            FilterCategoredProductsUseCase(getIt.get<HomeRepoImpl>()),
           ),
         ),
         BlocProvider<FindSearchedProductsCubit>(

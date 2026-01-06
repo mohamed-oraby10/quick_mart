@@ -10,8 +10,13 @@ import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 
 class SearchFilterBottomSheet extends StatelessWidget {
-  const SearchFilterBottomSheet({super.key, this.isProductsView = false});
+  const SearchFilterBottomSheet({
+    super.key,
+    this.isProductsView = false,
+    this.categoryName,
+  });
   final bool isProductsView;
+  final String? categoryName;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -36,7 +41,10 @@ class SearchFilterBottomSheet extends StatelessWidget {
             Text(context.locale.filter, style: Styles.body1Medium),
             SizedBox(height: 16.h),
             BottomSheetListView(),
-            FilterButton(isProductsView: isProductsView),
+            FilterButton(
+              isProductsView: isProductsView,
+              categoryName: categoryName ?? '',
+            ),
           ],
         ),
       ),

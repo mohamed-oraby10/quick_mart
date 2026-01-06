@@ -96,4 +96,24 @@ class HomeRepoImpl extends HomeRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, List<ProductEntity>>> filterCategoredProducts({
+    required FilterType filterType,
+    required String categoryName,
+  }) async {
+    try {
+      return right(
+        await homeRemoteDataSource.filterCategoredProducts(
+          filter: filterType,
+          categoryName: categoryName,
+        ),
+      );
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+  }
 }

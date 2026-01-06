@@ -15,6 +15,10 @@ abstract class HomeRemoteDataSource {
     required String productName,
   });
   Future<List<ProductEntity>> filterProducts({required FilterType filter});
+  Future<List<ProductEntity>> filterCategoredProducts({
+    required FilterType filter,
+    required String categoryName,
+  });
 }
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
@@ -88,6 +92,27 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
     required FilterType filter,
   }) async {
     final products = await fetchLeatestProducts(pageNumber: 1);
+
+    final lowToHighProducts = List<ProductEntity>.from(products)
+      ..sort((a, b) => a.productPrice.compareTo(b.productPrice));
+
+    final highToLowProducts = List<ProductEntity>.from(products)
+      ..sort((a, b) => b.productPrice.compareTo(a.productPrice));
+
+    return filter == FilterType.highToLow
+        ? highToLowProducts
+        : lowToHighProducts;
+  }
+
+  @override
+  Future<List<ProductEntity>> filterCategoredProducts({
+    required FilterType filter,
+    required String categoryName,
+  }) async {
+    final products = await fetchProductsByCategory(
+      pageNumber: 1,
+      categoryName: categoryName,
+    );
 
     final lowToHighProducts = List<ProductEntity>.from(products)
       ..sort((a, b) => a.productPrice.compareTo(b.productPrice));

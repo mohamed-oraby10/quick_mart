@@ -7,8 +7,12 @@ import 'package:quick_mart/Features/Home/presentation/manager/fetch_products_by_
 import 'package:quick_mart/Features/Home/presentation/views/widgets/search_filter_bottom_sheet.dart';
 
 class FilterIconButton extends StatelessWidget {
-  const FilterIconButton({super.key, required this.isProductsView});
-
+  const FilterIconButton({
+    super.key,
+    required this.isProductsView,
+    required this.title,
+  });
+  final String title;
   final bool isProductsView;
 
   @override
@@ -27,7 +31,10 @@ class FilterIconButton extends StatelessWidget {
                   value: context.read<FetchProductsByCategoryCubit>(),
                 ),
               ],
-              child: SearchFilterBottomSheet(isProductsView: isProductsView),
+              child: SearchFilterBottomSheet(
+                isProductsView: isProductsView,
+                categoryName: title,
+              ),
             );
           },
         );

@@ -27,7 +27,7 @@ class ProductsListAppBar extends StatelessWidget {
             SizedBox(width: 12.w),
             Text(title, style: Styles.body2Medium),
             Spacer(),
-            FilterIconButton(isProductsView: isProductsView),
+            FilterIconButton(isProductsView: isProductsView, title: title),
             IconButton(
               onPressed: () =>
                   GoRouter.of(context).push(AppRoutes.kProductsSearchView),

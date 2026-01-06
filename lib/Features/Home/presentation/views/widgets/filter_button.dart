@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quick_mart/Features/Home/domain/emuns/filter_type.dart';
+import 'package:quick_mart/Features/Home/domain/params/filter_params.dart';
 import 'package:quick_mart/Features/Home/presentation/manager/fetch_leatest_product_cubit/fetch_leatest_products_cubit.dart';
 import 'package:quick_mart/Features/Home/presentation/manager/fetch_products_by_category_cubit/fetch_products_by_category_cubit.dart';
 import 'package:quick_mart/Features/Home/presentation/manager/filter_cubit/filter_cubit.dart';
@@ -9,8 +10,14 @@ import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/widgets/main_button.dart';
 
 class FilterButton extends StatelessWidget {
-  const FilterButton({super.key, this.isProductsView = false});
+  const FilterButton({
+    super.key,
+    this.isProductsView = false,
+    required this.categoryName,
+  });
   final bool isProductsView;
+  final String categoryName;
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FilterCubit, FilterType?>(
@@ -25,9 +32,12 @@ class FilterButton extends StatelessWidget {
                 ? BlocProvider.of<FetchProductsByCategoryCubit>(
                     context,
                   ).filterProducts(
-                    filter: state == FilterType.highToLow
-                        ? FilterType.highToLow
-                        : FilterType.lowToHigh,
+                    params: FilterParams(
+                      state == FilterType.highToLow
+                          ? FilterType.highToLow
+                          : FilterType.lowToHigh,
+                      categoryName,
+                    ),
                   )
                 : BlocProvider.of<FetchLeatestProductsCubit>(
                     context,
