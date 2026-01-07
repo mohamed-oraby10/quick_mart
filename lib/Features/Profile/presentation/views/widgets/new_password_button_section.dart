@@ -15,18 +15,20 @@ class NewPasswordButtonSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController controller = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
+    TextEditingController confirmedPasswordController = TextEditingController();
+
     GlobalKey<FormState> formKey = GlobalKey();
     return Form(
       key: formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          PasswordFieldSection(controller: controller),
+          PasswordFieldSection(controller: passwordController),
           SizedBox(height: 16.h),
           PasswordFieldSection(
             text: context.locale.confirm_password,
-            controller: controller,
+            controller: confirmedPasswordController,
           ),
           SizedBox(height: 24.h),
           BlocConsumer<UpdatePasswordCubit, UpdatePasswordState>(
@@ -47,7 +49,9 @@ class NewPasswordButtonSection extends StatelessWidget {
                   if (formKey.currentState!.validate()) {
                     BlocProvider.of<UpdatePasswordCubit>(
                       context,
-                    ).updatePassword(newPassword: controller.text.trim());
+                    ).updatePassword(
+                      newPassword: passwordController.text.trim(),
+                    );
                   }
                 },
               );

@@ -25,4 +25,6 @@ class AuthFailure extends Failure {
   }
 
   factory AuthFailure.unKnown() => AuthFailure('There is an server error');
+  factory AuthFailure.notMatchPassword() =>
+      AuthFailure('Please make sure both passwords are the same.');
 }
