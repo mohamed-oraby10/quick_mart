@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:quick_mart/Features/Auth/data/data_sources/auth_remote_data_source.dart';
 import 'package:quick_mart/Features/Auth/data/errors/auth_failure.dart';
 import 'package:quick_mart/Features/Auth/domain/repos/auth_repo.dart';
+import 'package:quick_mart/core/errors/failure.dart';
 
 class AuthRepoImpl extends AuthRepo {
   final AuthRemoteDataSource authRemoteDataSource;
@@ -67,6 +68,36 @@ class AuthRepoImpl extends AuthRepo {
       return right(null);
     } catch (e) {
       return left(AuthFailure.unKnown());
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> updatePassword({
+    required String newPassword,
+  }) async {
+    try {
+      final currentUser = FirebaseAuth.instance.currentUser!;
+      currentUser.updatePassword(newPassword);
+      return right(null);
+    } on FirebaseAuthException catch (e) {
+      return left(AuthFailure.fromFirebase(e.code));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> verifyOldPassword({
+    required String oldPassword,
+  }) async {
+    try {
+      final currentUser = FirebaseAuth.instance.currentUser!;
+      final credential = EmailAuthProvider.credential(
+        email: currentUser.email!,
+        password: oldPassword,
+      );
+      await currentUser.reauthenticateWithCredential(credential);
+      return right(null);
+    } on FirebaseAuthException catch (e) {
+      return left(AuthFailure.fromFirebase(e.code));
     }
   }
 }

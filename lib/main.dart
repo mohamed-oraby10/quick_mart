@@ -109,7 +109,6 @@ class QuickMart extends StatelessWidget {
                       GlobalCupertinoLocalizations.delegate,
                     ],
                     debugShowCheckedModeBanner: false,
-                    title: 'Flutter Demo',
                     darkTheme: getDarkTheme(
                       fontName: isArabic
                           ? AppFonts.cairo

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:quick_mart/core/extensions/app_localization_extension.dart';
@@ -13,12 +12,12 @@ class LoginButtonRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         CustomElevatedButton(
           buttonText: context.locale.login,
           onTap: () => GoRouter.of(context).go(AppRoutes.kLoginView),
         ),
-        SizedBox(width: 8.w),
         RowElevatedButton(
           onTap: () => GoRouter.of(context).go(AppRoutes.kRegisterView),
           text: context.locale.get_started,
