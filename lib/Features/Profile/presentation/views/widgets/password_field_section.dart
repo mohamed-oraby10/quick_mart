@@ -5,8 +5,9 @@ import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 
 class PasswordFieldSection extends StatelessWidget {
-  const PasswordFieldSection({super.key, this.text});
+  const PasswordFieldSection({super.key, this.text, required this.controller});
   final String? text;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,7 +16,7 @@ class PasswordFieldSection extends StatelessWidget {
         SizedBox(height: 16.h),
         Text(text ?? context.locale.password, style: Styles.body2Medium),
         SizedBox(height: 8.h),
-        PasswordTextField(),
+        PasswordTextField(controller:controller ,),
       ],
     );
   }

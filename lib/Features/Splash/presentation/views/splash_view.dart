@@ -14,7 +14,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 4), () {
       GoRouter.of(context).go(AppRoutes.kOnboardingView);
     });
   }
