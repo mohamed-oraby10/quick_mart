@@ -13,7 +13,7 @@ class LeatestProductsGridViewBlocConsumer extends StatelessWidget {
     return BlocConsumer<FetchLeatestProductsCubit, FetchLeatestProductsState>(
       listener: (context, state) {
         if (state is FetchLeatestProductsFailure) {
-          showErroeSnakBar(context, content: state.errMessage);
+          showErrorSnakBar(context, content: state.errMessage);
         }
       },
       builder: (context, state) {

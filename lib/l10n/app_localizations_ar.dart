@@ -393,5 +393,5 @@ class AppLocalizationsAr extends AppLocalizations {
   String get no_results_found => 'لم يتم العثور على نتائج.';
 
   @override
-  String get auth_password_not_match => 'يرجى التأكد من أن كلمتي المرور متطابقتان.';
+  String get password_changed_successfully => 'تم تغيير كلمة المرور بنجاح';
 }

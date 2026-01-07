@@ -41,7 +41,7 @@ class SaveShippingDetailsBlocConsumerButton extends StatelessWidget {
           );
           GoRouter.of(context).push(AppRoutes.kCheckoutPaymentBody);
         } else if (state is SaveOrderFailure) {
-          showErroeSnakBar(context, content: state.errMessage);
+          showErrorSnakBar(context, content: state.errMessage);
         }
       },
       builder: (context, state) {

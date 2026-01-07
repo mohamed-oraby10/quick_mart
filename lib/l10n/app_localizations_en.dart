@@ -393,5 +393,5 @@ class AppLocalizationsEn extends AppLocalizations {
   String get no_results_found => 'No results found.';
 
   @override
-  String get auth_password_not_match => 'Please make sure both passwords are the same.';
+  String get password_changed_successfully => 'Password changed successfully';
 }

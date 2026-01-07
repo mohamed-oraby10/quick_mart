@@ -19,7 +19,7 @@ class ResendLinkResetPasswordButtonBlocConsumer extends StatelessWidget {
     return BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
       listener: (context, state) {
         if (state is ResetPasswordFailure) {
-          showErroeSnakBar(context, content: state.errMessage);
+          showErrorSnakBar(context, content: state.errMessage);
         } else if (state is ResetPasswordSuccess) {
           showSuccessSnakBar(
             context,

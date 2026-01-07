@@ -27,7 +27,7 @@ class OldPasswordButtonSection extends StatelessWidget {
           BlocConsumer<VerifyOldPasswordCubit, VerifyOldPasswordState>(
             listener: (context, state) {
               if (state is VerifyOldPasswordFailure) {
-                showErroeSnakBar(context, content: state.errMessage);
+                showErrorSnakBar(context, content: state.errMessage);
               } else if (state is VerifyOldPasswordSuccess) {
                 GoRouter.of(context).push(AppRoutes.kNewPasswordViewBody);
               }

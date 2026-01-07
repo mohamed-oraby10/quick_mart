@@ -32,7 +32,7 @@ class RegisterButtonBlocConsumer extends StatelessWidget {
         if (state is SignupWithEmailAndPasswordSuccess) {
           GoRouter.of(context).push(AppRoutes.kHomeView);
         } else if (state is SignupWithEmailAndPasswordFailure) {
-          showErroeSnakBar(context, content: state.errMessage);
+          showErrorSnakBar(context, content: state.errMessage);
         }
       },
       builder: (context, state) {

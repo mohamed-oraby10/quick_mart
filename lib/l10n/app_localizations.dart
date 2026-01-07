@@ -863,11 +863,11 @@ abstract class AppLocalizations {
   /// **'No results found.'**
   String get no_results_found;
 
-  /// No description provided for @auth_password_not_match.
+  /// No description provided for @password_changed_successfully.
   ///
   /// In en, this message translates to:
-  /// **'Please make sure both passwords are the same.'**
-  String get auth_password_not_match;
+  /// **'Password changed successfully'**
+  String get password_changed_successfully;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

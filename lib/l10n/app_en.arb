@@ -147,6 +147,6 @@
       "exclusive_sales": "Exclusive Sales",
   "no_results_found": "No results found.",
 
-"auth_password_not_match": "Please make sure both passwords are the same."
+"password_changed_successfully": "Password changed successfully"
 
 }

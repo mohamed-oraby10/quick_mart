@@ -29,7 +29,7 @@ class LoginButtonBlocConsumer extends StatelessWidget {
         if (state is LoginWithEmailAndPasswordSuccess) {
           GoRouter.of(context).go(AppRoutes.kHomeView);
         } else if (state is LoginWithEmailAndPasswordFailure) {
-          showErroeSnakBar(context, content: state.errMessage);
+          showErrorSnakBar(context, content: state.errMessage);
         }
       },
       builder: (context, state) {

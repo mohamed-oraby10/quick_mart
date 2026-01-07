@@ -20,7 +20,7 @@ class GoogleButton extends StatelessWidget {
         if (state is LoginWithGoogleSuccess) {
           GoRouter.of(context).go(AppRoutes.kHomeView);
         } else if (state is LoginWithGoogleFailure) {
-          showErroeSnakBar(context, content: state.errMessage);
+          showErrorSnakBar(context, content: state.errMessage);
         }
       },
       builder: (context, state) {
