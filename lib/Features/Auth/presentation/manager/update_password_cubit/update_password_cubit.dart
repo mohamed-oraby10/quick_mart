@@ -8,9 +8,15 @@ class UpdatePasswordCubit extends Cubit<UpdatePasswordState> {
   UpdatePasswordCubit(this.authRepo) : super(UpdatePasswordInitial());
 
   final AuthRepo authRepo;
-  Future<void> updatePassword({required String newPassword}) async {
+  Future<void> updatePassword({
+    required String newPassword,
+    required String confirmedPassword,
+  }) async {
     emit(UpdatePasswordLoading());
-    var result = await authRepo.updatePassword(newPassword: newPassword);
+    var result = await authRepo.updatePassword(
+      newPassword: newPassword,
+      confirmedPassword: confirmedPassword,
+    );
     result.fold(
       (failure) => emit(UpdatePasswordFailure(failure.errMessage)),
       (_) => emit(UpdatePasswordSuccess()),

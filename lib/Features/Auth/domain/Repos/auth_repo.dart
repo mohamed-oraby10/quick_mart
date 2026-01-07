@@ -14,9 +14,11 @@ abstract class AuthRepo {
     required String email,
     required String password,
   });
-   Future<Either<Failure, void>> verifyOldPassword({
+  Future<Either<Failure, void>> verifyOldPassword({
     required String oldPassword,
-  }); Future<Either<Failure, void>> updatePassword({
+  });
+  Future<Either<Failure, void>> updatePassword({
     required String newPassword,
+    required String confirmedPassword,
   });
 }

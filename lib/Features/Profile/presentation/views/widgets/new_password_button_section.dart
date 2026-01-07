@@ -51,6 +51,8 @@ class NewPasswordButtonSection extends StatelessWidget {
                       context,
                     ).updatePassword(
                       newPassword: passwordController.text.trim(),
+                      confirmedPassword: confirmedPasswordController.text
+                          .trim(),
                     );
                   }
                 },
