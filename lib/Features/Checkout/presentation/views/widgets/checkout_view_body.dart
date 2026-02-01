@@ -8,7 +8,7 @@ import 'package:quick_mart/Features/Checkout/presentation/views/widgets/shipping
 import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/widgets/app_text_field.dart';
-
+ 
 class CheckoutViewBody extends StatefulWidget {
   const CheckoutViewBody({super.key, required this.products});
   final List<CartItemEntity> products;
@@ -19,6 +19,7 @@ class CheckoutViewBody extends StatefulWidget {
 
 class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  String? phoneNumber;
   TextEditingController nameController = TextEditingController(),
       addressController = TextEditingController(),
       countyController = TextEditingController(),
@@ -42,7 +43,11 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
               ),
               Text(context.locale.phone_number, style: Styles.body2Medium),
               SizedBox(height: 8.h),
-              PhoneNumberTextField(),
+              PhoneNumberTextField(
+                onChanged: (value) {
+                  phoneNumber = value;
+                },
+              ),
               AppTextField(
                 hint: context.locale.enter_street_address,
                 text: context.locale.street_address,
@@ -53,19 +58,20 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                 provinceController: provinceController,
               ),
               AppTextField(
-                hint:context.locale.enter_city,
+                hint: context.locale.enter_city,
                 text: context.locale.city,
                 controller: cityController,
               ),
               SizedBox(height: 12.h),
               SaveShippingDetailsBlocConsumerButton(
-                products:widget.products,
+                products: widget.products,
                 formKey: formKey,
                 nameController: nameController,
                 addressController: addressController,
                 countyController: countyController,
                 provinceController: provinceController,
                 cityController: cityController,
+                phoneNumber: phoneNumber ?? '',
               ),
             ],
           ),

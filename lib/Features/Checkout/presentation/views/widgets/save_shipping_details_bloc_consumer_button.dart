@@ -21,9 +21,11 @@ class SaveShippingDetailsBlocConsumerButton extends StatelessWidget {
     required this.provinceController,
     required this.cityController,
     required this.products,
+    required this.phoneNumber,
   });
   final List<CartItemEntity> products;
   final GlobalKey<FormState> formKey;
+  final String phoneNumber;
   final TextEditingController nameController,
       addressController,
       countyController,
@@ -55,7 +57,7 @@ class SaveShippingDetailsBlocConsumerButton extends StatelessWidget {
               BlocProvider.of<SaveOrderCubit>(context).saveOrder(
                 order: OrderEntity(
                   fullName: nameController.text,
-                  phoneNum: '000000000',
+                  phoneNum: phoneNumber,
                   customerAddress: addressController.text,
                   countryName: countyController.text,
                   provinceName: provinceController.text,
