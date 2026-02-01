@@ -1,7 +1,6 @@
 import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
-import 'package:quick_mart/Features/Checkout/domain/entities/order_entity.dart';
 
-class OrderModel extends OrderEntity {
+class OrderModel {
   final String orderId;
   final String userId;
   final String customerFullName;
@@ -22,16 +21,7 @@ class OrderModel extends OrderEntity {
     required this.province,
     required this.cityName,
     required this.products,
-  }) : super(
-         fullName: customerFullName,
-         phoneNum: phoneNumber,
-         customerAddress: streetAddress,
-         countryName: country,
-         provinceName: province,
-         city: cityName,
-         productsList: products,
-       );
-
+  });
   factory OrderModel.fromjson(Map<String, dynamic> data) {
     return OrderModel(
       orderId: data['id'],
@@ -48,15 +38,15 @@ class OrderModel extends OrderEntity {
 
   Map<String, dynamic> toJson() {
     return {
-      'id': orderId,
-      'customerFullName': fullName,
+      'orderId': orderId,
+      'userId': userId,
+      'customerFullName': customerFullName,
       'phoneNumber': phoneNumber,
       'streetAddress': streetAddress,
       'country': country,
       'province': province,
       'cityName': cityName,
-      'products': products,
-      'userId': userId,
+      'products': products.map((e) => e.toJson()).toList(),
     };
   }
 }

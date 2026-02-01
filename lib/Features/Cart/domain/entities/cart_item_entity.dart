@@ -24,4 +24,11 @@ class CartItemEntity {
       isSelected: isSelected ?? this.isSelected,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'product': product.toJson(),
+      'quantity': quantity,
+    };
+  }
 }

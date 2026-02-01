@@ -1,6 +1,7 @@
 import 'package:hive/hive.dart';
 import 'package:quick_mart/Features/Home/data/models/review.dart';
 part 'product_entity.g.dart';
+
 @HiveType(typeId: 1)
 class ProductEntity {
   @HiveField(0)
@@ -36,4 +37,19 @@ class ProductEntity {
     required this.productTags,
     required this.productImages,
   });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'productId': productId,
+      'productTitle': productTitle,
+      'desc': desc,
+      'productPrice': productPrice,
+      'productRating': productRating,
+      'discount': discount,
+      'productTags': productTags,
+      'productImages': productImages,
+      'reviewsCount': reviewsCount?.map((review) => review.toJson()).toList(),
+      'stockCount': stockCount,
+    };
+  }
 }

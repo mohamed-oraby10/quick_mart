@@ -8,7 +8,7 @@ import 'package:quick_mart/Features/Checkout/presentation/views/widgets/shipping
 import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/widgets/app_text_field.dart';
- 
+
 class CheckoutViewBody extends StatefulWidget {
   const CheckoutViewBody({super.key, required this.products});
   final List<CartItemEntity> products;
@@ -45,7 +45,9 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
               SizedBox(height: 8.h),
               PhoneNumberTextField(
                 onChanged: (value) {
-                  phoneNumber = value;
+                  setState(() {
+                    phoneNumber = value;
+                  });
                 },
               ),
               AppTextField(
@@ -71,7 +73,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                 countyController: countyController,
                 provinceController: provinceController,
                 cityController: cityController,
-                phoneNumber: phoneNumber ?? '',
+                phoneNumber: phoneNumber,
               ),
             ],
           ),

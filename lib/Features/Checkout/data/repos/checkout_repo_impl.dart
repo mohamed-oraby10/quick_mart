@@ -21,6 +21,10 @@ class CheckoutRepoImpl implements CheckoutRepo {
           .collection(kOrdersCollection)
           .doc()
           .id;
+      final selectedProducts = order.productsList
+          .where((item) => item.isSelected)
+          .toList();
+
       final orderModel = OrderModel(
         orderId: orderId,
         userId: currentUserId,
@@ -30,7 +34,7 @@ class CheckoutRepoImpl implements CheckoutRepo {
         country: order.countryName,
         province: order.provinceName,
         cityName: order.city,
-        products: order.productsList,
+        products: selectedProducts,
       );
       await checkoutRemoteDataSource.saveOrder(order: orderModel);
       return right(null);
