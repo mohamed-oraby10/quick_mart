@@ -15,27 +15,29 @@ class CartViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final selectedCount = products.where((item) => item.isSelected).length;
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: 44.h),
-          CartViewAppBar(),
-          CartItemsListView(products: products),
-          OrderInfoSection(products: products),
-          SizedBox(height: 24.h),
-          products.any((item) => item.isSelected)
-              ? MainButton(
-                  text: '${context.locale.checkout} ($selectedCount)',
-                  onTap: () {
-                    GoRouter.of(
-                      context,
-                    ).push(AppRoutes.kCheckoutView, extra: products);
-                  },
-                )
-              : SizedBox(),
-        ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 44.h),
+            CartViewAppBar(),
+            CartItemsListView(products: products),
+            OrderInfoSection(products: products),
+            SizedBox(height: 24.h),
+            products.any((item) => item.isSelected)
+                ? MainButton(
+                    text: '${context.locale.checkout} ($selectedCount)',
+                    onTap: () {
+                      GoRouter.of(
+                        context,
+                      ).push(AppRoutes.kCheckoutView, extra: products);
+                    },
+                  )
+                : SizedBox(),
+          ],
+        ),
       ),
     );
   }

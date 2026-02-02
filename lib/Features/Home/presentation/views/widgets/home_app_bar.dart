@@ -22,7 +22,9 @@ class HomeAppBar extends StatelessWidget {
           onTap: () => GoRouter.of(context).push(AppRoutes.kProductsSearchView),
         ),
         SizedBox(width: 12.w),
-        ProfileImage(),
+        ProfileImage(
+          onTap: () => GoRouter.of(context).push(AppRoutes.kProfileView),
+        ),
       ],
     );
   }

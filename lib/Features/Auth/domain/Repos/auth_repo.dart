@@ -21,4 +21,5 @@ abstract class AuthRepo {
     required String newPassword,
     required String confirmedPassword,
   });
+  Future<Either<Failure, void>> logout();
 }

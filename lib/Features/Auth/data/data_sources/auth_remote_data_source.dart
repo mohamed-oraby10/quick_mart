@@ -21,6 +21,7 @@ abstract class AuthRemoteDataSource {
     required UserCredential user,
     required String name,
   });
+  Future<void> logout();
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -111,5 +112,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   @override
   Future<void> resetPassword({required String email}) async {
     await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+  }
+
+  @override
+  Future<void> logout() async {
+    await FirebaseAuth.instance.signOut();
   }
 }

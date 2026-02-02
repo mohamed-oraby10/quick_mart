@@ -105,4 +105,14 @@ class AuthRepoImpl extends AuthRepo {
       return left(AuthFailure.fromFirebase(e.code));
     }
   }
+
+  @override
+  Future<Either<AuthFailure, void>> logout() async {
+    try {
+      await authRemoteDataSource.logout();
+      return right(null);
+    } catch (e) {
+      return left(AuthFailure.unKnown());
+    }
+  }
 }
