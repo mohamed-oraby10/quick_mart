@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quick_mart/Features/Auth/data/repos/auth_repo_impl.dart';
+import 'package:quick_mart/Features/Auth/domain/use_cases/logout_use_case.dart';
+import 'package:quick_mart/Features/Auth/presentation/manager/logout_cubit/logout_cubit.dart';
 import 'package:quick_mart/Features/Profile/data/repos/profile_repo_impl.dart';
 import 'package:quick_mart/Features/Profile/domain/use_cases/fetch_user_data_use_case.dart';
 import 'package:quick_mart/Features/Profile/presentation/manager/fetch_user_data_cubit/fetch_user_data_cubit.dart';
@@ -13,14 +16,22 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) {
-        final cubit = FetchUserDataCubit(
-          FetchUserDataUseCase(getIt.get<ProfileRepoImpl>()),
-        );
-        cubit.fetchUserData();
-        return cubit;
-      },
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) {
+            final cubit = FetchUserDataCubit(
+              FetchUserDataUseCase(getIt.get<ProfileRepoImpl>()),
+            );
+            cubit.fetchUserData();
+            return cubit;
+          },
+        ),
+        BlocProvider(
+          create: (context) =>
+              LogoutCubit(LogoutUseCase(getIt.get<AuthRepoImpl>())),
+        ),
+      ],
       child: const Scaffold(
         backgroundColor: AppColors.brandCyan,
         body: SafeArea(child: ProfileViewBody()),
