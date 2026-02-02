@@ -8,7 +8,6 @@ import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/utils/functions/show_error_snak_bar.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
-import 'package:quick_mart/core/widgets/app_circular_progress_indicator.dart';
 
 class GoogleButton extends StatelessWidget {
   const GoogleButton({super.key, required this.text});
@@ -24,35 +23,31 @@ class GoogleButton extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        if (state is LoginWithGoogleLoading) {
-          return AppCircularProgressIndicator();
-        } else {
-          return ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              elevation: 0,
-              side: BorderSide(color: context.customColors.buttonColor),
-              backgroundColor: context.isDarkMode
-                  ? AppColors.brandBlack
-                  : AppColors.brandWhite,
-              foregroundColor: context.customColors.modeColor,
-            ),
-            onPressed: () {
-              BlocProvider.of<LoginWithGoogleCubit>(context).loginWithGoogle();
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(text),
-                SizedBox(width: 8.w),
-                Icon(
-                  Iconsax.google_1_bold,
-                  size: 24.sp,
-                  color: AppColors.brandCyan,
-                ),
-              ],
-            ),
-          );
-        }
+        return ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            elevation: 0,
+            side: BorderSide(color: context.customColors.buttonColor),
+            backgroundColor: context.isDarkMode
+                ? AppColors.brandBlack
+                : AppColors.brandWhite,
+            foregroundColor: context.customColors.modeColor,
+          ),
+          onPressed: () {
+            BlocProvider.of<LoginWithGoogleCubit>(context).loginWithGoogle();
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(text),
+              SizedBox(width: 8.w),
+              Icon(
+                Iconsax.google_1_bold,
+                size: 24.sp,
+                color: AppColors.brandCyan,
+              ),
+            ],
+          ),
+        );
       },
     );
   }
