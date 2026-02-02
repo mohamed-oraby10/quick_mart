@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quick_mart/Features/Auth/presentation/views/confirmation_email_view.dart';
@@ -33,6 +34,8 @@ import 'package:quick_mart/Features/Profile/presentation/views/shipping_address_
 import 'package:quick_mart/Features/Profile/presentation/views/widgets/new_password_view_body.dart';
 import 'package:quick_mart/Features/Splash/presentation/views/splash_view.dart';
 import 'package:quick_mart/Features/Wishlist/presentation/views/wishlist_view.dart';
+import 'package:quick_mart/core/utils/functions/setup_service_locator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AppRoutes {
   const AppRoutes._();
@@ -69,6 +72,34 @@ class AppRoutes {
 
   static final router = GoRouter(
     initialLocation: '/',
+    redirect: (context, state) {
+      final user = FirebaseAuth.instance.currentUser;
+      final loggedIn = user != null;
+
+      final prefs = getIt.get<SharedPreferences>();
+      final hasLoggedInBefore = prefs.getBool('hasLoggedInBefore') ?? false;
+
+      final goingToSplash = state.matchedLocation == '/';
+
+      if (loggedIn && goingToSplash) {
+        return AppRoutes.kHomeView;
+      }
+
+      if (!loggedIn && !hasLoggedInBefore && goingToSplash) {
+        return null;
+      }
+
+      if (!loggedIn && hasLoggedInBefore && goingToSplash) {
+        return AppRoutes.kLoginView;
+      }
+
+      if (!loggedIn && state.matchedLocation == AppRoutes.kHomeView) {
+        return AppRoutes.kLoginView;
+      }
+
+      return null;
+    },
+
     routes: [
       GoRoute(path: '/', builder: (context, state) => const SplashView()),
       GoRoute(

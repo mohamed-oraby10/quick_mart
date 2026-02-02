@@ -4,6 +4,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:quick_mart/Features/Auth/data/errors/auth_failure.dart';
 import 'package:quick_mart/Features/Auth/data/models/user_model.dart';
 import 'package:quick_mart/core/utils/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class AuthRemoteDataSource {
   Future<UserCredential> signupWithEmailAndPassword({
@@ -22,6 +23,7 @@ abstract class AuthRemoteDataSource {
     required String name,
   });
   Future<void> logout();
+  Future<void> saveLoginFlag();
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -35,6 +37,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         email: email,
         password: password,
       );
+      await saveLoginFlag();
     } on FirebaseAuthException catch (e) {
       throw e;
     }
@@ -42,8 +45,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
   @override
   Future<UserCredential> loginWithGoogle() async {
-    // final GoogleSignIn googleSignIn = GoogleSignIn();
-    // await googleSignIn.signOut();
+    final GoogleSignIn googleSignIn = GoogleSignIn();
+    await googleSignIn.signOut();
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
     final GoogleSignInAuthentication? googleAuth =
         await googleUser?.authentication;
@@ -55,6 +58,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       credential,
     );
     await saveUserData(user: user, name: user.user!.displayName ?? '');
+    await saveLoginFlag();
     return user;
   }
 
@@ -117,5 +121,11 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   @override
   Future<void> logout() async {
     await FirebaseAuth.instance.signOut();
+  }
+
+  @override
+  Future<void> saveLoginFlag() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('hasLoggedInBefore', true);
   }
 }

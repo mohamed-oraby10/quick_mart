@@ -10,10 +10,13 @@ import 'package:quick_mart/Features/Profile/data/data_source/profile_local_data_
 import 'package:quick_mart/Features/Profile/data/data_source/profile_remote_data_source.dart';
 import 'package:quick_mart/Features/Profile/data/repos/profile_repo_impl.dart';
 import 'package:quick_mart/core/utils/api_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 final getIt = GetIt.instance;
 
-void setupServiceLocator() {
+Future<void> setupServiceLocator() async {
+  final prefs = await SharedPreferences.getInstance();
+  getIt.registerSingleton<SharedPreferences>(prefs);
   getIt.registerSingleton<ApiService>(ApiService(Dio()));
   getIt.registerSingleton<CheckoutRepoImpl>(
     CheckoutRepoImpl(CheckoutRemoteDataSourceImpl()),
