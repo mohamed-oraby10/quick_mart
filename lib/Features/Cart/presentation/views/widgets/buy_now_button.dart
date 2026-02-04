@@ -30,6 +30,7 @@ class BuyNowButton extends StatelessWidget {
           foregroundColor: context.isDarkMode
               ? AppColors.brandCyan
               : AppColors.brandBlack,
+          elevation: 0,
         ),
         onPressed: () => GoRouter.of(context).push(
           AppRoutes.kCheckoutView,
