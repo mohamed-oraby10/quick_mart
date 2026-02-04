@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,7 +27,10 @@ class ProfileImage extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.r),
                 child: state.user.image!.isNotEmpty
-                    ? Image.network(state.user.image ?? '', fit: BoxFit.cover)
+                    ? CachedNetworkImage(
+                        imageUrl: state.user.image ?? '',
+                        fit: BoxFit.cover,
+                      )
                     : Icon(Iconsax.profile_tick_outline, size: 28.sp),
               ),
             ),

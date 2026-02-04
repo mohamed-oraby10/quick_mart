@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/Features/Home/presentation/views/widgets/favourite_icon.dart';
 import 'package:quick_mart/core/utils/app_colors.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class ProductImage extends StatelessWidget {
   const ProductImage({super.key, required this.product});
@@ -18,8 +19,8 @@ class ProductImage extends StatelessWidget {
             color: AppColors.grey100,
             borderRadius: BorderRadius.circular(24.r),
           ),
-          child: Image.network(
-            product.productImages[0],
+          child: CachedNetworkImage(
+            imageUrl: product.productImages[0],
             height: 100.h,
             width: 150.w,
           ),
