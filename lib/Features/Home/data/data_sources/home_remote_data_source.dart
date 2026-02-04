@@ -3,6 +3,8 @@ import 'package:quick_mart/Features/Home/domain/emuns/filter_type.dart';
 import 'package:quick_mart/Features/Home/domain/entities/category_entity.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/core/utils/api_service.dart';
+import 'package:quick_mart/core/utils/constants.dart';
+import 'package:quick_mart/core/utils/functions/save_local_data.dart';
 
 abstract class HomeRemoteDataSource {
   Future<List<CategoryEntity>> fetchCategories({required int pageNumber});
@@ -31,10 +33,12 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   }) async {
     final data = await apiService.get(endPoint: 'category-list');
 
-    final categories = data as List<dynamic>;
-
+    final categories = data as List<CategoryEntity>;
+    saveLocalCategories(categories);
     return categories
-        .map<CategoryEntity>((e) => CategoryEntity(categoryName: e))
+        .map<CategoryEntity>(
+          (e) => CategoryEntity(categoryName: e.categoryName),
+        )
         .toList();
   }
 
@@ -56,10 +60,11 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
       final updatedAt = product['meta']['updatedAt'];
       return isUpdatedInLastYear(updatedAt);
     }).toList();
-
-    return filteredProducts
+    List<ProductEntity> productList = filteredProducts
         .map<ProductEntity>((json) => ProductModel.fromJson(json))
         .toList();
+    saveLocalProducts(productList, kLeatestProductsBox);
+    return productList;
   }
 
   @override
@@ -72,6 +77,7 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
     for (var product in data['products']) {
       products.add(ProductModel.fromJson(product));
     }
+    saveLocalProducts(products, kProductsByCategoryBox);
     return products;
   }
 
@@ -113,13 +119,11 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
       pageNumber: 1,
       categoryName: categoryName,
     );
-
     final lowToHighProducts = List<ProductEntity>.from(products)
       ..sort((a, b) => a.productPrice.compareTo(b.productPrice));
 
     final highToLowProducts = List<ProductEntity>.from(products)
       ..sort((a, b) => b.productPrice.compareTo(a.productPrice));
-
     return filter == FilterType.highToLow
         ? highToLowProducts
         : lowToHighProducts;

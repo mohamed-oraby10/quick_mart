@@ -6,6 +6,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Home/data/models/review.dart';
+import 'package:quick_mart/Features/Home/domain/entities/category_entity.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/Features/Profile/domain/entities/user_entity.dart';
 import 'package:quick_mart/core/utils/constants.dart';
@@ -28,6 +29,7 @@ void main() async {
   Hive.registerAdapter(ReviewAdapter());
   Hive.registerAdapter(ProductEntityAdapter());
   Hive.registerAdapter(CartItemEntityAdapter());
+  Hive.registerAdapter(CategoryEntityAdapter());
   await Hive.openBox<CartItemEntity>(kWishlistBox);
   runApp(const QuickMart());
 }
