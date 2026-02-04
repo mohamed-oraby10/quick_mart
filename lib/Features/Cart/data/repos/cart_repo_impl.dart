@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Cart/domain/repos/cart_repo.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
@@ -18,7 +19,13 @@ class CartRepoImpl implements CartRepo {
         quantity: exitstingItem.quantity + quantity,
       );
     } else {
-      cartItems.add(CartItemEntity(product: product, quantity: quantity));
+      cartItems.add(
+        CartItemEntity(
+          product: product,
+          quantity: quantity,
+          userId: FirebaseAuth.instance.currentUser!.uid,
+        ),
+      );
     }
     return List.from(cartItems);
   }

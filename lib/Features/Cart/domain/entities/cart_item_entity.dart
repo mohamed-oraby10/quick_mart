@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 part 'cart_item_entity.g.dart';
 
-@HiveType(typeId: 2)
+@HiveType(typeId: 20)
 class CartItemEntity {
   @HiveField(0)
   final ProductEntity product;
@@ -10,11 +10,13 @@ class CartItemEntity {
   final int quantity;
   @HiveField(2)
   final bool isSelected;
-
+  @HiveField(3)
+  final String? userId;
   CartItemEntity({
     this.isSelected = true,
     required this.product,
     required this.quantity,
+    this.userId,
   });
 
   CartItemEntity copyWith({int? quantity, bool? isSelected}) {
@@ -22,13 +24,11 @@ class CartItemEntity {
       product: product,
       quantity: quantity ?? this.quantity,
       isSelected: isSelected ?? this.isSelected,
+      userId: userId,
     );
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'product': product.toJson(),
-      'quantity': quantity,
-    };
+    return {'product': product.toJson(), 'quantity': quantity};
   }
 }

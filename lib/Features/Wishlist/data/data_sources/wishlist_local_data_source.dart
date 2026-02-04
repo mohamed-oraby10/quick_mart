@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hive/hive.dart';
 import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
@@ -15,7 +16,14 @@ class WishlistLocalDataSourceImpl extends WishlistLocalDataSource {
 
   @override
   void cacheWishlistItems(ProductEntity product) {
-    box.put(product.productId, CartItemEntity(product: product, quantity: 1));
+    box.put(
+      product.productId,
+      CartItemEntity(
+        product: product,
+        quantity: 1,
+        userId: FirebaseAuth.instance.currentUser!.uid,
+      ),
+    );
   }
 
   @override

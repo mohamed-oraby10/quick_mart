@@ -8,7 +8,7 @@ part of 'cart_item_entity.dart';
 
 class CartItemEntityAdapter extends TypeAdapter<CartItemEntity> {
   @override
-  final int typeId = 2;
+  final int typeId = 20;
 
   @override
   CartItemEntity read(BinaryReader reader) {
@@ -20,19 +20,22 @@ class CartItemEntityAdapter extends TypeAdapter<CartItemEntity> {
       isSelected: fields[2] as bool,
       product: fields[0] as ProductEntity,
       quantity: fields[1] as int,
+      userId: fields[3] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, CartItemEntity obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.product)
       ..writeByte(1)
       ..write(obj.quantity)
       ..writeByte(2)
-      ..write(obj.isSelected);
+      ..write(obj.isSelected)
+      ..writeByte(3)
+      ..write(obj.userId);
   }
 
   @override

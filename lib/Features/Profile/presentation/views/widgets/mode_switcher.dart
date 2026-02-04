@@ -6,23 +6,17 @@ import 'package:quick_mart/core/utils/app_colors.dart';
 import 'package:quick_mart/core/utils/theme/extensions/theme_extension.dart';
 import 'package:quick_mart/core/utils/theme/theme_cubit/theme_cubit.dart';
 
-class ModeSwitcher extends StatefulWidget {
+class ModeSwitcher extends StatelessWidget {
   const ModeSwitcher({super.key});
 
   @override
-  State<ModeSwitcher> createState() => _ModeSwitcherState();
-}
-
-class _ModeSwitcherState extends State<ModeSwitcher> {
-  @override
   Widget build(BuildContext context) {
     return FlutterSwitch(
-      value: (context).isDarkMode,
+      value: context.isDarkMode,
       onToggle: (value) {
-        (context).isDarkMode
-            ? BlocProvider.of<ThemeCubit>(context).toggleTheme(ThemeMode.light)
-            : BlocProvider.of<ThemeCubit>(context).toggleTheme(ThemeMode.dark);
-        setState(() {});
+        BlocProvider.of<ThemeCubit>(
+          context,
+        ).toggleTheme(context.isDarkMode ? ThemeMode.light : ThemeMode.dark);
       },
       width: 35.w,
       height: 24.h,
