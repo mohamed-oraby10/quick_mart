@@ -4,6 +4,7 @@ import 'package:quick_mart/Features/Auth/data/data_sources/auth_remote_data_sour
 import 'package:quick_mart/Features/Auth/data/repos/auth_repo_impl.dart';
 import 'package:quick_mart/Features/Checkout/data/data_source/checkout_remote_data_source.dart';
 import 'package:quick_mart/Features/Checkout/data/repos/checkout_repo_impl.dart';
+import 'package:quick_mart/Features/Home/data/data_sources/home_local_data_source.dart';
 import 'package:quick_mart/Features/Home/data/data_sources/home_remote_data_source.dart';
 import 'package:quick_mart/Features/Home/data/repos/home_repo_impl.dart';
 import 'package:quick_mart/Features/Profile/data/data_source/profile_local_data_source.dart';
@@ -25,7 +26,10 @@ Future<void> setupServiceLocator() async {
     AuthRepoImpl(AuthRemoteDataSourceImpl()),
   );
   getIt.registerSingleton<HomeRepoImpl>(
-    HomeRepoImpl(HomeRemoteDataSourceImpl(getIt.get<ApiService>())),
+    HomeRepoImpl(
+      HomeRemoteDataSourceImpl(getIt.get<ApiService>()),
+      HomeLocalDataSourceImpl(),
+    ),
   );
   getIt.registerSingleton<ProfileRepoImpl>(
     ProfileRepoImpl(

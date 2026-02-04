@@ -33,13 +33,12 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   }) async {
     final data = await apiService.get(endPoint: 'category-list');
 
-    final categories = data as List<CategoryEntity>;
-    saveLocalCategories(categories);
-    return categories
-        .map<CategoryEntity>(
-          (e) => CategoryEntity(categoryName: e.categoryName),
-        )
+    final categories = data as List<dynamic>;
+    final categoriesList = categories
+        .map<CategoryEntity>((e) => CategoryEntity(categoryName: e))
         .toList();
+    saveLocalCategories(categoriesList);
+    return categoriesList;
   }
 
   @override

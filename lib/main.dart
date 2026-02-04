@@ -31,8 +31,8 @@ void main() async {
   Hive.registerAdapter(CartItemEntityAdapter());
   Hive.registerAdapter(CategoryEntityAdapter());
   await Hive.openBox<CartItemEntity>(kWishlistBox);
-  await Hive.openBox<CartItemEntity>(kLeatestProductsBox);
+  await Hive.openBox<ProductEntity>(kLeatestProductsBox);
   await Hive.openBox<CategoryEntity>(kCategoriesBox);
-  await Hive.openBox<CategoryEntity>(kProductsByCategoryBox);
+  await Hive.openBox<ProductEntity>(kProductsByCategoryBox);
   runApp(const QuickMart());
 }

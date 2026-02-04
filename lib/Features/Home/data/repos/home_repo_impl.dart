@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:quick_mart/Features/Home/data/data_sources/home_local_data_source.dart';
 import 'package:quick_mart/Features/Home/data/data_sources/home_remote_data_source.dart';
 import 'package:quick_mart/Features/Home/domain/emuns/filter_type.dart';
 import 'package:quick_mart/Features/Home/domain/entities/category_entity.dart';
@@ -9,13 +10,18 @@ import 'package:quick_mart/core/errors/failure.dart';
 
 class HomeRepoImpl extends HomeRepo {
   final HomeRemoteDataSource homeRemoteDataSource;
+  final HomeLocalDataSource homeLocalDataSource;
 
-  HomeRepoImpl(this.homeRemoteDataSource);
+  HomeRepoImpl(this.homeRemoteDataSource, this.homeLocalDataSource);
   @override
   Future<Either<ServerFailure, List<CategoryEntity>>> fetchCategories({
     required int pageNumber,
   }) async {
     try {
+      var categories = homeLocalDataSource.fetchCategories();
+      if (categories.isNotEmpty) {
+        return right(categories);
+      }
       return right(
         await homeRemoteDataSource.fetchCategories(pageNumber: pageNumber),
       );
@@ -32,6 +38,10 @@ class HomeRepoImpl extends HomeRepo {
     required int pageNumber,
   }) async {
     try {
+      var productsList = homeLocalDataSource.fetchLeatestProducts();
+      if (productsList.isNotEmpty) {
+        return right(productsList);
+      }
       return right(
         await homeRemoteDataSource.fetchLeatestProducts(pageNumber: pageNumber),
       );
@@ -49,6 +59,10 @@ class HomeRepoImpl extends HomeRepo {
     required String categoryName,
   }) async {
     try {
+      var productsList = homeLocalDataSource.fetchProductsByCategory();
+      if (productsList.isNotEmpty) {
+        return right(productsList);
+      }
       return right(
         await homeRemoteDataSource.fetchProductsByCategory(
           pageNumber: pageNumber,
