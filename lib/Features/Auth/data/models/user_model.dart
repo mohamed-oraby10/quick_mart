@@ -13,8 +13,8 @@ class UserModel extends UserEntity {
     required this.imageUrl,
   }) : super(
          fullName: name,
-         userEemail: email,
-         userIdd: id,
+         userEmail: email,
+         userId: id,
          image: imageUrl ?? '',
        );
   factory UserModel.fromJson(Map<String, dynamic> data) {

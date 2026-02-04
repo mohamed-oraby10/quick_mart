@@ -5,17 +5,17 @@ part 'user_entity.g.dart';
 @HiveType(typeId: 0)
 class UserEntity {
   @HiveField(0)
-  final String userIdd;
+  final String userId;
   @HiveField(1)
   final String fullName;
   @HiveField(2)
-  final String userEemail;
+  final String userEmail;
   @HiveField(3)
   final String? image;
   UserEntity({
     required this.fullName,
-    required this.userEemail,
-    required this.userIdd,
+    required this.userEmail,
+    required this.userId,
     required this.image,
   });
 }

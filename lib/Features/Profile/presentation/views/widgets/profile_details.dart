@@ -38,7 +38,7 @@ class ProfileDetails extends StatelessWidget {
                       Text(
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        state.user.userEemail,
+                        state.user.userEmail,
                         style: Styles.button2.copyWith(
                           color: AppColors.brandWhite,
                         ),
