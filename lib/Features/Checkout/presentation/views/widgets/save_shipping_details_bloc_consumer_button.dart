@@ -20,10 +20,10 @@ class SaveShippingDetailsBlocConsumerButton extends StatelessWidget {
     required this.countyController,
     required this.provinceController,
     required this.cityController,
-    required this.products,
+     this.products,
     required this.phoneNumber,
   });
-  final List<CartItemEntity> products;
+  final List<CartItemEntity>? products;
   final GlobalKey<FormState> formKey;
   final String? phoneNumber;
   final TextEditingController nameController,
@@ -62,7 +62,7 @@ class SaveShippingDetailsBlocConsumerButton extends StatelessWidget {
                   countryName: countyController.text,
                   provinceName: provinceController.text,
                   city: cityController.text,
-                  productsList: products,
+                  productsList: products ?? [],
                 ),
               );
             }
