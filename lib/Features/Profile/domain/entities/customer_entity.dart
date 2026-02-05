@@ -3,14 +3,14 @@ import 'package:quick_mart/Features/Profile/domain/entities/order_history_entity
 
 class CustomerEntity {
   final String userId;
-  final OrderEntity orderEntity;
-  final String paymentMethod;
-  final List<OrderHistoryEntity> orderHistory;
+  final OrderEntity? orderEntity;
+  final String? paymentMethod;
+  final List<OrderHistoryEntity>? orderHistory;
 
-  CustomerEntity(
-    this.userId,
+  CustomerEntity({
+    required this.userId,
     this.orderEntity,
     this.paymentMethod,
     this.orderHistory,
-  );
+  });
 }
