@@ -2,8 +2,10 @@ import 'package:dartz/dartz.dart';
 import 'package:quick_mart/Features/Auth/data/errors/auth_failure.dart';
 import 'package:quick_mart/Features/Profile/data/data_source/profile_local_data_source.dart';
 import 'package:quick_mart/Features/Profile/data/data_source/profile_remote_data_source.dart';
+import 'package:quick_mart/Features/Profile/domain/entities/customer_entity.dart';
 import 'package:quick_mart/Features/Profile/domain/entities/user_entity.dart';
 import 'package:quick_mart/Features/Profile/domain/repos/profile_repo.dart';
+import 'package:quick_mart/core/errors/failure.dart';
 
 class ProfileRepoImpl extends ProfileRepo {
   final ProfileRemoteDataSource profileRemoteDataSource;
@@ -22,6 +24,12 @@ class ProfileRepoImpl extends ProfileRepo {
     } catch (e) {
       return left(AuthFailure.unKnown());
     }
+  }
+
+  @override
+  Future<Either<Failure, void>> saveCustomerProfile({required CustomerEntity customerEntity}) {
+    // TODO: implement saveCustomerProfile
+    throw UnimplementedError();
   }
 
   
