@@ -21,8 +21,8 @@ abstract class HomeRepo {
   Future<Either<Failure, List<ProductEntity>>> filterProducts({
     required FilterType filterType,
   });
-   Future<Either<Failure, List<ProductEntity>>> filterCategoredProducts({
-    required FilterType filterType
-    ,   required String categoryName
+  Future<Either<Failure, List<ProductEntity>>> filterCategoredProducts({
+    required FilterType filterType,
+    required String categoryName,
   });
 }

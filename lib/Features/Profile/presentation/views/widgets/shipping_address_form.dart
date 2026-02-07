@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/phone_number_text_field.dart';
-import 'package:quick_mart/Features/Checkout/presentation/views/widgets/save_shipping_details_bloc_consumer_button.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/shipping_order_details_row.dart';
 import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/widgets/app_text_field.dart';
+import 'package:quick_mart/core/widgets/main_button.dart';
 
 class ShippingAddressForm extends StatefulWidget {
   const ShippingAddressForm({super.key});
@@ -55,15 +55,7 @@ class _ShippingAddressFormState extends State<ShippingAddressForm> {
             text: context.locale.city,
           ),
           SizedBox(height: 24.h),
-          SaveShippingDetailsBlocConsumerButton(
-            formKey: formKey,
-            nameController: nameController,
-            addressController: addressController,
-            countyController: countyController,
-            provinceController: provinceController,
-            cityController: cityController,
-            phoneNumber: phoneNumber,
-          ),
+         MainButton(text: context.locale.save)
         ],
       ),
     );

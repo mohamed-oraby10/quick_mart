@@ -25,4 +25,5 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
     saveLocalUserData(userModel);
     return userModel;
   }
+
 }

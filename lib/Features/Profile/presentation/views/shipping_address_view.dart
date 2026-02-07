@@ -11,9 +11,13 @@ class ShippingAddressView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          SaveOrderCubit(SaveOrderUseCase(getIt.get<CheckoutRepoImpl>())),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              SaveOrderCubit(SaveOrderUseCase(getIt.get<CheckoutRepoImpl>())),
+        ),
+      ],
       child: const Scaffold(body: SafeArea(child: ShippingAddressViewBody())),
     );
   }

@@ -6,6 +6,6 @@ class MainButton extends StatelessWidget {
   final String text;
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: onTap, child: Text(text));
+    return Center(child: ElevatedButton(onPressed: onTap, child: Text(text)));
   }
 }

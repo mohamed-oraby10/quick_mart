@@ -3,11 +3,16 @@ import 'package:quick_mart/Features/Profile/data/models/order_history_model.dart
 import 'package:quick_mart/Features/Profile/domain/entities/customer_entity.dart';
 
 class CustomerModel extends CustomerEntity {
+  final String id;
+  final OrderModel? orderModel;
+  final String? paymentWay;
+  final List<OrderHistoryModel>? ordersHistory;
+
   CustomerModel({
-    required String id,
-    OrderModel? orderModel,
-    String? paymentWay,
-    List<OrderHistoryModel>? ordersHistory,
+    required this.id,
+    this.orderModel,
+    this.paymentWay,
+    this.ordersHistory,
   }) : super(
          userId: id,
          orderEntity: orderModel,
