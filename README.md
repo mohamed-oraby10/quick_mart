@@ -1,4 +1,4 @@
-# QuickMart 🛒
+# Quick Mart 🛒
 
 A modern, feature-rich e-commerce mobile application built with Flutter. QuickMart provides a seamless shopping experience with multi-language support, real-time inventory, and secure authentication.
 
@@ -108,7 +108,7 @@ A modern, feature-rich e-commerce mobile application built with Flutter. QuickMa
 
 ---
 
-## 👤 checkout Screens
+## 💳 checkout Screens
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1763300690.png" alt="Account Screen" width="30%" style="margin-right: 10px;">
@@ -121,7 +121,7 @@ A modern, feature-rich e-commerce mobile application built with Flutter. QuickMa
 
 ---
 
-## 👤 Wishlist Screens
+## ❤ Wishlist Screens
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1763300690.png" alt="Account Screen" width="30%" style="margin-right: 10px;">
