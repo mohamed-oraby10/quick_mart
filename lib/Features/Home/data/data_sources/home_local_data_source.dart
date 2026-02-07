@@ -6,7 +6,7 @@ import 'package:quick_mart/core/utils/constants.dart';
 abstract class HomeLocalDataSource {
   List<CategoryEntity> fetchCategories();
   List<ProductEntity> fetchLeatestProducts();
-  List<ProductEntity> fetchProductsByCategory();
+  List<ProductEntity> fetchProductsByCategory({required String categoryName});
 }
 
 class HomeLocalDataSourceImpl implements HomeLocalDataSource {
@@ -23,8 +23,11 @@ class HomeLocalDataSourceImpl implements HomeLocalDataSource {
   }
 
   @override
-  List<ProductEntity> fetchProductsByCategory() {
-    var box = Hive.box<ProductEntity>(kProductsByCategoryBox);
-    return box.values.toList();
+  List<ProductEntity> fetchProductsByCategory({required String categoryName}) {
+    var box = Hive.box(kProductsByCategoryBox);
+
+    final data = box.get(categoryName);
+
+    return List<ProductEntity>.from(data);
   }
 }

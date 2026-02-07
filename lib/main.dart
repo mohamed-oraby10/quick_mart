@@ -25,14 +25,15 @@ void main() async {
   await setupServiceLocator();
   await Hive.initFlutter();
   Hive.registerAdapter(UserEntityAdapter());
-  await Hive.openBox<UserEntity>(kUsersBox);
   Hive.registerAdapter(ReviewAdapter());
   Hive.registerAdapter(ProductEntityAdapter());
   Hive.registerAdapter(CartItemEntityAdapter());
   Hive.registerAdapter(CategoryEntityAdapter());
+  await Hive.openBox<UserEntity>(kUsersBox);
   await Hive.openBox<CartItemEntity>(kWishlistBox);
   await Hive.openBox<ProductEntity>(kLeatestProductsBox);
   await Hive.openBox<CategoryEntity>(kCategoriesBox);
-  await Hive.openBox<ProductEntity>(kProductsByCategoryBox);
+  await Hive.openBox(kProductsByCategoryBox);
+
   runApp(const QuickMart());
 }

@@ -5,6 +5,7 @@ import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
 import 'package:quick_mart/core/utils/api_service.dart';
 import 'package:quick_mart/core/utils/constants.dart';
 import 'package:quick_mart/core/utils/functions/save_local_data.dart';
+import 'package:quick_mart/core/utils/functions/save_products_by_categories.dart';
 
 abstract class HomeRemoteDataSource {
   Future<List<CategoryEntity>> fetchCategories({required int pageNumber});
@@ -76,7 +77,7 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
     for (var product in data['products']) {
       products.add(ProductModel.fromJson(product));
     }
-    saveLocalProducts(products, kProductsByCategoryBox);
+    saveProductsByCategories(categoryName, products);
     return products;
   }
 

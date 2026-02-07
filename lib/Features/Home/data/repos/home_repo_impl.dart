@@ -59,7 +59,9 @@ class HomeRepoImpl extends HomeRepo {
     required String categoryName,
   }) async {
     try {
-      var productsList = homeLocalDataSource.fetchProductsByCategory();
+      var productsList = homeLocalDataSource.fetchProductsByCategory(
+        categoryName: categoryName,
+      );
       if (productsList.isNotEmpty) {
         return right(productsList);
       }
