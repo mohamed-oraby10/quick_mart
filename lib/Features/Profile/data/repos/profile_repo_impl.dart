@@ -27,14 +27,28 @@ class ProfileRepoImpl extends ProfileRepo {
   }
 
   @override
-  Future<Either<Failure, void>> updatePaymentMethodCustomer({required String method}) {
-    // TODO: implement updatePaymentMethodCustomer
-    throw UnimplementedError();
+  Future<Either<ServerFailure, void>> updatePaymentMethodCustomer({
+    required String method,
+  }) async {
+    try {
+      await profileRemoteDataSource.updatePaymentMethodCustomer(method: method);
+      return right(null);
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
+    }
   }
 
   @override
-  Future<Either<Failure, void>> updateShippingAddressCustomer({required OrderEntity orderEntity}) {
-    // TODO: implement updateShippingAddressCustomer
-    throw UnimplementedError();
+  Future<Either<Failure, void>> updateShippingAddressCustomer({
+    required OrderEntity orderEntity,
+  }) async {
+    try {
+      await profileRemoteDataSource.updateShippingAddressCustomer(
+        order: orderEntity,
+      );
+      return right(null);
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
+    }
   }
 }

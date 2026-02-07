@@ -1,19 +1,23 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:quick_mart/Features/Auth/data/models/user_model.dart';
+import 'package:quick_mart/Features/Checkout/data/models/order_model.dart';
 import 'package:quick_mart/Features/Checkout/domain/entities/order_entity.dart';
 import 'package:quick_mart/core/utils/constants.dart';
 import 'package:quick_mart/core/utils/functions/save_local_user_data.dart';
 
 abstract class ProfileRemoteDataSource {
   Future<UserModel> fetchUserData();
-  Future<void> updateShippingAddressCustomer({
-    required OrderEntity orderEntity
-  });
+  Future<void> updateShippingAddressCustomer({required OrderEntity order});
   Future<void> updatePaymentMethodCustomer({required String method});
 }
 
 class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
+  var customerCollection = FirebaseFirestore.instance.collection(
+    kCustomersCollection,
+  );
+  var currentUserId = FirebaseAuth.instance.currentUser!.uid;
+
   @override
   Future<UserModel> fetchUserData() async {
     var userCollection = await FirebaseFirestore.instance
@@ -30,17 +34,33 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
     saveLocalUserData(userModel);
     return userModel;
   }
-  
+
   @override
-  Future<void> updatePaymentMethodCustomer({required String method}) {
-    // TODO: implement updatePaymentMethodCustomer
-    throw UnimplementedError();
-  }
-  
-  @override
-  Future<void> updateShippingAddressCustomer({required OrderEntity orderEntity}) {
-    // TODO: implement updateShippingAddressCustomer
-    throw UnimplementedError();
+  Future<void> updatePaymentMethodCustomer({required String method}) async {
+    await customerCollection.doc(currentUserId).update({
+      'Payment Method': method,
+    });
   }
 
+  @override
+  Future<void> updateShippingAddressCustomer({
+    required OrderEntity order,
+  }) async {
+    final orderId = FirebaseFirestore.instance
+        .collection(kOrdersCollection)
+        .doc()
+        .id;
+    final orderModel = OrderModel(
+      userId: currentUserId,
+      customerFullName: order.fullName,
+      phoneNumber: order.phoneNum,
+      streetAddress: order.customerAddress,
+      country: order.countryName,
+      province: order.provinceName,
+      cityName: order.city,
+      products: [],
+      orderId: orderId,
+    ).toJson();
+    await customerCollection.doc(currentUserId).update(orderModel);
+  }
 }
