@@ -27,18 +27,6 @@ class ProfileRepoImpl extends ProfileRepo {
   }
 
   @override
-  Future<Either<ServerFailure, void>> updatePaymentMethodCustomer({
-    required String method,
-  }) async {
-    try {
-      await profileRemoteDataSource.updatePaymentMethodCustomer(method: method);
-      return right(null);
-    } catch (e) {
-      return left(ServerFailure(e.toString()));
-    }
-  }
-
-  @override
   Future<Either<Failure, void>> updateShippingAddressCustomer({
     required OrderEntity orderEntity,
   }) async {

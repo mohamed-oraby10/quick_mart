@@ -8,5 +8,4 @@ abstract class ProfileRepo {
   Future<Either<Failure, void>> updateShippingAddressCustomer({
     required OrderEntity orderEntity
   });
-  Future<Either<Failure, void>> updatePaymentMethodCustomer({required String method});
 }

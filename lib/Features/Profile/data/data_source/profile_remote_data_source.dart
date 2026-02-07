@@ -9,7 +9,6 @@ import 'package:quick_mart/core/utils/functions/save_local_user_data.dart';
 abstract class ProfileRemoteDataSource {
   Future<UserModel> fetchUserData();
   Future<void> updateShippingAddressCustomer({required OrderEntity order});
-  Future<void> updatePaymentMethodCustomer({required String method});
 }
 
 class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
@@ -33,13 +32,6 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
     );
     saveLocalUserData(userModel);
     return userModel;
-  }
-
-  @override
-  Future<void> updatePaymentMethodCustomer({required String method}) async {
-    await customerCollection.doc(currentUserId).set({
-      'Payment Method': method,
-    }, SetOptions(merge: true));
   }
 
   @override
