@@ -88,6 +88,14 @@ A modern, feature-rich e-commerce mobile application built with Flutter. QuickMa
 
 ---
 
+## 📑 Categories Screen
+
+<p align="center">
+  <img src="assets/screenshots/Screenshot_1763300836.png" alt="Chat Screen" width="30%" style="margin-right: 10px;">
+</p>
+
+---
+
 ## 🛒 Cart Screens
 
 <p align="center">
