@@ -33,6 +33,7 @@ class _ShippingAddressFormState extends State<ShippingAddressForm> {
           AppTextField(
             hint: context.locale.enter_full_name,
             text: context.locale.full_name,
+            controller: nameController,
           ),
           Text(context.locale.phone_number, style: Styles.body2Medium),
           PhoneNumberTextField(
@@ -45,6 +46,7 @@ class _ShippingAddressFormState extends State<ShippingAddressForm> {
           AppTextField(
             hint: context.locale.enter_street_address,
             text: context.locale.street_address,
+            controller: addressController,
           ),
           ShippingOrderDetailsRow(
             countyController: countyController,
@@ -53,6 +55,7 @@ class _ShippingAddressFormState extends State<ShippingAddressForm> {
           AppTextField(
             hint: context.locale.enter_city,
             text: context.locale.city,
+            controller: cityController,
           ),
           SizedBox(height: 24.h),
           UpdateShippingAddressButton(formKey: formKey, nameController: nameController, phoneNumber: phoneNumber, addressController: addressController, countyController: countyController, provinceController: provinceController, cityController: cityController),

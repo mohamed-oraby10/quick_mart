@@ -48,12 +48,12 @@ class UpdateShippingAddressButton extends StatelessWidget {
             if (formKey.currentState!.validate()) {
               context.read<UpdateShippingAddressCubit>().updateShippingAddress(
                 order: OrderEntity(
-                  fullName: nameController.text,
+                  fullName: nameController.text.trim(),
                   phoneNum: phoneNumber ?? '',
-                  customerAddress: addressController.text,
-                  countryName: countyController.text,
-                  provinceName: provinceController.text,
-                  city: cityController.text,
+                  customerAddress: addressController.text.trim(),
+                  countryName: countyController.text.trim(),
+                  provinceName: provinceController.text.trim(),
+                  city: cityController.text.trim(),
                   productsList: [],
                 ),
               );

@@ -16,7 +16,7 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
   var customerCollection = FirebaseFirestore.instance.collection(
     kCustomersCollection,
   );
-  var currentUserId = FirebaseAuth.instance.currentUser!.uid;
+  String get currentUserId => FirebaseAuth.instance.currentUser!.uid;
 
   @override
   Future<UserModel> fetchUserData() async {
@@ -37,9 +37,9 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
 
   @override
   Future<void> updatePaymentMethodCustomer({required String method}) async {
-    await customerCollection.doc(currentUserId).update({
+    await customerCollection.doc(currentUserId).set({
       'Payment Method': method,
-    });
+    }, SetOptions(merge: true));
   }
 
   @override
@@ -61,6 +61,8 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
       products: [],
       orderId: orderId,
     ).toJson();
-    await customerCollection.doc(currentUserId).update(orderModel);
+    await customerCollection
+        .doc(currentUserId)
+        .set(orderModel, SetOptions(merge: true));
   }
 }
