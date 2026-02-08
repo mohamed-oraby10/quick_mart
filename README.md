@@ -27,19 +27,13 @@ A modern, feature-rich e-commerce mobile application built with Flutter. QuickMa
 
 ## **🚀 Splash Screen**
 
----
-
 <p align="center">
-  <img src="assets/screenshots/Screenshot_1770504071.png" alt="Splash Screen" width="30%">
+  <img src="assets/screenshots/Screenshot_1770504071.png" width="30%">
 </p>
 
 ---
 
----
-
 ## **🔑 Onboarding Screens**
-
----
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770504008.png" width="30%" style="margin-right: 10px;">
@@ -49,11 +43,7 @@ A modern, feature-rich e-commerce mobile application built with Flutter. QuickMa
 
 ---
 
----
-
 ## **🏠 Login Screens**
-
----
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770504091.png" width="30%" style="margin-right: 10px;">
@@ -62,11 +52,7 @@ A modern, feature-rich e-commerce mobile application built with Flutter. QuickMa
 
 ---
 
----
-
 ## **📝 Register Screens**
-
----
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770551197.png" width="30%" style="margin-right: 10px;">
@@ -74,26 +60,18 @@ A modern, feature-rich e-commerce mobile application built with Flutter. QuickMa
   <img src="assets/screenshots/Screenshot_1770504109.png" width="30%">
 </p>
 
-<hr>
-
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770504126.png" width="30%">
 </p>
 
 ---
 
----
-
 ## **🔐 Forget Password Screens**
-
----
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770504100.png" width="30%" style="margin-right: 10px;">
   <img src="assets/screenshots/Screenshot_1770504103.png" width="30%">
 </p>
-
-<hr>
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770551235.png" width="30%" style="margin-right: 10px;">
@@ -102,11 +80,7 @@ A modern, feature-rich e-commerce mobile application built with Flutter. QuickMa
 
 ---
 
----
-
 ## **💬 Home Screen**
-
----
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770504174.png" width="30%" style="margin-right: 10px;">
@@ -114,23 +88,17 @@ A modern, feature-rich e-commerce mobile application built with Flutter. QuickMa
   <img src="assets/screenshots/Screenshot_1770504195.png" width="30%">
 </p>
 
-<hr>
-
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770504215.png" width="30%" style="margin-right: 10px;">
   <img src="assets/screenshots/Screenshot_1770504224.png" width="30%" style="margin-right: 10px;">
   <img src="assets/screenshots/Screenshot_1770551304.png" width="30%">
 </p>
 
-<hr>
-
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770551297.png" width="30%" style="margin-right: 10px;">
   <img src="assets/screenshots/Screenshot_1770551053.png" width="30%" style="margin-right: 10px;">
   <img src="assets/screenshots/Screenshot_1770550935.png" width="30%">
 </p>
-
-<hr>
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770550928.png" width="30%" style="margin-right: 10px;">
@@ -139,11 +107,7 @@ A modern, feature-rich e-commerce mobile application built with Flutter. QuickMa
 
 ---
 
----
-
 ## **📑 Categories Screen**
-
----
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770504244.png" width="30%" style="margin-right: 10px;">
@@ -153,11 +117,7 @@ A modern, feature-rich e-commerce mobile application built with Flutter. QuickMa
 
 ---
 
----
-
 ## **🛒 Cart Screens**
-
----
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770504250.png" width="30%" style="margin-right: 10px;">
@@ -165,15 +125,11 @@ A modern, feature-rich e-commerce mobile application built with Flutter. QuickMa
   <img src="assets/screenshots/Screenshot_1770504418.png" width="30%">
 </p>
 
-<hr>
-
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770504443.png" width="30%" style="margin-right: 10px;">
   <img src="assets/screenshots/Screenshot_1770504446.png" width="30%" style="margin-right: 10px;">
   <img src="assets/screenshots/Screenshot_1770504457.png" width="30%">
 </p>
-
-<hr>
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770556086.png" width="30%">
@@ -181,18 +137,12 @@ A modern, feature-rich e-commerce mobile application built with Flutter. QuickMa
 
 ---
 
----
-
 ## **💳 Checkout Screens**
-
----
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770504463.png" width="30%" style="margin-right: 10px;">
   <img src="assets/screenshots/Screenshot_1770504467.png" width="30%">
 </p>
-
-<hr>
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770556156.png" width="30%" style="margin-right: 10px;">
@@ -201,11 +151,7 @@ A modern, feature-rich e-commerce mobile application built with Flutter. QuickMa
 
 ---
 
----
-
 ## **❤ Wishlist Screens**
-
----
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770504253.png" width="30%" style="margin-right: 10px;">
@@ -214,11 +160,7 @@ A modern, feature-rich e-commerce mobile application built with Flutter. QuickMa
 
 ---
 
----
-
 ## **👤 Profile Screens**
-
----
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770504258.png" width="30%" style="margin-right: 10px;">
@@ -226,15 +168,11 @@ A modern, feature-rich e-commerce mobile application built with Flutter. QuickMa
   <img src="assets/screenshots/Screenshot_1770550846.png" width="30%">
 </p>
 
-<hr>
-
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770550852.png" width="30%" style="margin-right: 10px;">
   <img src="assets/screenshots/Screenshot_1770550866.png" width="30%" style="margin-right: 10px;">
   <img src="assets/screenshots/Screenshot_1770550873.png" width="30%">
 </p>
-
-<hr>
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1770550890.png" width="30%">
