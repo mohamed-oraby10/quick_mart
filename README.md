@@ -26,27 +26,78 @@ A modern, feature-rich e-commerce mobile application built with Flutter. QuickMa
 ## 📱 Screenshots
 
 🚀 Splash Screen
+
 <p align="center"> <img src="assets/screenshots/Screenshot_1770504071.png" alt="Splash Screen" width="30%" style="margin-right: 10px;"> </p>
+
+
+
+--- 
+
 🔑 Onboarding Screens
+
 <p align="center"> <img src="assets/screenshots/Screenshot_1770504008.png" alt="Onboarding Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770504080.png" alt="Onboarding Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770504085.png" alt="Onboarding Screen" width="30%" style="margin-right: 10px;"> </p>
+
+
+
+---
+
 🏠 Login Screens
+
 <p align="center"> <img src="assets/screenshots/Screenshot_1770504091.png" alt="Login Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770551194.png" alt="Login Screen" width="30%" style="margin-right: 10px;"> </p>
 📝 Register Screens
 <p align="center"> <img src="assets/screenshots/Screenshot_1770551197.png" alt="Register Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770551208.png" alt="Register Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770504109.png" alt="Register Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770504126.png" alt="Register Screen" width="30%" style="margin-right: 10px;"> </p>
+
+
+
+---
+
 🔐 Forget Password Screens
+
 <p align="center"> <img src="assets/screenshots/Screenshot_1770504100.png" alt="Forget Password Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770504103.png" alt="Forget Password Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770551235.png" alt="Forget Password Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770551215.png" alt="Forget Password Screen" width="30%" style="margin-right: 10px;"> </p>
+
+
+
+---
+
 💬 Home Screen
+
 <p align="center"> <img src="assets/screenshots/Screenshot_1770504174.png" alt="Home Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770504184.png" alt="Home Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770504195.png" alt="Home Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770504215.png" alt="Home Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770504224.png" alt="Home Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770551304.png" alt="Home Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770551297.png" alt="Home Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770551053.png" alt="Home Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770550935.png" alt="Home Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770550928.png" alt="Home Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770550923.png" alt="Home Screen" width="30%" style="margin-right: 10px;"> </p>
+
+
+---
+
 📑 Categories Screen
+
 <p align="center"> <img src="assets/screenshots/Screenshot_1770504244.png" alt="Categories Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770555866.png" alt="Categories Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770504277.png" alt="Categories Screen" width="30%" style="margin-right: 10px;"> </p>
+
+
+---
+
 🛒 Cart Screens
+
 <p align="center"> <img src="assets/screenshots/Screenshot_1770504250.png" alt="Cart Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770504311.png" alt="Cart Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770504418.png" alt="Cart Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770504443.png" alt="Cart Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770504446.png" alt="Cart Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770504457.png" alt="Cart Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770556086.png" alt="Cart Screen" width="30%" style="margin-right: 10px;"> </p>
+
+
+---
 💳 Checkout Screens
+
 <p align="center"> <img src="assets/screenshots/Screenshot_1770504463.png" alt="Checkout Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770504467.png" alt="Checkout Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770556156.png" alt="Checkout Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770556163.png" alt="Checkout Screen" width="30%" style="margin-right: 10px;"> </p>
+
+
+---
+
 ❤ Wishlist Screens
+
 <p align="center"> <img src="assets/screenshots/Screenshot_1770504253.png" alt="Wishlist Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770504378.png" alt="Wishlist Screen" width="30%" style="margin-right: 10px;"> </p>
+
+
+---
+
 👤 Profile Screens
+
 <p align="center"> <img src="assets/screenshots/Screenshot_1770504258.png" alt="Profile Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770504273.png" alt="Profile Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770550846.png" alt="Profile Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770550852.png" alt="Profile Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770550866.png" alt="Profile Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770550873.png" alt="Profile Screen" width="30%" style="margin-right: 10px;"> <img src="assets/screenshots/Screenshot_1770550890.png" alt="Profile Screen" width="30%" style="margin-right: 10px;"> </p>
+
+
 ---
 
 ## 🛠️ Tech Stack
