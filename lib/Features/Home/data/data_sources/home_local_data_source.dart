@@ -28,6 +28,10 @@ class HomeLocalDataSourceImpl implements HomeLocalDataSource {
 
     final data = box.get(categoryName);
 
+    if (data == null) {
+      return [];
+    }
+
     return List<ProductEntity>.from(data);
   }
 }

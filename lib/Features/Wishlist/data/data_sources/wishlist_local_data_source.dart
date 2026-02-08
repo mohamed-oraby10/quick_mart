@@ -13,16 +13,12 @@ abstract class WishlistLocalDataSource {
 
 class WishlistLocalDataSourceImpl extends WishlistLocalDataSource {
   final Box<CartItemEntity> box = Hive.box<CartItemEntity>(kWishlistBox);
-
+  String get currentUserId => FirebaseAuth.instance.currentUser!.uid;
   @override
   void cacheWishlistItems(ProductEntity product) {
     box.put(
       product.productId,
-      CartItemEntity(
-        product: product,
-        quantity: 1,
-        userId: FirebaseAuth.instance.currentUser!.uid,
-      ),
+      CartItemEntity(product: product, quantity: 1, userId: currentUserId),
     );
   }
 
@@ -38,6 +34,6 @@ class WishlistLocalDataSourceImpl extends WishlistLocalDataSource {
 
   @override
   List<CartItemEntity> fetchWishlistItems() {
-    return box.values.toList();
+    return box.values.where((p) => p.userId == currentUserId).toList();
   }
 }
