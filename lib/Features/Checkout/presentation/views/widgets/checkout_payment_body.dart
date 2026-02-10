@@ -1,42 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:quick_mart/Features/Checkout/presentation/views/widgets/card_details.dart';
+import 'package:quick_mart/Features/Checkout/data/services/paypal_payment_remote_service.dart';
+import 'package:quick_mart/Features/Checkout/domain/use_cases/paypal_payment_use_case.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/checkout_stepper_section.dart';
-import 'package:quick_mart/Features/Checkout/presentation/views/widgets/cvv_text_field.dart';
-import 'package:quick_mart/Features/Checkout/presentation/views/widgets/expiration_text_field.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/payment_methods_row.dart';
+import 'package:quick_mart/controller/paypal_payment_controller.dart';
 import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/widgets/main_button.dart';
 
-class CheckoutPaymentBody extends StatelessWidget {
-  const CheckoutPaymentBody({super.key});
+class CheckoutPaymentBody extends StatefulWidget {
+  const CheckoutPaymentBody({super.key, });
+
+  @override
+  State<CheckoutPaymentBody> createState() => _CheckoutPaymentBodyState();
+}
+
+class _CheckoutPaymentBodyState extends State<CheckoutPaymentBody> {
+  late final PayPalPaymentController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    final remoteService = PayPalRemoteService(
+      clientId:
+          "AVn-WXEygnB0fEgbD0W8EsXDZtZmkHQqOd_02_kHmvhKt0HbtzNKaMW0KqdzjYL9M-AlfzA4JditaiXn",
+      secretKey:
+          "EIAxfCbGeczhpF1PidzDDU9uKjO2dgHzAXU8UgremAZqncPXW6yCIPILfMZZlleP8maufwbKfFpb9WjS",
+    );
+    _controller = PayPalPaymentController(
+      useCase: PayPalUseCase(remoteService),
+    );
+
+    _controller.validateCredentials();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.h),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.h),
+        child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CheckoutStepperSection(isPayment: true),
-              PaymentMethodsRow(),
-              SizedBox(height: 24.h),
-              CardDetails(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [ExpirationTextField(), CvvTextField()],
-              ),
+              const CheckoutStepperSection(isPayment: true),
+              PaymentMethodsRow(controller: _controller,),
               SizedBox(height: 125.h),
               MainButton(
                 text: context.locale.follow_up,
-                onTap: () {
-                  GoRouter.of(context).push(AppRoutes.kCheckoutReviewBody);
-                },
+                onTap: () =>
+                    GoRouter.of(context).push(AppRoutes.kCheckoutReviewBody),
               ),
+              SizedBox(height: 20.h),
             ],
           ),
         ),
