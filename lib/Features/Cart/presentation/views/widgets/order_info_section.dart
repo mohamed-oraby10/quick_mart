@@ -6,20 +6,15 @@ import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/styles.dart';
 
 class OrderInfoSection extends StatelessWidget {
-  const OrderInfoSection({super.key, required this.products});
+  const OrderInfoSection({
+    super.key,
+    required this.products,
+    required this.totalPrice,
+  });
   final List<CartItemEntity> products;
-
+  final num totalPrice;
   @override
   Widget build(BuildContext context) {
-   final totalPrice = products
-    .where((item) => item.isSelected)
-    .fold<double>(
-      0,
-      (sum, item) =>
-          sum + item.quantity * item.product.productPrice,
-    );
-
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

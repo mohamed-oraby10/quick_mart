@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
+import 'package:quick_mart/Features/Cart/presentation/manager/cart_cubit/cart_cubit.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/cart_items_list_view.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/cart_view_app_bar.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/widgets/order_info_section.dart';
@@ -24,7 +26,10 @@ class CartViewBody extends StatelessWidget {
             SizedBox(height: 44.h),
             CartViewAppBar(),
             CartItemsListView(products: products),
-            OrderInfoSection(products: products),
+            OrderInfoSection(
+              products: products,
+              totalPrice: context.read<CartCubit>().calculateTotal(products),
+            ),
             SizedBox(height: 24.h),
             products.any((item) => item.isSelected)
                 ? MainButton(

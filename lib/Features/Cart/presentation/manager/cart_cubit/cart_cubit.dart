@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Cart/domain/repos/cart_repo.dart';
 import 'package:quick_mart/Features/Cart/presentation/manager/cart_cubit/cart_state.dart';
 import 'package:quick_mart/Features/Home/domain/entities/product_entity.dart';
@@ -30,5 +31,14 @@ class CartCubit extends Cubit<CartState> {
   void toggleItem(int productId) {
     cartRepo.toggleSelection(productId: productId);
     emit(CartLoaded(cartRepo.getCartProducts()));
+  }
+
+  double calculateTotal(List<CartItemEntity> products) {
+    return products
+        .where((item) => item.isSelected)
+        .fold<double>(
+          0,
+          (sum, item) => sum + item.quantity * item.product.productPrice,
+        );
   }
 }
