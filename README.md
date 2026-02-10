@@ -429,7 +429,7 @@ Contributions are welcome! Please follow these steps:
 
 ## 👥 Authors
 
-- **Mohamed Oraby** - *Initial work* - [YourGitHub]([https://github.com/yourusername](https://github.com/mohamed-oraby10))
+- **Mohamed Oraby** - [[GitHub](https://github.com/mohamed-oraby10)])
 
 ## 🙏 Acknowledgments
 
