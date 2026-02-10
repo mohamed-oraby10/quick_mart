@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
+import 'package:quick_mart/Features/Cart/presentation/manager/cart_cubit/cart_cubit.dart';
 import 'package:quick_mart/Features/Checkout/data/repos/checkout_repo_impl.dart';
 import 'package:quick_mart/Features/Checkout/domain/use_cases/save_order_use_case.dart';
 import 'package:quick_mart/Features/Checkout/presentation/manager/save_order_cubit/save_order_cubit.dart';
@@ -13,6 +14,7 @@ class CheckoutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final totalPrice = context.read<CartCubit>().calculateTotal(products);
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -20,7 +22,9 @@ class CheckoutView extends StatelessWidget {
               SaveOrderCubit(SaveOrderUseCase(getIt.get<CheckoutRepoImpl>())),
         ),
       ],
-      child: Scaffold(body: CheckoutViewBody(products: products)),
+      child: Scaffold(
+        body: CheckoutViewBody(products: products, totalPrice: totalPrice),
+      ),
     );
   }
 }

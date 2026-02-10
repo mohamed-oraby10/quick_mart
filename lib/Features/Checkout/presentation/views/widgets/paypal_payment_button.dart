@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
 import 'package:go_router/go_router.dart';
+import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/payment_method.dart';
 import 'package:quick_mart/controller/paypal_payment_controller.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
@@ -9,8 +10,14 @@ import 'package:quick_mart/core/utils/functions/show_error_snak_bar.dart';
 import 'package:quick_mart/core/utils/functions/show_success_snack_bar.dart';
 
 class PayPalPaymentMethodButton extends StatelessWidget {
-  const PayPalPaymentMethodButton({super.key, required this.controller});
-
+  const PayPalPaymentMethodButton({
+    super.key,
+    required this.controller,
+    required this.products,
+    required this.totalPrice,
+  });
+  final List<CartItemEntity> products;
+  final num totalPrice;
   final PayPalPaymentController controller;
 
   @override
@@ -25,8 +32,16 @@ class PayPalPaymentMethodButton extends StatelessWidget {
           );
           return;
         }
+        final totalQuantity = products.fold<int>(
+          0,
+          (sum, item) => sum + item.quantity,
+        );
 
-        final payment = controller.createPaymentModel(1.0, "Quick Mart Order");
+        final payment = controller.createPaymentModel(
+          totalQuantity,
+          "Quick Mart Order",
+          totalPrice,
+        );
 
         Navigator.of(context).push(
           MaterialPageRoute(
@@ -44,6 +59,7 @@ class PayPalPaymentMethodButton extends StatelessWidget {
               onError: (error) {
                 Navigator.of(context).pop();
                 showErrorSnakBar(context, content: 'Payment Error: $error');
+                print(error);
               },
               onCancel: () {
                 Navigator.of(context).pop();

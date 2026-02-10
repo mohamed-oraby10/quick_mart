@@ -10,8 +10,13 @@ import 'package:quick_mart/core/utils/styles.dart';
 import 'package:quick_mart/core/widgets/app_text_field.dart';
 
 class CheckoutViewBody extends StatefulWidget {
-  const CheckoutViewBody({super.key, required this.products});
+  const CheckoutViewBody({
+    super.key,
+    required this.products,
+    required this.totalPrice,
+  });
   final List<CartItemEntity> products;
+  final num totalPrice;
 
   @override
   State<CheckoutViewBody> createState() => _CheckoutViewBodyState();
@@ -74,6 +79,10 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                 provinceController: provinceController,
                 cityController: cityController,
                 phoneNumber: phoneNumber,
+                extra: {
+                  'products': widget.products,
+                  'totalPrice': widget.totalPrice,
+                },
               ),
             ],
           ),

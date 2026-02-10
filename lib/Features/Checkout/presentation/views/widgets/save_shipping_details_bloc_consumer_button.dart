@@ -20,8 +20,9 @@ class SaveShippingDetailsBlocConsumerButton extends StatelessWidget {
     required this.countyController,
     required this.provinceController,
     required this.cityController,
-     this.products,
+    this.products,
     required this.phoneNumber,
+    required this.extra,
   });
   final List<CartItemEntity>? products;
   final GlobalKey<FormState> formKey;
@@ -31,6 +32,7 @@ class SaveShippingDetailsBlocConsumerButton extends StatelessWidget {
       countyController,
       provinceController,
       cityController;
+  final Map<String, dynamic> extra;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,9 @@ class SaveShippingDetailsBlocConsumerButton extends StatelessWidget {
             context,
             content: context.locale.order_placed_successfully,
           );
-          GoRouter.of(context).push(AppRoutes.kCheckoutPaymentBody);
+          GoRouter.of(
+            context,
+          ).push(AppRoutes.kCheckoutPaymentBody, extra: extra);
         } else if (state is SaveOrderFailure) {
           showErrorSnakBar(context, content: state.errMessage);
         }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Checkout/data/services/paypal_payment_remote_service.dart';
 import 'package:quick_mart/Features/Checkout/domain/use_cases/paypal_payment_use_case.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/widgets/checkout_stepper_section.dart';
@@ -11,8 +12,13 @@ import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/widgets/main_button.dart';
 
 class CheckoutPaymentBody extends StatefulWidget {
-  const CheckoutPaymentBody({super.key, });
-
+  const CheckoutPaymentBody({
+    super.key,
+    required this.products,
+    required this.totalPrice,
+  });
+  final List<CartItemEntity> products;
+  final num totalPrice;
   @override
   State<CheckoutPaymentBody> createState() => _CheckoutPaymentBodyState();
 }
@@ -46,7 +52,11 @@ class _CheckoutPaymentBodyState extends State<CheckoutPaymentBody> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const CheckoutStepperSection(isPayment: true),
-              PaymentMethodsRow(controller: _controller,),
+              PaymentMethodsRow(
+                controller: _controller,
+                products: widget.products,
+                totalPrice: widget.totalPrice,
+              ),
               SizedBox(height: 125.h),
               MainButton(
                 text: context.locale.follow_up,

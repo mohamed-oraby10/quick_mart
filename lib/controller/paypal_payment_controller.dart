@@ -30,7 +30,15 @@ class PayPalPaymentController extends ChangeNotifier {
 
   bool canProceed() => _credentialsValid;
 
-  PayPalPayment createPaymentModel(double amount, String description) {
-    return PayPalPayment(amount: amount, description: description);
+  PayPalPayment createPaymentModel(
+    int quantity,
+    String description,
+    num total,
+  ) {
+    return PayPalPayment(
+      quantity: quantity,
+      description: description,
+      total: total,
+    );
   }
 }

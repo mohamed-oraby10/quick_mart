@@ -178,9 +178,16 @@ class AppRoutes {
         },
       ),
       GoRoute(
-        path: kCheckoutPaymentBody,
-        builder: (context, state) => const CheckoutPaymentBody(),
+        path: AppRoutes.kCheckoutPaymentBody,
+        builder: (context, state) {
+          final data = state.extra as Map<String, dynamic>;
+          return CheckoutPaymentBody(
+            products: data['products'],
+            totalPrice: data['totalPrice'],
+          );
+        },
       ),
+
       GoRoute(
         path: kCheckoutReviewBody,
         builder: (context, state) => const CheckoutReviewBody(),
