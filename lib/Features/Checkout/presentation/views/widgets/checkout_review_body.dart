@@ -36,6 +36,7 @@ class CheckoutReviewBody extends StatelessWidget {
               MainButton(
                 text: context.locale.place_order,
                 onTap: () {
+                  context.read<CartCubit>().clearCart();
                   GoRouter.of(
                     context,
                   ).go(AppRoutes.kOrderPlaceSuccessfullyView);

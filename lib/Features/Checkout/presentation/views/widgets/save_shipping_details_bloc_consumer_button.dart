@@ -7,7 +7,6 @@ import 'package:quick_mart/Features/Checkout/presentation/manager/save_order_cub
 import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
 import 'package:quick_mart/core/utils/functions/show_error_snak_bar.dart';
-import 'package:quick_mart/core/utils/functions/show_success_snack_bar.dart';
 import 'package:quick_mart/core/widgets/app_circular_progress_indicator.dart';
 import 'package:quick_mart/core/widgets/main_button.dart';
 
@@ -39,10 +38,6 @@ class SaveShippingDetailsBlocConsumerButton extends StatelessWidget {
     return BlocConsumer<SaveOrderCubit, SaveOrderState>(
       listener: (BuildContext context, SaveOrderState state) {
         if (state is SaveOrderSuccess) {
-          showSuccessSnakBar(
-            context,
-            content: context.locale.order_placed_successfully,
-          );
           GoRouter.of(
             context,
           ).push(AppRoutes.kCheckoutPaymentBody, extra: extra['order']);

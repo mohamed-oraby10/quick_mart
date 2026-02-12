@@ -34,7 +34,7 @@ class BuyNowButton extends StatelessWidget {
         ),
         onPressed: () => GoRouter.of(context).push(
           AppRoutes.kCheckoutView,
-          extra: [CartItemEntity(product: product, quantity: quantity)],
+          extra: [CartItemEntity(product: product, quantity: 1)],
         ),
         child: Text(context.locale.buy_now),
       ),
