@@ -11,6 +11,7 @@ import 'package:quick_mart/Features/Auth/presentation/views/widgets/verify_email
 import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/cart_view.dart';
 import 'package:quick_mart/Features/Cart/presentation/views/product_details_view.dart';
+import 'package:quick_mart/Features/Checkout/domain/entities/order_entity.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/checkout_view.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/order_items_view.dart';
 import 'package:quick_mart/Features/Checkout/presentation/views/order_place_successfully_view.dart';
@@ -180,21 +181,24 @@ class AppRoutes {
       GoRoute(
         path: AppRoutes.kCheckoutPaymentBody,
         builder: (context, state) {
-          final data = state.extra as Map<String, dynamic>;
-          return CheckoutPaymentBody(
-            products: data['products'],
-            totalPrice: data['totalPrice'],
-          );
+          final order = state.extra as OrderEntity;
+          return CheckoutPaymentBody(order: order);
         },
       ),
 
       GoRoute(
         path: kCheckoutReviewBody,
-        builder: (context, state) => const CheckoutReviewBody(),
+        builder: (context, state) {
+          final order = state.extra as OrderEntity;
+          return CheckoutReviewBody(order: order);
+        },
       ),
       GoRoute(
         path: kOrderItemsView,
-        builder: (context, state) => const OrderItemsView(),
+        builder: (context, state) {
+          final products = state.extra as List<CartItemEntity>;
+          return OrderItemsView(products: products);
+        },
       ),
       GoRoute(
         path: kOrderPlaceSuccessfullyView,

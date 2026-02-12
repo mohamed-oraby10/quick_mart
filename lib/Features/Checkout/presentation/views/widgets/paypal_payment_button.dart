@@ -59,7 +59,6 @@ class PayPalPaymentMethodButton extends StatelessWidget {
               onError: (error) {
                 Navigator.of(context).pop();
                 showErrorSnakBar(context, content: 'Payment Error: $error');
-                print(error);
               },
               onCancel: () {
                 Navigator.of(context).pop();

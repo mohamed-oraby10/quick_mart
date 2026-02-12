@@ -23,7 +23,7 @@ class CheckoutView extends StatelessWidget {
         ),
       ],
       child: Scaffold(
-        body: CheckoutViewBody(products: products, totalPrice: totalPrice),
+        body: CheckoutViewBody(products: products, totalPrice: totalPrice,),
       ),
     );
   }

@@ -11,7 +11,6 @@ class OrderInfoRow extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: 17.h),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             title,
@@ -19,10 +18,16 @@ class OrderInfoRow extends StatelessWidget {
               color: context.customColors.secondaryColor,
             ),
           ),
-          Text(
-            value,
-            style: Styles.captionRegular.copyWith(
-              color: context.customColors.secondaryColor,
+          Spacer(),
+          Expanded(
+            child: Text(
+              value,
+              textAlign: TextAlign.end,
+              style: Styles.captionRegular.copyWith(
+                color: context.customColors.secondaryColor,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
         ],

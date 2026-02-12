@@ -45,7 +45,7 @@ class SaveShippingDetailsBlocConsumerButton extends StatelessWidget {
           );
           GoRouter.of(
             context,
-          ).push(AppRoutes.kCheckoutPaymentBody, extra: extra);
+          ).push(AppRoutes.kCheckoutPaymentBody, extra: extra['order']);
         } else if (state is SaveOrderFailure) {
           showErrorSnakBar(context, content: state.errMessage);
         }
@@ -54,21 +54,41 @@ class SaveShippingDetailsBlocConsumerButton extends StatelessWidget {
         if (state is SaveOrderLoading) {
           return AppCircularProgressIndicator();
         }
+        // return MainButton(
+        //   text: context.locale.save,
+        //   onTap: () {
+        //     if (formKey.currentState!.validate()) {
+        //       BlocProvider.of<SaveOrderCubit>(context).saveOrder(
+        //         order: OrderEntity(
+        //           fullName: nameController.text,
+        //           phoneNum: phoneNumber ?? '',
+        //           customerAddress: addressController.text,
+        //           countryName: countyController.text,
+        //           provinceName: provinceController.text,
+        //           city: cityController.text,
+        //           productsList: products ?? [],
+        //         ),
+        //       );
+        //     }
+        //   },
+        // );
         return MainButton(
           text: context.locale.save,
           onTap: () {
             if (formKey.currentState!.validate()) {
-              BlocProvider.of<SaveOrderCubit>(context).saveOrder(
-                order: OrderEntity(
-                  fullName: nameController.text,
-                  phoneNum: phoneNumber ?? '',
-                  customerAddress: addressController.text,
-                  countryName: countyController.text,
-                  provinceName: provinceController.text,
-                  city: cityController.text,
-                  productsList: products ?? [],
-                ),
+              final order = OrderEntity(
+                fullName: nameController.text,
+                phoneNum: phoneNumber ?? '',
+                customerAddress: addressController.text,
+                countryName: countyController.text,
+                provinceName: provinceController.text,
+                city: cityController.text,
+                productsList: products ?? [],
               );
+
+              BlocProvider.of<SaveOrderCubit>(context).saveOrder(order: order);
+
+              extra['order'] = order;
             }
           },
         );
