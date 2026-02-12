@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Checkout/domain/entities/order_entity.dart';
-import 'package:quick_mart/Features/Checkout/presentation/manager/save_order_cubit/save_order_cubit.dart';
 import 'package:quick_mart/core/extensions/app_localization_extension.dart';
 import 'package:quick_mart/core/utils/app_routes.dart';
-import 'package:quick_mart/core/utils/functions/show_error_snak_bar.dart';
-import 'package:quick_mart/core/widgets/app_circular_progress_indicator.dart';
 import 'package:quick_mart/core/widgets/main_button.dart';
 
 class SaveShippingDetailsBlocConsumerButton extends StatelessWidget {
@@ -35,58 +31,24 @@ class SaveShippingDetailsBlocConsumerButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SaveOrderCubit, SaveOrderState>(
-      listener: (BuildContext context, SaveOrderState state) {
-        if (state is SaveOrderSuccess) {
+    return MainButton(
+      text: context.locale.save,
+      onTap: () {
+        if (formKey.currentState!.validate()) {
+          final order = OrderEntity(
+            fullName: nameController.text,
+            phoneNum: phoneNumber ?? '',
+            customerAddress: addressController.text,
+            countryName: countyController.text,
+            provinceName: provinceController.text,
+            city: cityController.text,
+            productsList: products ?? [],
+          );
+          extra['order'] = order;
           GoRouter.of(
             context,
           ).push(AppRoutes.kCheckoutPaymentBody, extra: extra['order']);
-        } else if (state is SaveOrderFailure) {
-          showErrorSnakBar(context, content: state.errMessage);
         }
-      },
-      builder: (context, state) {
-        if (state is SaveOrderLoading) {
-          return AppCircularProgressIndicator();
-        }
-        // return MainButton(
-        //   text: context.locale.save,
-        //   onTap: () {
-        //     if (formKey.currentState!.validate()) {
-        //       BlocProvider.of<SaveOrderCubit>(context).saveOrder(
-        //         order: OrderEntity(
-        //           fullName: nameController.text,
-        //           phoneNum: phoneNumber ?? '',
-        //           customerAddress: addressController.text,
-        //           countryName: countyController.text,
-        //           provinceName: provinceController.text,
-        //           city: cityController.text,
-        //           productsList: products ?? [],
-        //         ),
-        //       );
-        //     }
-        //   },
-        // );
-        return MainButton(
-          text: context.locale.save,
-          onTap: () {
-            if (formKey.currentState!.validate()) {
-              final order = OrderEntity(
-                fullName: nameController.text,
-                phoneNum: phoneNumber ?? '',
-                customerAddress: addressController.text,
-                countryName: countyController.text,
-                provinceName: provinceController.text,
-                city: cityController.text,
-                productsList: products ?? [],
-              );
-
-              BlocProvider.of<SaveOrderCubit>(context).saveOrder(order: order);
-
-              extra['order'] = order;
-            }
-          },
-        );
       },
     );
   }

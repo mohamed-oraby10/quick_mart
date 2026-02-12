@@ -54,7 +54,7 @@ class PayPalPaymentMethodButton extends StatelessWidget {
               onSuccess: (params) {
                 GoRouter.of(context).pop();
                 showSuccessSnakBar(context, content: 'Payment Success');
-                GoRouter.of(context).push(AppRoutes.kCheckoutReviewBody);
+                GoRouter.of(context).push(AppRoutes.kCheckoutReviewView);
               },
               onError: (error) {
                 Navigator.of(context).pop();

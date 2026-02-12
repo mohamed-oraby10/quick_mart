@@ -61,7 +61,7 @@ class _CheckoutPaymentBodyState extends State<CheckoutPaymentBody> {
                 text: context.locale.follow_up,
                 onTap: () => GoRouter.of(
                   context,
-                ).push(AppRoutes.kCheckoutReviewBody, extra: widget.order),
+                ).push(AppRoutes.kCheckoutReviewView, extra: widget.order),
               ),
               SizedBox(height: 20.h),
             ],
