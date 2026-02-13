@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quick_mart/Features/Cart/presentation/views/widgets/cart_product_details.dart';
-import 'package:quick_mart/Features/Cart/presentation/views/widgets/cart_product_image.dart';
 import 'package:quick_mart/Features/Profile/presentation/views/widgets/ongoing_order_time.dart';
+import 'package:quick_mart/Features/Profile/presentation/views/widgets/ongoing_product_item.dart';
 
 class OngoingOrderItem extends StatelessWidget {
   const OngoingOrderItem({super.key});
@@ -16,13 +15,7 @@ class OngoingOrderItem extends StatelessWidget {
         children: [
           OngoingOrderTime(),
           SizedBox(height: 8.h),
-          Row(
-            children: [
-              // CartProductImage(),
-              // SizedBox(width: 8.w),
-              // Expanded(child: CartProductDetails(isWishlist: false)),
-            ],
-          ),
+          OngoingProductItem(),
         ],
       ),
     );

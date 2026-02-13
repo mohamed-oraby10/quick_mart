@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quick_mart/Features/Cart/presentation/views/widgets/cart_product_details.dart';
-import 'package:quick_mart/Features/Cart/presentation/views/widgets/cart_product_image.dart';
+// import 'package:quick_mart/Features/Cart/presentation/views/widgets/cart_product_details.dart';
+// import 'package:quick_mart/Features/Cart/presentation/views/widgets/cart_product_image.dart';
 import 'package:quick_mart/Features/Profile/presentation/views/widgets/completed_order_time.dart';
 
 class CompletedOrderItem extends StatelessWidget {

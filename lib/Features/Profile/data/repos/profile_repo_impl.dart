@@ -27,7 +27,7 @@ class ProfileRepoImpl extends ProfileRepo {
   }
 
   @override
-  Future<Either<Failure, void>> updateShippingAddressCustomer({
+  Future<Either<ServerFailure, void>> updateShippingAddressCustomer({
     required OrderEntity orderEntity,
   }) async {
     try {
@@ -35,6 +35,15 @@ class ProfileRepoImpl extends ProfileRepo {
         order: orderEntity,
       );
       return right(null);
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<ServerFailure, List<OrderEntity>>> fetchOngoingOrders() async {
+    try {
+      return right(await profileRemoteDataSource.fetchOngoingOrders());
     } catch (e) {
       return left(ServerFailure(e.toString()));
     }
