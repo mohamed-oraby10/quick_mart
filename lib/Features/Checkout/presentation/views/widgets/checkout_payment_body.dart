@@ -22,7 +22,7 @@ class CheckoutPaymentBody extends StatefulWidget {
 
 class _CheckoutPaymentBodyState extends State<CheckoutPaymentBody> {
   late final PayPalPaymentController _controller;
-
+  bool isSuccessed = false;
   @override
   void initState() {
     super.initState();
@@ -55,15 +55,18 @@ class _CheckoutPaymentBodyState extends State<CheckoutPaymentBody> {
                 totalPrice: context.read<CartCubit>().calculateTotal(
                   widget.order.productsList,
                 ),
+                isSuccessed: isSuccessed,
               ),
               SizedBox(height: 125.h),
-              MainButton(
-                text: context.locale.follow_up,
-                onTap: () => GoRouter.of(
-                  context,
-                ).push(AppRoutes.kCheckoutReviewView, extra: widget.order),
-              ),
-              SizedBox(height: 20.h),
+              isSuccessed
+                  ? MainButton(
+                      text: context.locale.follow_up,
+                      onTap: () => GoRouter.of(context).push(
+                        AppRoutes.kCheckoutReviewView,
+                        extra: widget.order,
+                      ),
+                    )
+                  : SizedBox(),
             ],
           ),
         ),

@@ -9,49 +9,68 @@ import 'package:quick_mart/core/utils/assets_data.dart';
 import 'package:quick_mart/core/utils/functions/show_error_snak_bar.dart';
 import 'package:quick_mart/core/utils/functions/show_success_snack_bar.dart';
 
-class PayPalPaymentMethodButton extends StatelessWidget {
+class PayPalPaymentMethodButton extends StatefulWidget {
   const PayPalPaymentMethodButton({
     super.key,
     required this.controller,
     required this.products,
     required this.totalPrice,
+    this.isSuccessed = false,
   });
   final List<CartItemEntity> products;
   final num totalPrice;
   final PayPalPaymentController controller;
+  final bool isSuccessed;
+
+  @override
+  State<PayPalPaymentMethodButton> createState() =>
+      _PayPalPaymentMethodButtonState();
+}
+
+class _PayPalPaymentMethodButtonState extends State<PayPalPaymentMethodButton> {
+  late bool isSuccessed;
+
+  @override
+  void initState() {
+    super.initState();
+    isSuccessed = widget.isSuccessed;
+  }
 
   @override
   Widget build(BuildContext context) {
     return PaymentMethod(
       image: AssetsData.paypal,
       onTap: () {
-        if (!controller.canProceed()) {
+        if (!widget.controller.canProceed()) {
           showErrorSnakBar(
             context,
             content: 'Cannot proceed with invalid credentials',
           );
           return;
         }
-        final totalQuantity = products.fold<int>(
+        final totalQuantity = widget.products.fold<int>(
           0,
           (sum, item) => sum + item.quantity,
         );
 
-        final payment = controller.createPaymentModel(
+        final payment = widget.controller.createPaymentModel(
           totalQuantity,
           "Quick Mart Order",
-          totalPrice,
+          widget.totalPrice,
         );
 
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => PaypalCheckoutView(
               sandboxMode: true,
-              clientId: controller.useCase.service.clientId,
-              secretKey: controller.useCase.service.secretKey,
+              clientId: widget.controller.useCase.service.clientId,
+              secretKey: widget.controller.useCase.service.secretKey,
               transactions: [payment.toTransaction()],
               note: "Contact us for any questions on your order.",
               onSuccess: (params) {
+                setState(() {
+                  isSuccessed = true;
+                });
                 GoRouter.of(context).pop();
                 showSuccessSnakBar(context, content: 'Payment Success');
                 GoRouter.of(context).push(AppRoutes.kCheckoutReviewView);

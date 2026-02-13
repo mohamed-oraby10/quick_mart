@@ -12,7 +12,7 @@ class PaymentMethod extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 160.w,
+        width: double.infinity,
         height: 64.h,
         decoration: BoxDecoration(
           color: context.customColors.cardColor,
