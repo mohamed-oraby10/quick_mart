@@ -27,7 +27,7 @@ class CartItem extends StatelessWidget {
           Expanded(
             child: CartProductDetails(
               isWishlist: isWishlist,
-              product: product.product,
+              product: product,
             ),
           ),
           CartItemDelete(

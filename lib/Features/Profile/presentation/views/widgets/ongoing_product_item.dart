@@ -18,7 +18,7 @@ class OngoingProductItem extends StatelessWidget {
           Expanded(
             child: CartProductDetails(
               isWishlist: false,
-              product: product.product,
+              product: product,
             ),
           ),
         ],
