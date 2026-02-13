@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 
 class OrderEntity {
@@ -7,9 +8,11 @@ class OrderEntity {
   final String countryName;
   final String provinceName;
   final String city;
+  final Timestamp? timeStamp;
   final List<CartItemEntity> productsList;
 
   OrderEntity({
+     this.timeStamp,
     required this.fullName,
     required this.phoneNum,
     required this.customerAddress,

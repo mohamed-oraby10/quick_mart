@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:quick_mart/Features/Cart/data/models/cart_item_model.dart';
 import 'package:quick_mart/Features/Cart/domain/entities/cart_item_entity.dart';
 import 'package:quick_mart/Features/Checkout/domain/entities/order_entity.dart';
 
@@ -11,8 +13,10 @@ class OrderModel extends OrderEntity {
   final String province;
   final String cityName;
   final List<CartItemEntity> products;
+  final Timestamp time;
 
   OrderModel({
+    required this.time,
     required this.userId,
     required this.orderId,
     required this.customerFullName,
@@ -30,23 +34,28 @@ class OrderModel extends OrderEntity {
          provinceName: province,
          city: cityName,
          productsList: products,
+         timeStamp: time,
        );
   factory OrderModel.fromJson(Map<String, dynamic> data) {
     return OrderModel(
-      orderId: data['id'],
-      customerFullName: data['customerFullName'],
-      phoneNumber: data['phoneNumber'],
-      streetAddress: data['streetAddress'],
-      country: data['country'],
-      province: data['province'],
-      cityName: data['cityName'],
-      products: data['products'],
-      userId: data['userId'],
+      time: data['time'] as Timestamp? ?? Timestamp.now(),
+      orderId: data['orderId'] ?? '',
+      userId: data['userId'] ?? '',
+      customerFullName: data['customerFullName'] ?? '',
+      phoneNumber: data['phoneNumber'] ?? '',
+      streetAddress: data['streetAddress'] ?? '',
+      country: data['country'] ?? '',
+      province: data['province'] ?? '',
+      cityName: data['cityName'] ?? '',
+      products: (data['products'] as List? ?? [])
+          .map((e) => CartItemModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
+      'time': FieldValue.serverTimestamp(),
       'orderId': orderId,
       'userId': userId,
       'customerFullName': customerFullName,

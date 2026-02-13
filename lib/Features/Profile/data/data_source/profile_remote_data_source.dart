@@ -3,13 +3,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:quick_mart/Features/Auth/data/models/user_model.dart';
 import 'package:quick_mart/Features/Checkout/data/models/order_model.dart';
 import 'package:quick_mart/Features/Checkout/domain/entities/order_entity.dart';
+import 'package:quick_mart/Features/Profile/data/models/order_history_model.dart';
 import 'package:quick_mart/core/utils/constants.dart';
 import 'package:quick_mart/core/utils/functions/save_local_user_data.dart';
 
 abstract class ProfileRemoteDataSource {
   Future<UserModel> fetchUserData();
   Future<void> updateShippingAddressCustomer({required OrderEntity order});
-  Future<List<OrderModel>> fetchOngoingOrders();
+  Future<List<OrderHistoryModel>> fetchOngoingOrders();
 }
 
 class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
@@ -52,6 +53,7 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
       cityName: order.city,
       products: [],
       orderId: orderId,
+      time: Timestamp.now(),
     ).toJson();
     await customerCollection
         .doc(currentUserId)
@@ -59,14 +61,20 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
   }
 
   @override
-  Future<List<OrderModel>> fetchOngoingOrders() async {
+  Future<List<OrderHistoryModel>> fetchOngoingOrders() async {
     var ordersCollection = FirebaseFirestore.instance.collection(
       kOrdersCollection,
     );
     final snapshot = await ordersCollection.get();
-    final List<OrderModel> orders = snapshot.docs
-        .map((doc) => OrderModel.fromJson(doc.data()))
-        .toList();
-    return orders;
+    return snapshot.docs.map((doc) {
+      final order = OrderModel.fromJson(doc.data());
+
+      return OrderHistoryModel(
+        id: doc.id,
+        isFinished: false,
+        time: order.time,
+        products: order.products,
+      );
+    }).toList();
   }
 }

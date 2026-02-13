@@ -35,6 +35,7 @@ class CheckoutRepoImpl implements CheckoutRepo {
         province: order.provinceName,
         cityName: order.city,
         products: selectedProducts,
+        time: Timestamp.now(),
       );
       await checkoutRemoteDataSource.saveOrder(order: orderModel);
       return right(null);

@@ -63,43 +63,28 @@ class ProductModel extends ProductEntity {
          productImages: images ?? [],
          stockCount: stock ?? 0,
        );
-  factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
-    id: json['id'] as int?,
-    title: json['title'] as String?,
-    description: json['description'] as String?,
-    category: json['category'] as String?,
-    price: (json['price'] as num?)?.toDouble(),
-    discountPercentage: (json['discountPercentage'] as num?)?.toDouble(),
-    rating: (json['rating'] as num?)?.toDouble(),
-    stock: json['stock'] as int?,
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
+    return ProductModel(
+      id: json['productId'] as int?,
+      title: json['productTitle'] as String?,
+      description: json['desc'] as String?,
+      price: json['productPrice'] as num?,
+      discountPercentage: json['discount'] as num?,
+      rating: json['productRating'] as num?,
+      stock: json['stockCount'] as int?,
+      tags: (json['productTags'] as List<dynamic>?)
+          ?.map((e) => e.toString())
+          .toList(),
+      reviews: (json['reviewsCount'] as List<dynamic>?)
+          ?.map((e) => Review.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      images: (json['productImages'] as List<dynamic>?)
+          ?.map((e) => e.toString())
+          .toList(),
+    );
+  }
 
-    tags: (json['tags'] as List<dynamic>?)?.map((e) => e.toString()).toList(),
-
-    brand: json['brand'] as String?,
-    sku: json['sku'] as String?,
-    weight: json['weight'] as int?,
-    dimensions: json['dimensions'] == null
-        ? null
-        : Dimensions.fromJson(json['dimensions'] as Map<String, dynamic>),
-    warrantyInformation: json['warrantyInformation'] as String?,
-    shippingInformation: json['shippingInformation'] as String?,
-    availabilityStatus: json['availabilityStatus'] as String?,
-    reviews: (json['reviews'] as List<dynamic>?)
-        ?.map((e) => Review.fromJson(e as Map<String, dynamic>))
-        .toList(),
-    returnPolicy: json['returnPolicy'] as String?,
-    minimumOrderQuantity: json['minimumOrderQuantity'] as int?,
-    meta: json['meta'] == null
-        ? null
-        : Meta.fromJson(json['meta'] as Map<String, dynamic>),
-
-    images: (json['images'] as List<dynamic>?)
-        ?.map((e) => e.toString())
-        .toList(),
-
-    thumbnail: json['thumbnail'] as String?,
-  );
-
+  @override
   Map<String, dynamic> toJson() => {
     'id': id,
     'title': title,

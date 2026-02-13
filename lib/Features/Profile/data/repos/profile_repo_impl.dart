@@ -3,6 +3,7 @@ import 'package:quick_mart/Features/Auth/data/errors/auth_failure.dart';
 import 'package:quick_mart/Features/Checkout/domain/entities/order_entity.dart';
 import 'package:quick_mart/Features/Profile/data/data_source/profile_local_data_source.dart';
 import 'package:quick_mart/Features/Profile/data/data_source/profile_remote_data_source.dart';
+import 'package:quick_mart/Features/Profile/domain/entities/order_history_entity.dart';
 import 'package:quick_mart/Features/Profile/domain/entities/user_entity.dart';
 import 'package:quick_mart/Features/Profile/domain/repos/profile_repo.dart';
 import 'package:quick_mart/core/errors/failure.dart';
@@ -41,7 +42,7 @@ class ProfileRepoImpl extends ProfileRepo {
   }
 
   @override
-  Future<Either<ServerFailure, List<OrderEntity>>> fetchOngoingOrders() async {
+  Future<Either<ServerFailure, List<OrderHistoryEntity>>> fetchOngoingOrders() async {
     try {
       return right(await profileRemoteDataSource.fetchOngoingOrders());
     } catch (e) {

@@ -8,7 +8,7 @@ final class FetchOngoingOrdersInitial extends FetchOngoingOrdersState {}
 final class FetchOngoingOrdersLoading extends FetchOngoingOrdersState {}
 
 final class FetchOngoingOrdersSuccess extends FetchOngoingOrdersState {
-  final List<OrderEntity> orders;
+  final List<OrderHistoryEntity> orders;
 
   FetchOngoingOrdersSuccess(this.orders);
 }
