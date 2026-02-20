@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 class LanguageCubit extends HydratedCubit<Locale> {
-  LanguageCubit() : super(Locale('ar'));
+  LanguageCubit() : super(Locale('en'));
 
   void changeLanguage(String code) {
     emit(Locale(code));

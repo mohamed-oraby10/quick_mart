@@ -53,8 +53,8 @@ class ProductModel extends ProductEntity {
     this.thumbnail,
   }) : super(
          reviewsCount: reviews,
-         productId: id!,
-         productTitle: title!,
+         productId: id ?? 0,
+         productTitle: title ?? '',
          desc: description ?? '',
          productPrice: price ?? 0,
          productRating: rating ?? 0,
@@ -65,20 +65,18 @@ class ProductModel extends ProductEntity {
        );
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
-      id: json['productId'] as int?,
-      title: json['productTitle'] as String?,
-      description: json['desc'] as String?,
-      price: json['productPrice'] as num?,
-      discountPercentage: json['discount'] as num?,
-      rating: json['productRating'] as num?,
-      stock: json['stockCount'] as int?,
-      tags: (json['productTags'] as List<dynamic>?)
-          ?.map((e) => e.toString())
-          .toList(),
-      reviews: (json['reviewsCount'] as List<dynamic>?)
+      id: json['id'] as int?,
+      title: json['title'] as String?,
+      description: json['description'] as String?,
+      price: json['price'] as num?,
+      discountPercentage: json['discountPercentage'] as num?,
+      rating: json['rating'] as num?,
+      stock: json['stock'] as int?,
+      tags: (json['tags'] as List<dynamic>?)?.map((e) => e.toString()).toList(),
+      reviews: (json['reviews'] as List<dynamic>?)
           ?.map((e) => Review.fromJson(e as Map<String, dynamic>))
           .toList(),
-      images: (json['productImages'] as List<dynamic>?)
+      images: (json['images'] as List<dynamic>?)
           ?.map((e) => e.toString())
           .toList(),
     );
